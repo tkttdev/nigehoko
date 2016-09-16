@@ -4,19 +4,9 @@ using System.Collections.Generic;
 
 public class ObjectManager : SingletonBehaviour<ObjectManager> {
 
-	public GameObject player;
+	[SerializeField] private GameObject player;
 
 	protected override void Initialize () {
-		Debug.Log ("init");
-	}
-
-	// Use this for initialization
-	void Start () {
-	
-	}
-	
-	// Update is called once per frame
-	void Update () {
-	
+		player = GameObject.FindGameObjectWithTag ("Player");
 	}
 }
