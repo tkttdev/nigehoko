@@ -3,15 +3,16 @@ using System.Collections;
 
 public class Camera_Manager : SingletonBehaviour<Camera_Manager> {
 
-    private int diffy;
     public GameObject[] blockList;
     private float height;
 
+    private float cameyBfore;
+    private float cameyAfter;
+
+    public float speed = 5.0f; 
 
     protected override void Initialize() {
-        height = 8;  //blockList[0].transform.FindChild("floar").GetComponent<SpriteRenderer>().bounds.size.y;
-        Debug.Log(height);
-        diffy = 0;
+        height = 8;  // 8 : blocksize
 
         for (int i = (-1) * (int)height; i <= 2 * height; i += (int)height)
         {
@@ -32,19 +33,18 @@ public class Camera_Manager : SingletonBehaviour<Camera_Manager> {
     {
         while (true)
         {
-            diffy++;
+            //カメラの移動
+            gameObject.transform.position = new Vector3(transform.position.x, transform.position.y + (0.05f / 3.0f * height)*(2.0f / 5.0f),-10);
 
-            gameObject.transform.position = new Vector3(transform.position.x, transform.position.y + (0.05f / 3.0f * height),-10);
-
-           if (diffy == 60) //3sごとに２枚先のブロックを生成
-           {
-                Instantiate(blockList[((int)(Random.Range( 0.0f, (float)this.blockList.Length )))],
-                    new Vector2(0.0f, transform.position.y + 2.0f * height), 
+            if (gameObject.transform.position.y - cameyBfore >= height)
+            {
+                Instantiate(blockList[((int)(Random.Range(0.0f, (float)this.blockList.Length)))],
+                    new Vector2(0.0f, transform.position.y + 2.0f * height),
                     Quaternion.identity);
-      
-               diffy = 0;
-           }
-            yield return new WaitForSeconds(0.05f);
+                cameyBfore = gameObject.transform.position.y;
+            }
+
+            yield return new WaitForSeconds(0.02f);
         }
     }
 }
