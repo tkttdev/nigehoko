@@ -1,14 +1,29 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class Camera_Manager : MonoBehaviour {
+public class Camera_Manager : SingletonBehaviour<Camera_Manager> {
 
     private int diffy;
     public GameObject[] blockList;
     private float height;
 
-    
 
+    protected override void Initialize() {
+        height = blockList[0].transform.FindChild("floar").GetComponent<SpriteRenderer>().bounds.size.y;
+        Debug.Log(height);
+        diffy = 0;
+
+        for (int i = (-1) * (int)height; i <= 2 * height; i += (int)height)
+        {
+            Instantiate(blockList[((int)(Random.Range(0.0f, (float)this.blockList.Length)))],
+                   new Vector2(0.0f, transform.position.y + i),
+                   Quaternion.Euler(0, 0, 0));
+        }
+
+        StartCoroutine(moveCamera());
+
+    }
+    /*
     void Start () {
         height = blockList[0].transform.FindChild("floar").GetComponent<SpriteRenderer>().bounds.size.y;
         Debug.Log(height);
@@ -24,10 +39,10 @@ public class Camera_Manager : MonoBehaviour {
         StartCoroutine(moveCamera());
 
     }
-	
+	*/
 
 	void Update () {
-        GetComponent<Rigidbody2D>().velocity = transform.up.normalized * (1.0f / 3.0f * height);
+        //GetComponent<Rigidbody2D>().velocity = transform.up.normalized * (1.0f / 3.0f * height);
     }
 
     IEnumerator moveCamera()
@@ -35,19 +50,19 @@ public class Camera_Manager : MonoBehaviour {
         while (true)
         {
             //GetComponent<Rigidbody2D>().velocity = transform.up.normalized * ( 0.1f / 3.0f * height);
-            //gameObject.transform.position = new Vector2(transform.position.x, transform.position.y + (0.05f / 3.0f * height));
+            gameObject.transform.position = new Vector3(transform.position.x, transform.position.y + (0.05f / 3.0f * height),-10);
             
-           //diffy++;
+           diffy++;
 
-           //if (diffy == 60) //3sごとに２枚先のブロックを生成
-           //{
+           if (diffy == 60) //3sごとに２枚先のブロックを生成
+           {
                 Instantiate(blockList[((int)(Random.Range( 0.0f, (float)this.blockList.Length )))],
                     new Vector2(0.0f, transform.position.y + 2.0f * height), 
-                    Quaternion.Euler(0, 0, 0));
+                    Quaternion.identity);
       
-              //  diffy = 0;
-            //}
-            yield return new WaitForSeconds(3.0f);
+               diffy = 0;
+           }
+            yield return new WaitForSeconds(0.05f);
         }
     }
 }
