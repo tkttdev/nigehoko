@@ -1,17 +1,15 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class Block_Manager : MonoBehaviour {
+public class BlockComponent : MonoBehaviour {
 
-    private int time;
+    public int time;
 
-	// Use this for initialization
 	void Start () {
         time = 0;
         StartCoroutine(dest());
     }
 	
-	// Update is called once per frame
 	void Update () {
 	
 	}
@@ -21,11 +19,11 @@ public class Block_Manager : MonoBehaviour {
         while (true)
         {
             time++;
-            if (time == 12)
+            if (time == 16)
             {
                 Destroy(this.gameObject);
             }
-            yield return new WaitForSeconds(12.0f);
+            yield return new WaitForSeconds(1.0f);
         }
     }
 }
