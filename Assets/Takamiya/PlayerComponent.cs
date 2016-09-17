@@ -56,7 +56,7 @@ public class PlayerComponent : MonoBehaviour {
 
 			if (dis < threshold) {
 				gameObject.transform.position = new Vector3 (desX, desY, 0);
-				scale += 2.0f;
+				scale += 0.5f;
 				isMove = false;
 			}
 		
@@ -67,11 +67,11 @@ public class PlayerComponent : MonoBehaviour {
 			scale = limitScale;
 		}
 
-		scale -= 0.05f;
+		scale -= 0.01f;
 
 		gameObject.transform.localScale = new Vector3 (scale, scale, 1);
 
-		CheckScale ();
+		//CheckScale ();
 	}
 
 	void CheckScale(){

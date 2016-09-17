@@ -1,0 +1,23 @@
+fileFormatVersion: 2
+guid: a7adefe836d4a4a4080bc50e99b0c03c
+timeCreated: 1474105515
+licenseType: Free
+TrueTypeFontImporter:
+  serializedVersion: 4
+  fontSize: 16
+  forceTextureCase: -2
+  characterSpacing: 0
+  characterPadding: 1
+  includeFontData: 1
+  fontNames:
+  - ZalamanderCaps
+  fallbackFontReferences:
+  - {fileID: 12800000, guid: 2b4a4616ed1bd4600bb2f3c52dd5804d, type: 3}
+  - {fileID: 12800000, guid: 323e0076e411a4f45bf42f69528a1f5e, type: 3}
+  - {fileID: 12800000, guid: 10779c6db0d9a4c87bf6a011bcf3f29e, type: 3}
+  customCharacters: 
+  fontRenderingMode: 0
+  ascentCalculationMode: 1
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
