@@ -16,9 +16,19 @@ public class Camera_Manager : SingletonBehaviour<Camera_Manager> {
 
         for (int i = (-1) * (int)height; i <= 2 * height; i += (int)height)
         {
-            Instantiate(blockList[((int)(Random.Range(0.0f, (float)this.blockList.Length)))],
-                   new Vector2(0.0f, transform.position.y + i),
-                   Quaternion.Euler(0, 0, 0));
+            if (i <= 0)
+            {   //初期位置志望予防
+                Instantiate(blockList[0],
+                new Vector2(0.0f, transform.position.y + i),
+                Quaternion.Euler(0, 0, 0));
+
+            }
+            else
+            {
+                Instantiate(blockList[((int)(Random.Range(0.0f, (float)this.blockList.Length)))],
+                new Vector2(0.0f, transform.position.y + i),
+                Quaternion.Euler(0, 0, 0));
+            }
         }
 
         StartCoroutine(moveCamera());
