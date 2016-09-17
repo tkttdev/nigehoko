@@ -7,7 +7,9 @@ public class PlayerComponent : MonoBehaviour {
 	[SerializeField] private float scale = 10.0f;
 	[SerializeField] private float threshold = 0.2f;
 	[SerializeField] private float limitScale = 15.0f;
-	[SerializeField] private float lowestScale = 3.0f;
+	[SerializeField] private float lowestScale = 0.1f;
+	[SerializeField] private float reduceNum = 0.005f; 
+	[SerializeField] private float increaseNum = 0.3f;
 
 	public bool isMove = false;
 
@@ -56,7 +58,7 @@ public class PlayerComponent : MonoBehaviour {
 
 			if (dis < threshold) {
 				gameObject.transform.position = new Vector3 (desX, desY, 0);
-				scale += 0.5f;
+				scale += increaseNum;
 				isMove = false;
 			}
 		
@@ -67,14 +69,15 @@ public class PlayerComponent : MonoBehaviour {
 			scale = limitScale;
 		}
 
-		scale -= 0.01f;
+		scale -= reduceNum;
 
 		gameObject.transform.localScale = new Vector3 (scale, scale, 1);
 
-		//CheckScale ();
+		CheckScale ();
 	}
 
 	void CheckScale(){
+		Debug.Log (gameObject.transform.localScale.x);
 		if (gameObject.transform.localScale.x < lowestScale) {
 			Debug.Log ("GameOver");
 			Destroy (gameObject);
