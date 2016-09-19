@@ -21,7 +21,7 @@ GameObject:
   - 4: {fileID: 4000010108558664}
   - 212: {fileID: 212000010770999990}
   - 50: {fileID: 50000012447328424}
-  - 58: {fileID: 58000010850277220}
+  - 58: {fileID: 58000010604259724}
   m_Layer: 0
   m_Name: soccerball
   m_TagString: Untagged
@@ -57,9 +57,9 @@ Rigidbody2D:
   m_IsKinematic: 0
   m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 0
-  m_Constraints: 0
---- !u!58 &58000010850277220
+  m_CollisionDetection: 1
+  m_Constraints: 7
+--- !u!58 &58000010604259724
 CircleCollider2D:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
