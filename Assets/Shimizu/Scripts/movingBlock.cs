@@ -9,8 +9,15 @@ public class MovingBlock : MonoBehaviour {
     public float speed = 8.0f;
 
 	void Start () {
-        dir = 1;
         beforePosx = this.transform.position.x;
+        if (beforePosx < 0)
+        {
+            dir = 1;
+        }
+        else
+        {
+            dir = -1;
+        }
         StartCoroutine(move());
     }
 
