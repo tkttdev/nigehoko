@@ -9,7 +9,7 @@ public class StageManager : SingletonBehaviour<StageManager> {
     private float cameyBfore;
     private float cameyAfter;
 
-    public float speed = 5.0f; 
+	[SerializeField] public float speed = 1.0f; 
 
     protected override void Initialize() {
         height = 8;  // 8 : blocksize
@@ -30,16 +30,13 @@ public class StageManager : SingletonBehaviour<StageManager> {
                 Quaternion.Euler(0, 0, 0));
             }
         }
-
-        StartCoroutine(moveCamera());
-
     }
 
-	void Update () {
+	public void StartStage(){
+		StartCoroutine ("MoveCamera");
+	}
 
-    }
-
-    IEnumerator moveCamera()
+    IEnumerator MoveCamera()
     {
         while (true)
         {

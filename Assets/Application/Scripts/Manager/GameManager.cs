@@ -27,6 +27,7 @@ public class GameManager : SingletonBehaviour<GameManager> {
 	public void SetStatePlaying(){
 		this.state = STATE.PLAYING;
 		ScoreManager.I.StartAddScore ();
+		StageManager.I.StartStage ();
 	}
 
 	public void SetStatePausing(){
