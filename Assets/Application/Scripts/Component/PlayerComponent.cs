@@ -8,10 +8,8 @@ public class PlayerComponent : MonoBehaviour {
 	private float threshold = 0.2f;
 	private float limitScale = 1.5f;
 	private float lowestScale = 0.05f;
-	[SerializeField] private float reduceNum = 0.05f; 
+	[SerializeField] private float reduceNum = 0.005f; 
 	[SerializeField] private float increaseNum = 0.3f;
-
-	private GameObject eleDust;
 
 	private AudioClip tapHit;
 	private AudioClip tapMiss;
@@ -38,8 +36,6 @@ public class PlayerComponent : MonoBehaviour {
 
 		scale = gameObject.transform.localScale.x;
 
-		eleDust = Resources.Load ("Prefabs/EleDust") as GameObject;
-
 		tapHit = Resources.Load ("SE/TapHit") as AudioClip;
 		tapMiss = Resources.Load ("SE/TapMiss") as AudioClip;
 
@@ -47,16 +43,18 @@ public class PlayerComponent : MonoBehaviour {
 	}
 	
 	// Update is called once per frame
-	void Update () {
+	void FixedUpdate () {
 		if (Input.GetMouseButtonDown (0)) {
 			Ray ray = Camera.main.ScreenPointToRay (Input.mousePosition);
 			RaycastHit2D hit = Physics2D.Raycast ((Vector2)ray.origin, (Vector2)ray.direction, maxDistance,layerMask);
 
 			if (hit.collider) {
-				if (hit.collider.transform.tag == "Player") {
+				audioSource.PlayOneShot (tapMiss);
+				return;
+				/*if (hit.collider.transform.tag == "Player") {
 					audioSource.PlayOneShot (tapMiss);
 					return;
-				}
+				}*/
 			}
 
 			audioSource.PlayOneShot (tapHit);
@@ -68,22 +66,28 @@ public class PlayerComponent : MonoBehaviour {
 			desX = worldPos.x;
 			desY = worldPos.y;
 
-			isMove = true;
-		}
-		if (isMove) {
 			disX = desX - gameObject.transform.position.x;
 			disY = desY - gameObject.transform.position.y;
 
 			dis = Mathf.Abs (disX) + Mathf.Abs (disY);
+
+			gameObject.GetComponent<Rigidbody2D> ().velocity = new Vector2 (disX / dis * speed, disY / dis * speed);
+
+			isMove = true;
+		}
+		if (isMove) {
 			scale -= reduceNum;
 
+			disX = desX - gameObject.transform.position.x;
+			disY = desY - gameObject.transform.position.y;
+
+			dis = Mathf.Abs (disX) + Mathf.Abs (disY);
+
 			if (dis < threshold) {
-				gameObject.transform.position = new Vector3 (desX, desY, 0);
+				gameObject.GetComponent<Rigidbody2D> ().velocity = Vector2.zero;
 				scale += increaseNum;
 				isMove = false;
 			}
-		
-			gameObject.transform.position += new Vector3 (disX / dis * speed*Time.deltaTime, disY / dis * speed*Time.deltaTime, 0);
 		}
 
 		if (scale > limitScale) {
@@ -96,7 +100,6 @@ public class PlayerComponent : MonoBehaviour {
 	}
 
 
-
 	void CheckScale(){
 		if (gameObject.transform.localScale.x < lowestScale) {
 			Debug.Log ("GameOver");
@@ -107,11 +110,10 @@ public class PlayerComponent : MonoBehaviour {
 
 	void OnTriggerEnter2D(Collider2D other) {
 		if (other.transform.tag == "EleDust") {
-			//Destroy (other.gameObject);
 			other.gameObject.SetActive(false);
 		} else {
-			Debug.Log ("GameOver");
-			Destroy (gameObject);
+			//Debug.Log ("GameOver");
+			//Destroy (gameObject);
 		}
 	}
 
