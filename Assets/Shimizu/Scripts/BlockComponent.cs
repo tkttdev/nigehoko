@@ -3,9 +3,10 @@ using System.Collections;
 
 public class BlockComponent : MonoBehaviour {
 
-    public int time;
+    private int endtime = 21;
+    private int time = 0;
 
-	void Start () {
+    void Start () {
         time = 0;
         StartCoroutine(dest());
     }
@@ -19,7 +20,7 @@ public class BlockComponent : MonoBehaviour {
         while (true)
         {
             time++;
-            if (time == 16)
+            if (time == endtime)
             {
                 Destroy(this.gameObject);
             }

@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class Camera_Manager : SingletonBehaviour<Camera_Manager> {
+public class StageManager : SingletonBehaviour<StageManager> {
 
     public GameObject[] blockList;
     private float height;
@@ -19,14 +19,14 @@ public class Camera_Manager : SingletonBehaviour<Camera_Manager> {
             if (i <= 0)
             {   //初期位置志望予防
                 Instantiate(blockList[0],
-                new Vector2(0.0f, transform.position.y + i),
+                new Vector2(0.0f, Camera.main.transform.position.y + i),
                 Quaternion.Euler(0, 0, 0));
 
             }
             else
             {
                 Instantiate(blockList[((int)(Random.Range(0.0f, (float)this.blockList.Length)))],
-                new Vector2(0.0f, transform.position.y + i),
+                new Vector2(0.0f, Camera.main.transform.position.y + i),
                 Quaternion.Euler(0, 0, 0));
             }
         }
@@ -44,14 +44,14 @@ public class Camera_Manager : SingletonBehaviour<Camera_Manager> {
         while (true)
         {
             //カメラの移動
-            gameObject.transform.position = new Vector3(transform.position.x, transform.position.y + (0.05f / 3.0f * height)*(2.0f / 5.0f),-10);
+            Camera.main.transform.position = new Vector3(0.0f, Camera.main.transform.position.y + speed*0.1f, -10.0f);
 
             if (gameObject.transform.position.y - cameyBfore >= height)
             {
                 Instantiate(blockList[((int)(Random.Range(0.0f, (float)this.blockList.Length)))],
-                    new Vector2(0.0f, transform.position.y + 2.0f * height),
+                    new Vector2(0.0f, Camera.main.transform.position.y + 2.0f * height),
                     Quaternion.identity);
-                cameyBfore = gameObject.transform.position.y;
+                cameyBfore = Camera.main.transform.position.y;
             }
 
             yield return new WaitForSeconds(0.02f);

@@ -1,21 +1,19 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class movingBlock : MonoBehaviour {
+public class MovingBlock : MonoBehaviour {
 
     private int dir;
-    private int time;
+    public float beforePosx;
 
     public float speed = 8.0f;
 
-	// Use this for initialization
 	void Start () {
-        dir = -1;
-        time = 0;
+        dir = 1;
+        beforePosx = this.transform.position.x;
         StartCoroutine(move());
     }
-	
-	// Update is called once per frame
+
 	void Update () {
 	
 	}
@@ -24,15 +22,14 @@ public class movingBlock : MonoBehaviour {
     {
         while (true)
         {
-            GetComponent<Rigidbody2D>().velocity = transform.right.normalized * speed * dir;
-
-            time++;
-            if (time == 10)
+            //GetComponent<Rigidbody2D>().velocity = transform.right.normalized * speed * dir;
+            this.gameObject.transform.position = new Vector2(this.gameObject.transform.position.x + speed * dir * 0.1f, this.gameObject.transform.position.y);
+            if (Mathf.Abs(beforePosx - this.transform.position.x) >= 8.0f)
             {
                 dir *= (-1);
-                time = 0;
+                beforePosx = this.transform.position.x;
             }
-            yield return new WaitForSeconds(0.1f);
+            yield return new WaitForSeconds(0.05f);
         }
     }
 }
