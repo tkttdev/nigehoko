@@ -3,34 +3,40 @@ using System.Collections;
 
 public class PlayerComponent : MonoBehaviour {
 
-	private float speed = 5.0f;
 	private float scale = 1.0f;
 	private float threshold = 0.4f;
 	private float limitScale = 1.5f;
 	private float lowestScale = 0.05f;
-	[SerializeField] private float reduceNum = 0.005f; 
+	[SerializeField] private float reduceNum = 0.3f; 
 	[SerializeField] private float increaseNum = 0.5f;
-
-	[SerializeField]private Vector3 lastPos = new Vector3 (0, 0, 0);
 
 	private AudioClip tapHit;
 	private AudioClip tapMiss;
 	private AudioSource audioSource;
 
-	public bool isMove = false;
+	private bool isMove = false;
 
-	public float desX = 0.0f;
-	public float desY = 0.0f;
+	private float desX = 0.0f;
+	private float desY = 0.0f;
 
-	public float disX;
-	public float disY;
+	private float disX;
+	private float disY;
 
-	public float dis;
+	private float dis;
 
-	public Vector3 worldPos;
+	private Vector3 worldPos;
 
-	float maxDistance = 10.0f;
-	int layerMask = 1;
+	public float thresholdDis;
+	public float moveDis;
+
+	private float addForceNum = 20000.0f;
+
+	private float maxDistance = 10.0f;
+	private int layerMask = 1;
+
+
+	[SerializeField] Vector3 lastPos;
+
 
 	private Rigidbody2D playerRigid2D;
 
@@ -78,20 +84,32 @@ public class PlayerComponent : MonoBehaviour {
 
 			playerRigid2D.velocity = Vector2.zero;
 
-			playerRigid2D.AddForce (new Vector2 (disX / dis * 20000, disY / dis * 20000));
+			playerRigid2D.AddForce (new Vector2 (disX / dis * addForceNum, disY / dis * addForceNum));
+
+			moveDis = 0.0f;
+			lastPos = gameObject.transform.position;
 
 			isMove = true;
 		}
 		if (isMove) {
-			scale -= reduceNum;
+			//scale -= reduceNum;
 
 			disX = desX - gameObject.transform.position.x;
 			disY = desY - gameObject.transform.position.y;
 
 			dis = Mathf.Abs (disX) + Mathf.Abs (disY);
 
+			moveDis = Mathf.Abs (gameObject.transform.position.x - lastPos.x) + Mathf.Abs (gameObject.transform.position.y - lastPos.y);
+
 			lastPos = gameObject.transform.position;
 
+			scale -= reduceNum * (moveDis/thresholdDis);
+
+			/*if (moveDis > thresholdDis) {
+				moveDis -= thresholdDis;
+				scale -= reduceNum;
+			}*/
+				
 
 			if (dis < threshold) {
 				playerRigid2D.velocity = Vector2.zero;
@@ -137,7 +155,7 @@ public class PlayerComponent : MonoBehaviour {
 
 		dis = Mathf.Abs (disX) + Mathf.Abs (disY);
 		playerRigid2D.velocity = Vector2.zero;
-		playerRigid2D.AddForce (new Vector2 (disX / dis * 20000, disY / dis * 20000));
+		playerRigid2D.AddForce (new Vector2 (disX / dis * addForceNum, disY / dis * addForceNum));
 	}
 
 	void OnTriggerEnter2D(Collider2D other){
