@@ -1096,6 +1096,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 37b33127d824f4090b494d91763537fd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  player: {fileID: 0}
   eleDustList: []
   limitEleDustNum: 3
   currentActiveEledustNum: 2
