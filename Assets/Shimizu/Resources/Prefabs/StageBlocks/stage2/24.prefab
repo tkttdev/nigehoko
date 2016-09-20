@@ -27,19 +27,19 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!1 &1000012752181500
+--- !u!1 &1000011064191926
 GameObject:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   serializedVersion: 4
   m_Component:
-  - 4: {fileID: 4000014010205058}
-  - 212: {fileID: 212000011681960776}
-  - 50: {fileID: 50000010787516396}
-  - 58: {fileID: 58000014192128864}
+  - 4: {fileID: 4000010733161100}
+  - 212: {fileID: 212000012767927202}
+  - 50: {fileID: 50000011291261802}
+  - 58: {fileID: 58000011115339450}
   m_Layer: 0
-  m_Name: dish
+  m_Name: disk
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -79,6 +79,19 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!4 &4000010733161100
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1000011064191926}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 2.306195, y: 0.045219846, z: 0}
+  m_LocalScale: {x: 0.4, y: 0.4, z: 1}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_Children: []
+  m_Father: {fileID: 4000012698133426}
+  m_RootOrder: 2
 --- !u!4 &4000010918632378
 Transform:
   m_ObjectHideFlags: 1
@@ -104,7 +117,7 @@ Transform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children: []
   m_Father: {fileID: 4000012698133426}
-  m_RootOrder: 2
+  m_RootOrder: 1
 --- !u!4 &4000012698133426
 Transform:
   m_ObjectHideFlags: 1
@@ -117,23 +130,10 @@ Transform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children:
   - {fileID: 4000010918632378}
-  - {fileID: 4000014010205058}
   - {fileID: 4000011146396074}
+  - {fileID: 4000010733161100}
   m_Father: {fileID: 0}
   m_RootOrder: 0
---- !u!4 &4000014010205058
-Transform:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1000012752181500}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 2.67, y: 0.05, z: 0}
-  m_LocalScale: {x: 0.5, y: 0.5, z: 1}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_Children: []
-  m_Father: {fileID: 4000012698133426}
-  m_RootOrder: 1
 --- !u!50 &50000010267424242
 Rigidbody2D:
   serializedVersion: 2
@@ -151,13 +151,13 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 7
---- !u!50 &50000010787516396
+--- !u!50 &50000011291261802
 Rigidbody2D:
   serializedVersion: 2
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1000012752181500}
+  m_GameObject: {fileID: 1000011064191926}
   m_UseAutoMass: 0
   m_Mass: 10000
   m_LinearDrag: 0
@@ -168,18 +168,18 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 1
   m_Constraints: 7
---- !u!58 &58000014192128864
+--- !u!58 &58000011115339450
 CircleCollider2D:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1000012752181500}
+  m_GameObject: {fileID: 1000011064191926}
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_UsedByEffector: 0
-  m_Offset: {x: -0.33, y: 0}
+  m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 2
 --- !u!60 &60000013286546174
@@ -318,12 +318,12 @@ SpriteRenderer:
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
---- !u!212 &212000011681960776
+--- !u!212 &212000012767927202
 SpriteRenderer:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1000012752181500}
+  m_GameObject: {fileID: 1000011064191926}
   m_Enabled: 1
   m_CastShadows: 0
   m_ReceiveShadows: 0
@@ -347,7 +347,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 60fda4da607eef14099f082e6909a53b, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 0ef45e9aa5a4a334f864cb402e372775, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
