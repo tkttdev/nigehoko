@@ -39,7 +39,7 @@ public class StageManager : SingletonBehaviour<StageManager> {
     }
 
 	public void StartStage(){
-		StartCoroutine ("MoveCamera");
+		StartCoroutine (MoveCamera());
 	}
 
     IEnumerator MoveCamera()
@@ -48,17 +48,11 @@ public class StageManager : SingletonBehaviour<StageManager> {
         {
             //カメラの移動
             Camera.main.transform.position = new Vector3(0.0f, Camera.main.transform.position.y + speed*0.1f, -10.0f);
-<<<<<<< HEAD
-            if (Camera.main.transform.position.y - cameyBfore >= height)
-            {
-                Instantiate(blockList[((int)(Random.Range(0.0f, (float)this.blockList.Length)))],
-=======
             Debug.Log(Camera.main.transform.position.y);
             if (Camera.main.transform.position.y - cameyBfore >= height)
             {
                 num = (int)(Random.Range(0.0f, 10.0f));
                 Instantiate(Resources.Load("Prefabs/StageBlocks/stage" + level.ToString() + "/" + level.ToString() + num.ToString()),
->>>>>>> caee45073e3db2a45d1394e5f5f6bb33e6dcf330
                     new Vector2(0.0f, Camera.main.transform.position.y + 2.0f * height),
                     Quaternion.identity);
                 cameyBfore = Camera.main.transform.position.y;
@@ -66,7 +60,7 @@ public class StageManager : SingletonBehaviour<StageManager> {
             }
 
             if (distcount == interval)
-            {
+            {   //難易度段階が５段
                 distcount = 0;
                 level++;
                 if (level > 5)
