@@ -1254,13 +1254,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1146d1839d86f924d8a49bc578a48769, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  blockList:
-  - {fileID: 1000013723508118, guid: b987dbace7bf6304c99e17eb9fe360dc, type: 2}
-  - {fileID: 1000013376674074, guid: c0082bf011839594d9ad29a42068ab15, type: 2}
-  - {fileID: 1000013236287456, guid: 5834881762b7eb64ca563aa6477bc3fe, type: 2}
-  - {fileID: 1000010890164208, guid: 78e153c2a9a28d54d995cc94c5e8f00a, type: 2}
-  - {fileID: 1000012446566868, guid: bc36b3490caa8c14ea8308adbb49e08d, type: 2}
   speed: 0.5
+  interval: 5
 --- !u!1 &1536141971
 GameObject:
   m_ObjectHideFlags: 0
