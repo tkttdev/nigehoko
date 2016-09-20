@@ -13,6 +13,8 @@ public class ObjectManager : SingletonBehaviour<ObjectManager> {
 
 	[SerializeField] private int eleDustNum = 0;
 
+	public bool isEleDust = false;
+
 	private bool firstTouch = false;
 
 	protected override void Initialize () {
@@ -33,6 +35,8 @@ public class ObjectManager : SingletonBehaviour<ObjectManager> {
 				eleDustList [eleDustNum - 1].SetActive (false);
 			}
 			eleDustNum++;
+
+			isEleDust = true;
 		} else {
 			eleDustList [currentActiveEledustNum].SetActive (false);
 			currentActiveEledustNum++;
@@ -40,7 +44,18 @@ public class ObjectManager : SingletonBehaviour<ObjectManager> {
 
 			eleDustList [currentActiveEledustNum].SetActive (true);
 			eleDustList [currentActiveEledustNum].transform.position = pos;
+
+			isEleDust = true;
 		}
+	}
+
+	public void InactiveTargetEleDust(){
+		if (eleDustNum < limitEleDustNum) {
+			eleDustList [eleDustNum - 1].SetActive (false);
+		} else {
+			eleDustList [currentActiveEledustNum].SetActive (false);
+		}
+		isEleDust = false;
 	}
 
 	public void InactiveEleDusts(){

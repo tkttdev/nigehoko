@@ -142,7 +142,7 @@ Prefab:
     - target: {fileID: 68000014188155460, guid: eba7ce70673f644a2beacca585851a04,
         type: 2}
       propertyPath: m_Enabled
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 68000014188155460, guid: eba7ce70673f644a2beacca585851a04,
         type: 2}
@@ -261,6 +261,7 @@ Prefab:
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 50000013655966154, guid: eba7ce70673f644a2beacca585851a04, type: 2}
+    - {fileID: 68000014188155460, guid: eba7ce70673f644a2beacca585851a04, type: 2}
   m_ParentPrefab: {fileID: 100100000, guid: eba7ce70673f644a2beacca585851a04, type: 2}
   m_IsPrefabParent: 0
 --- !u!1 &422021318
@@ -1095,6 +1096,7 @@ MonoBehaviour:
   limitEleDustNum: 3
   currentActiveEledustNum: 2
   eleDustNum: 0
+  isEleDust: 0
 --- !u!4 &988514108
 Transform:
   m_ObjectHideFlags: 0
@@ -1462,8 +1464,8 @@ GameObject:
   m_PrefabParentObject: {fileID: 1000012670480268, guid: eba7ce70673f644a2beacca585851a04,
     type: 2}
   m_PrefabInternal: {fileID: 415255903}
---- !u!61 &1628601404
-BoxCollider2D:
+--- !u!58 &1628601404
+CircleCollider2D:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
@@ -1471,11 +1473,11 @@ BoxCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_UsedByEffector: 0
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
-  m_Size: {x: 1.4, y: 0.9}
+  m_Radius: 0.5
 --- !u!82 &1628601405
 AudioSource:
   m_ObjectHideFlags: 0
@@ -1538,7 +1540,7 @@ AudioSource:
       tangentMode: 0
     m_PreInfinity: 2
     m_PostInfinity: 2
-    m_RotationOrder: 4
+    m_RotationOrder: 0
   reverbZoneMixCustomCurve:
     serializedVersion: 2
     m_Curve:
@@ -1558,15 +1560,41 @@ Rigidbody2D:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1628601403}
   m_UseAutoMass: 0
-  m_Mass: 1
+  m_Mass: 100
   m_LinearDrag: 0
   m_AngularDrag: 0.05
   m_GravityScale: 0
-  m_IsKinematic: 1
+  m_IsKinematic: 0
   m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 0
-  m_Constraints: 0
+  m_CollisionDetection: 1
+  m_Constraints: 4
+--- !u!60 &1628601411
+PolygonCollider2D:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1628601403}
+  m_Enabled: 0
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_Offset: {x: 0, y: 0}
+  m_Points:
+    m_Paths:
+    - - {x: -0.5205635, y: 0.19895712}
+      - {x: -0.5778415, y: 0.21719185}
+      - {x: -0.6252762, y: 0.05537267}
+      - {x: -0.6754435, y: -0.3051622}
+      - {x: -0.420718, y: -0.41479632}
+      - {x: -0.2747057, y: -0.43336922}
+      - {x: 0.034711212, y: -0.4998533}
+      - {x: 0.4897213, y: -0.44516072}
+      - {x: 0.54123044, y: -0.15372494}
+      - {x: 0.6498822, y: 0.17543927}
+      - {x: 0.46968904, y: 0.25492492}
+      - {x: -0.021129202, y: 0.4303399}
 --- !u!1 &1696826767
 GameObject:
   m_ObjectHideFlags: 0

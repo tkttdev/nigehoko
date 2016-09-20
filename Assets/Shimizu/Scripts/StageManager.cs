@@ -42,10 +42,8 @@ public class StageManager : SingletonBehaviour<StageManager> {
         {
             //カメラの移動
             Camera.main.transform.position = new Vector3(0.0f, Camera.main.transform.position.y + speed*0.1f, -10.0f);
-            Debug.Log("cameraY : " + Camera.main.transform.position.y);
             if (Camera.main.transform.position.y - cameyBfore >= height)
             {
-                Debug.Log("Instantiate");
                 Instantiate(blockList[((int)(Random.Range(0.0f, (float)this.blockList.Length)))],
                     new Vector2(0.0f, Camera.main.transform.position.y + 2.0f * height),
                     Quaternion.identity);

@@ -5,11 +5,13 @@ public class PlayerComponent : MonoBehaviour {
 
 	private float speed = 5.0f;
 	private float scale = 1.0f;
-	private float threshold = 0.2f;
+	private float threshold = 0.4f;
 	private float limitScale = 1.5f;
 	private float lowestScale = 0.05f;
 	[SerializeField] private float reduceNum = 0.005f; 
-	[SerializeField] private float increaseNum = 0.3f;
+	[SerializeField] private float increaseNum = 0.5f;
+
+	[SerializeField]private Vector3 lastPos = new Vector3 (0, 0, 0);
 
 	private AudioClip tapHit;
 	private AudioClip tapMiss;
@@ -30,6 +32,8 @@ public class PlayerComponent : MonoBehaviour {
 	float maxDistance = 10.0f;
 	int layerMask = 1;
 
+	private Rigidbody2D playerRigid2D;
+
 	void Start () {
 		desX = gameObject.transform.position.x;
 		desY = gameObject.transform.position.y;
@@ -40,10 +44,15 @@ public class PlayerComponent : MonoBehaviour {
 		tapMiss = Resources.Load ("SE/TapMiss") as AudioClip;
 
 		audioSource = gameObject.GetComponent<AudioSource> ();
+		playerRigid2D = gameObject.GetComponent<Rigidbody2D> ();
 	}
-	
-	// Update is called once per frame
+
 	void FixedUpdate () {
+		if (!ObjectManager.I.isEleDust && playerRigid2D.velocity != Vector2.zero) {
+			Debug.Log ("None");
+			playerRigid2D.velocity = Vector2.zero;
+		}
+
 		if (Input.GetMouseButtonDown (0)) {
 			Ray ray = Camera.main.ScreenPointToRay (Input.mousePosition);
 			RaycastHit2D hit = Physics2D.Raycast ((Vector2)ray.origin, (Vector2)ray.direction, maxDistance,layerMask);
@@ -51,10 +60,6 @@ public class PlayerComponent : MonoBehaviour {
 			if (hit.collider) {
 				audioSource.PlayOneShot (tapMiss);
 				return;
-				/*if (hit.collider.transform.tag == "Player") {
-					audioSource.PlayOneShot (tapMiss);
-					return;
-				}*/
 			}
 
 			audioSource.PlayOneShot (tapHit);
@@ -71,7 +76,9 @@ public class PlayerComponent : MonoBehaviour {
 
 			dis = Mathf.Abs (disX) + Mathf.Abs (disY);
 
-			gameObject.GetComponent<Rigidbody2D> ().velocity = new Vector2 (disX / dis * speed, disY / dis * speed);
+			playerRigid2D.velocity = Vector2.zero;
+
+			playerRigid2D.AddForce (new Vector2 (disX / dis * 20000, disY / dis * 20000));
 
 			isMove = true;
 		}
@@ -83,9 +90,13 @@ public class PlayerComponent : MonoBehaviour {
 
 			dis = Mathf.Abs (disX) + Mathf.Abs (disY);
 
+			lastPos = gameObject.transform.position;
+
+
 			if (dis < threshold) {
-				gameObject.GetComponent<Rigidbody2D> ().velocity = Vector2.zero;
+				playerRigid2D.velocity = Vector2.zero;
 				scale += increaseNum;
+				ObjectManager.I.InactiveTargetEleDust();
 				isMove = false;
 			}
 		}
@@ -110,11 +121,36 @@ public class PlayerComponent : MonoBehaviour {
 
 	void OnTriggerEnter2D(Collider2D other) {
 		if (other.transform.tag == "EleDust") {
-			other.gameObject.SetActive(false);
-		} else {
-			//Debug.Log ("GameOver");
-			//Destroy (gameObject);
+			//other.gameObject.SetActive(false);
+			//ObjectManager.I.InactiveTargetEleDust(other.gameObject);
 		}
+	}
+
+	void OnCollisionStay2D(Collision2D other){
+		disX = desX - gameObject.transform.position.x;
+		disY = desY - gameObject.transform.position.y;
+
+		dis = Mathf.Abs (disX) + Mathf.Abs (disY);
+		playerRigid2D.velocity = Vector2.zero;
+		playerRigid2D.AddForce (new Vector2 (disX / dis * 20000, disY / dis * 20000));
+	}
+
+	void OnCollisionEnter2D(Collision2D other){
+		disX = desX - gameObject.transform.position.x;
+		disY = desY - gameObject.transform.position.y;
+
+		dis = Mathf.Abs (disX) + Mathf.Abs (disY);
+		playerRigid2D.velocity = Vector2.zero;
+		playerRigid2D.AddForce (new Vector2 (disX / dis * 20000, disY / dis * 20000));
+	}
+
+	void OnCollisionExit2D(Collision2D other){
+		disX = desX - gameObject.transform.position.x;
+		disY = desY - gameObject.transform.position.y;
+
+		dis = Mathf.Abs (disX) + Mathf.Abs (disY);
+		playerRigid2D.velocity = Vector2.zero;
+		playerRigid2D.AddForce (new Vector2 (disX / dis * 20000, disY / dis * 20000));
 	}
 
 }
