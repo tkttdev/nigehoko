@@ -21,9 +21,11 @@ public class ScoreManager : SingletonBehaviour<ScoreManager> {
 
 	IEnumerator AddScore(){
 		for (;;) {
-			if (ObjectManager.I.player.transform.position.y * 100.0f > this.score) {
-				this.score = (int)(ObjectManager.I.player.transform.position.y * 100.0f);
-				UIManager.I.SetScoreText (score);
+			if (ObjectManager.I.player != null) {
+				if (ObjectManager.I.player.transform.position.y * 10.0f > this.score) {
+					this.score = (int)(ObjectManager.I.player.transform.position.y * 10.0f);
+					UIManager.I.SetScoreText (score);
+				}
 			}
 			yield return null;
 		}
