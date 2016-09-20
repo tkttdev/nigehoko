@@ -26,4 +26,8 @@ public class TitleManager : SingletonBehaviour<TitleManager> {
 	void MoveScene(){
 		SceneManager.LoadScene ("Game");
 	}
+
+	public void MoveCredit(){
+		SceneManager.LoadScene ("Credit");
+	}
 }
