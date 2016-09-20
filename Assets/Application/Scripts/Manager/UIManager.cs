@@ -25,7 +25,7 @@ public class UIManager : SingletonBehaviour<UIManager> {
 	}
 
 	void Update(){
-		if (Input.GetMouseButtonDown(0)) {
+		if (ObjectManager.I.isEleDust) {
 			SetStartText (false);
 		}
 	}

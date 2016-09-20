@@ -36,7 +36,16 @@ public class GameManager : SingletonBehaviour<GameManager> {
 
 	public void SetStateEnd(){
 		this.state = STATE.END;
+		ScoreManager.I.SetHighScore ();
 		GameoverDialog.I.Show ();
 		ObjectManager.I.InactiveEleDusts ();
+	}
+
+	public bool IsPlaying(){
+		if (this.state == STATE.PLAYING) {
+			return true;
+		} else {
+			return false;
+		}
 	}
 }

@@ -119,38 +119,33 @@ public class PlayerComponent : MonoBehaviour {
 		}
 	}
 
-	void OnTriggerEnter2D(Collider2D other) {
-		if (other.transform.tag == "EleDust") {
-			//other.gameObject.SetActive(false);
-			//ObjectManager.I.InactiveTargetEleDust(other.gameObject);
-		}
+	void OnCollisionEnter2D(Collision2D other){
+		OtherCollision ();
 	}
 
 	void OnCollisionStay2D(Collision2D other){
-		disX = desX - gameObject.transform.position.x;
-		disY = desY - gameObject.transform.position.y;
-
-		dis = Mathf.Abs (disX) + Mathf.Abs (disY);
-		playerRigid2D.velocity = Vector2.zero;
-		playerRigid2D.AddForce (new Vector2 (disX / dis * 20000, disY / dis * 20000));
-	}
-
-	void OnCollisionEnter2D(Collision2D other){
-		disX = desX - gameObject.transform.position.x;
-		disY = desY - gameObject.transform.position.y;
-
-		dis = Mathf.Abs (disX) + Mathf.Abs (disY);
-		playerRigid2D.velocity = Vector2.zero;
-		playerRigid2D.AddForce (new Vector2 (disX / dis * 20000, disY / dis * 20000));
+		OtherCollision ();
 	}
 
 	void OnCollisionExit2D(Collision2D other){
+		OtherCollision ();
+	}
+
+	void OtherCollision(){
 		disX = desX - gameObject.transform.position.x;
 		disY = desY - gameObject.transform.position.y;
 
 		dis = Mathf.Abs (disX) + Mathf.Abs (disY);
 		playerRigid2D.velocity = Vector2.zero;
 		playerRigid2D.AddForce (new Vector2 (disX / dis * 20000, disY / dis * 20000));
+	}
+
+	void OnTriggerEnter2D(Collider2D other){
+		if (other.transform.tag == "DeadZone") {
+			Debug.Log ("GameOver");
+			Destroy (gameObject);
+			GameManager.I.SetStateEnd ();
+		}
 	}
 
 }

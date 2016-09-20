@@ -4,7 +4,7 @@ using System.Collections.Generic;
 
 public class ObjectManager : SingletonBehaviour<ObjectManager> {
 
-	private GameObject player;
+	public GameObject player;
 	private GameObject eleDust;
 
 	[SerializeField] List<GameObject> eleDustList = new List<GameObject>();

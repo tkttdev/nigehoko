@@ -44,7 +44,7 @@ public class StageManager : SingletonBehaviour<StageManager> {
 
     IEnumerator MoveCamera()
     {
-        while (true)
+		while (GameManager.I.IsPlaying())
         {
             //カメラの移動
             Camera.main.transform.position = new Vector3(0.0f, Camera.main.transform.position.y + speed*0.1f, -10.0f);
@@ -70,5 +70,7 @@ public class StageManager : SingletonBehaviour<StageManager> {
 
             yield return new WaitForSeconds(0.02f);
         }
+
+		yield break;
     }
 }
