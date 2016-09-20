@@ -3,7 +3,7 @@ using System.Collections;
 
 public class BlockComponent : MonoBehaviour {
 
-    private int endtime = 21;
+    private int endtime = 24;
     private int time = 0;
 
     void Start () {
