@@ -40,7 +40,7 @@ public class UIManager : SingletonBehaviour<UIManager> {
 	}
 
 	public void SetScoreText(int score){
-		scoreText.text = string.Format ("SCORE : {0}", score);
+		scoreText.text = string.Format ("{0} cm", score);
 	}
 
 

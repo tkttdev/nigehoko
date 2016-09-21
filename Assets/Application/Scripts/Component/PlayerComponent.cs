@@ -37,6 +37,10 @@ public class PlayerComponent : MonoBehaviour {
 
 	[SerializeField] Vector3 lastPos;
 
+	private float velocitySum;
+	private float velocityX;
+	private float velocityY;
+
 
 	private Rigidbody2D playerRigid2D;
 
@@ -92,7 +96,8 @@ public class PlayerComponent : MonoBehaviour {
 			isMove = true;
 		}
 		if (isMove) {
-			//scale -= reduceNum;
+
+			CheckVelocity ();
 
 			disX = desX - gameObject.transform.position.x;
 			disY = desY - gameObject.transform.position.y;
@@ -104,12 +109,6 @@ public class PlayerComponent : MonoBehaviour {
 			lastPos = gameObject.transform.position;
 
 			scale -= reduceNum * (moveDis/thresholdDis);
-
-			/*if (moveDis > thresholdDis) {
-				moveDis -= thresholdDis;
-				scale -= reduceNum;
-			}*/
-				
 
 			if (dis < threshold) {
 				playerRigid2D.velocity = Vector2.zero;
@@ -128,8 +127,19 @@ public class PlayerComponent : MonoBehaviour {
 		CheckScale ();
 	}
 
+	private void CheckVelocity(){
 
-	void CheckScale(){
+		velocitySum = Mathf.Abs (playerRigid2D.velocity.x) + Mathf.Abs (playerRigid2D.velocity.y);
+
+		if (velocitySum > 5.0f) {
+			velocityX = playerRigid2D.velocity.x;
+			velocityY = playerRigid2D.velocity.y;
+			playerRigid2D.velocity = Vector2.zero;
+			playerRigid2D.AddForce (new Vector2 (velocityX / velocitySum * addForceNum, velocityY / velocitySum * addForceNum));
+		}
+	}
+
+	private void CheckScale(){
 		if (gameObject.transform.localScale.x < lowestScale) {
 			Debug.Log ("GameOver");
 			Destroy (gameObject);
@@ -154,8 +164,13 @@ public class PlayerComponent : MonoBehaviour {
 		disY = desY - gameObject.transform.position.y;
 
 		dis = Mathf.Abs (disX) + Mathf.Abs (disY);
+
 		playerRigid2D.velocity = Vector2.zero;
 		playerRigid2D.AddForce (new Vector2 (disX / dis * addForceNum, disY / dis * addForceNum));
+
+		CheckVelocity ();
+
+		//Debug.Log (new Vector2 (disX / dis * addForceNum, disY / dis * addForceNum));
 	}
 
 	void OnTriggerEnter2D(Collider2D other){
