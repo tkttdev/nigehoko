@@ -4,19 +4,17 @@ using System.Collections;
 public class MovingBlock : MonoBehaviour {
 
     private int dir;
-    public float beforePosx;
 
-    public float speed = 8.0f;
+    public float time = 8.0f;
 
-	void Start () {
-        beforePosx = this.transform.position.x;
-        if (beforePosx < 0)
+    void Start () {
+        if (this.gameObject.transform.position.x < 0)
         {
-            dir = 1;
+            dir = -1;
         }
         else
         {
-            dir = -1;
+            dir = 1;
         }
         StartCoroutine(move());
     }
@@ -25,14 +23,24 @@ public class MovingBlock : MonoBehaviour {
     {
         while (true)
         {
-            //GetComponent<Rigidbody2D>().velocity = transform.right.normalized * speed * dir;
-            this.gameObject.transform.position = new Vector2(this.gameObject.transform.position.x + speed * dir * 0.1f, this.gameObject.transform.position.y);
-            if (Mathf.Abs(beforePosx - this.transform.position.x) >= 8.0f)
-            {
-                dir *= (-1);
-                beforePosx = this.transform.position.x;
+            if (this.gameObject.transform.position.y - Camera.main.transform.position.y <= 0.5f) {
+                if (dir == -1)
+                {
+                    iTween.RotateTo(this.gameObject, iTween.Hash("z", -180.0f, "time", time));
+                    iTween.MoveTo(this.gameObject, iTween.Hash("x", 9.0f, "time", time));
+                    //this.gameObject.transform.rotation = Quaternion.Euler(0, 0, 0);
+                    //dir = 1;
+                }
+                else
+                {
+                    iTween.RotateTo(this.gameObject, iTween.Hash("z", 180.0f, "time", time));
+                    iTween.MoveTo(this.gameObject, iTween.Hash("x", -9.0f, "time", time));
+                    //this.gameObject.transform.rotation = Quaternion.Euler(0, 0, 0);
+                    //dir = -1;
+                }
             }
-            yield return new WaitForSeconds(0.05f);
+
+            yield return new WaitForSeconds(0.1f);
         }
     }
 }
