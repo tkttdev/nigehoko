@@ -21,10 +21,6 @@ public class MovingBlock : MonoBehaviour {
         StartCoroutine(move());
     }
 
-	void Update () {
-	
-	}
-
     IEnumerator move()
     {
         while (true)
