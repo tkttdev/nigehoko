@@ -4,7 +4,7 @@ using System.Collections;
 public class PlayerComponent : MonoBehaviour {
 
 	private float scale = 1.0f;
-	private float threshold = 0.05f;
+	private float threshold = 0.1f;
 	private float limitScale = 1.5f;
 	private float lowestScale = 0.05f;
 	[SerializeField] private float reduceNum = 0.3f; 
