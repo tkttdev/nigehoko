@@ -31,14 +31,16 @@ public class ObjectManager : SingletonBehaviour<ObjectManager> {
 		if (eleDustNum < limitEleDustNum) {
 			GameObject obj = Instantiate (Resources.Load ("Prefabs/EleDust") as GameObject, pos, Quaternion.identity) as GameObject;
 			eleDustList.Add (obj);
-			if (eleDustNum > 0) {
+			if (eleDustNum > 0 && eleDustList[eleDustNum - 1].activeSelf) {
 				eleDustList [eleDustNum - 1].SetActive (false);
 			}
 			eleDustNum++;
 
 			isEleDust = true;
 		} else {
-			eleDustList [currentActiveEledustNum].SetActive (false);
+			if (eleDustList [currentActiveEledustNum].activeSelf) {
+				eleDustList [currentActiveEledustNum].SetActive (false);
+			}
 			currentActiveEledustNum++;
 			currentActiveEledustNum %= limitEleDustNum;
 
