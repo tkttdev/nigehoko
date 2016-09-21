@@ -12,6 +12,7 @@ public class PlayerComponent : MonoBehaviour {
 
 	private AudioClip tapHit;
 	private AudioClip tapMiss;
+	private AudioClip dead;
 	private AudioSource audioSource;
 
 	private bool isMove = false;
@@ -52,12 +53,18 @@ public class PlayerComponent : MonoBehaviour {
 
 		tapHit = Resources.Load ("SE/TapHit") as AudioClip;
 		tapMiss = Resources.Load ("SE/TapMiss") as AudioClip;
+		dead = Resources.Load ("SE/Dead") as AudioClip;
 
 		audioSource = gameObject.GetComponent<AudioSource> ();
 		playerRigid2D = gameObject.GetComponent<Rigidbody2D> ();
 	}
 
 	void FixedUpdate () {
+
+		if (GameManager.I.IsEnd()) {
+			return;
+		}
+
 		if (!ObjectManager.I.isEleDust && playerRigid2D.velocity != Vector2.zero) {
 			Debug.Log ("None");
 			playerRigid2D.velocity = Vector2.zero;
@@ -142,7 +149,9 @@ public class PlayerComponent : MonoBehaviour {
 	private void CheckScale(){
 		if (gameObject.transform.localScale.x < lowestScale) {
 			Debug.Log ("GameOver");
-			Destroy (gameObject);
+			audioSource.PlayOneShot (dead);
+			gameObject.GetComponent<SpriteRenderer> ().enabled = false;
+			playerRigid2D.velocity = Vector2.zero;
 			GameManager.I.SetStateEnd ();
 		}
 	}
@@ -170,13 +179,14 @@ public class PlayerComponent : MonoBehaviour {
 
 		CheckVelocity ();
 
-		//Debug.Log (new Vector2 (disX / dis * addForceNum, disY / dis * addForceNum));
 	}
 
 	void OnTriggerEnter2D(Collider2D other){
 		if (other.transform.tag == "DeadZone") {
 			Debug.Log ("GameOver");
-			Destroy (gameObject);
+			audioSource.PlayOneShot (dead);
+			gameObject.GetComponent<SpriteRenderer> ().enabled = false;
+			playerRigid2D.velocity = Vector2.zero;
 			GameManager.I.SetStateEnd ();
 		}
 	}
