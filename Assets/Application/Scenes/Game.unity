@@ -269,6 +269,11 @@ Prefab:
       propertyPath: m_SortingOrder
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 212000010111832132, guid: eba7ce70673f644a2beacca585851a04,
+        type: 2}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 50000013655966154, guid: eba7ce70673f644a2beacca585851a04, type: 2}
     - {fileID: 68000014188155460, guid: eba7ce70673f644a2beacca585851a04, type: 2}
@@ -1832,6 +1837,49 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1880893931}
+--- !u!1 &2004633966
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 2004633967}
+  - 61: {fileID: 2004633968}
+  m_Layer: 0
+  m_Name: ZoukinChild
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2004633967
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2004633966}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -0, y: 0, z: 0}
+  m_LocalScale: {x: 0.862069, y: 1, z: 1}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_Children: []
+  m_Father: {fileID: 2076993467}
+  m_RootOrder: 0
+--- !u!61 &2004633968
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2004633966}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_Offset: {x: 0, y: 0}
+  serializedVersion: 2
+  m_Size: {x: 9, y: 3.2}
 --- !u!1 &2076993466
 GameObject:
   m_ObjectHideFlags: 0
@@ -1861,7 +1909,8 @@ Transform:
   m_LocalPosition: {x: 0.16, y: -6, z: 10}
   m_LocalScale: {x: 1.16, y: 1, z: 1}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_Children: []
+  m_Children:
+  - {fileID: 2004633967}
   m_Father: {fileID: 722536712}
   m_RootOrder: 0
 --- !u!212 &2076993468
@@ -1909,9 +1958,9 @@ BoxCollider2D:
   m_Material: {fileID: 0}
   m_IsTrigger: 1
   m_UsedByEffector: 0
-  m_Offset: {x: 0, y: -0.838336}
+  m_Offset: {x: 0, y: -0.95526505}
   serializedVersion: 2
-  m_Size: {x: 8, y: 4.323328}
+  m_Size: {x: 8, y: 4.0894713}
 --- !u!1 &2103173640
 GameObject:
   m_ObjectHideFlags: 0

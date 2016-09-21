@@ -48,4 +48,12 @@ public class GameManager : SingletonBehaviour<GameManager> {
 			return false;
 		}
 	}
+
+	public bool IsEnd(){
+		if (this.state == STATE.END) {
+			return true;
+		} else {
+			return false;
+		}
+	}
 }
