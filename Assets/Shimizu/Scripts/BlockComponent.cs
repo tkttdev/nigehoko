@@ -22,7 +22,9 @@ public class BlockComponent : MonoBehaviour {
             time++;
             if (time == endtime)
             {
-                Destroy(this.gameObject);
+                if (GameManager.I.IsPlaying()) {
+                    Destroy(this.gameObject);
+                }
             }
             yield return new WaitForSeconds(1.0f);
         }
