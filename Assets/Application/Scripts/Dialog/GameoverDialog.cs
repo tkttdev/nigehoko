@@ -27,8 +27,8 @@ public class GameoverDialog : DialogBase {
 	public override void Show() {
 		base.Show ();
 		SetButtonsActive ();
-		resultScoreText.text = string.Format ("SCORE : {0}", ScoreManager.I.GetScore ());
-		highScoreText.text = string.Format ("HIGH SCORE : {0}", ScoreManager.I.GetHighScore ());
+		resultScoreText.text = string.Format ("{0} cm 生きのびた!", ScoreManager.I.GetScore ());
+		highScoreText.text = string.Format ("BEST : {0} cm", ScoreManager.I.GetHighScore ());
 	}
 
 	private void SetButtonsInactive(){
