@@ -4,15 +4,12 @@ using UnityEngine.UI;
 
 public class UIManager : SingletonBehaviour<UIManager> {
 
-	private bool isTap = false;
 	[SerializeField] private Text tapText;
-	Vector3 tapTextScale;
 
 	[SerializeField] private Text scoreText;
 
 
 	protected override void Initialize () {
-		isTap = false;
 		tapText = GameObject.Find ("TapText").GetComponent<Text>();
 		scoreText = GameObject.Find("ScoreText").GetComponent<Text>();
 			

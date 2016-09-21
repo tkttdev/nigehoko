@@ -4,7 +4,7 @@ using System.Collections;
 public class PlayerComponent : MonoBehaviour {
 
 	private float scale = 1.0f;
-	private float threshold = 0.4f;
+	private float threshold = 0.05f;
 	private float limitScale = 1.5f;
 	private float lowestScale = 0.05f;
 	[SerializeField] private float reduceNum = 0.3f; 
@@ -42,6 +42,8 @@ public class PlayerComponent : MonoBehaviour {
 	private float velocityX;
 	private float velocityY;
 
+	private bool isCollisionEleDust = false;
+
 
 	private Rigidbody2D playerRigid2D;
 
@@ -50,6 +52,8 @@ public class PlayerComponent : MonoBehaviour {
 		desY = gameObject.transform.position.y;
 
 		scale = gameObject.transform.localScale.x;
+
+		isCollisionEleDust = false;
 
 		tapHit = Resources.Load ("SE/TapHit") as AudioClip;
 		tapMiss = Resources.Load ("SE/TapMiss") as AudioClip;
@@ -100,6 +104,7 @@ public class PlayerComponent : MonoBehaviour {
 			moveDis = 0.0f;
 			lastPos = gameObject.transform.position;
 
+			isCollisionEleDust = false;
 			isMove = true;
 		}
 		if (isMove) {
@@ -118,9 +123,9 @@ public class PlayerComponent : MonoBehaviour {
 			scale -= reduceNum * (moveDis/thresholdDis);
 
 			if (dis < threshold) {
+				ObjectManager.I.InactiveTargetEleDust ();
 				playerRigid2D.velocity = Vector2.zero;
 				scale += increaseNum;
-				ObjectManager.I.InactiveTargetEleDust();
 				isMove = false;
 			}
 		}
@@ -188,7 +193,9 @@ public class PlayerComponent : MonoBehaviour {
 			gameObject.GetComponent<SpriteRenderer> ().enabled = false;
 			playerRigid2D.velocity = Vector2.zero;
 			GameManager.I.SetStateEnd ();
-		}
+		} /*else if (other.transform.tag == "EleDust" && isCollisionEleDust) {
+			ObjectManager.I.InactiveTargetEleDust ();
+		}*/
 	}
 
 }

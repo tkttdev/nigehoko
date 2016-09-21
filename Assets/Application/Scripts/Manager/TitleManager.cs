@@ -16,18 +16,33 @@ public class TitleManager : SingletonBehaviour<TitleManager> {
 	// Update is called once per frame
 	void Update () {
 		if (Input.GetMouseButtonDown (0) && !isTouch) {
+
 			isTouch = true;
-			audioSource.clip = startSE;
-			audioSource.Play ();
-			Invoke ("MoveScene", 0.4f);
+
+			Ray ray = Camera.main.ScreenPointToRay (Input.mousePosition);
+			RaycastHit2D hit = Physics2D.Raycast ((Vector2)ray.origin, (Vector2)ray.direction, 20.0f,1);
+
+			if (hit.collider == null) {
+				audioSource.clip = startSE;
+				audioSource.Play ();
+				Invoke ("MoveGame", 0.4f);
+				return;
+			}
+
+			if (hit.collider.transform.tag == "Button") {
+				audioSource.clip = startSE;
+				audioSource.Play ();
+				Invoke ("MoveCredit", 0.4f);
+				return;
+			}
 		}
 	}
 
-	void MoveScene(){
+	void MoveGame(){
 		SceneManager.LoadScene ("Game");
 	}
 
-	public void MoveCredit(){
+	void MoveCredit(){
 		SceneManager.LoadScene ("Credit");
 	}
 }
