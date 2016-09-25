@@ -8,9 +8,10 @@ public class StageManager : SingletonBehaviour<StageManager> {
     private float cameyBfore;
     private float cameyAfter;
 
-	[SerializeField] public float speed = 1.0f;
+	[SerializeField] public float[] speed;
 
     private int level = 0;
+    private int speedlevel = 0;
     private int num = 0;
 
     private float distcount = 0;
@@ -47,7 +48,7 @@ public class StageManager : SingletonBehaviour<StageManager> {
 		while (GameManager.I.IsPlaying())
         {
             //カメラの移動
-            Camera.main.transform.position = new Vector3(0.0f, Camera.main.transform.position.y + speed*0.1f, -10.0f);
+            Camera.main.transform.position = new Vector3(0.0f, Camera.main.transform.position.y + speed[speedlevel]*0.1f, -10.0f);
             if (Camera.main.transform.position.y - cameyBfore >= height)
             {
                 num = (int)(Random.Range(0.0f, 10.0f));
@@ -61,10 +62,13 @@ public class StageManager : SingletonBehaviour<StageManager> {
             if (distcount == interval)
             {   //難易度段階が５段
                 distcount = 0;
-                level++;
-                if (level > 5)
+                if(level < 5)
                 {
-                    level = 5;
+                    level++;
+                }
+                else
+                {
+                    if(speedlevel<5) speedlevel++;
                 }
             }
 

@@ -6,8 +6,9 @@ public class BlockComponent : MonoBehaviour {
     private int endtime = 24;
     private int time = 0;
 
+    [SerializeField] public int cost = 3;
+
     void Start () {
-        time = 0;
         StartCoroutine(dest());
     }
 	
@@ -19,14 +20,12 @@ public class BlockComponent : MonoBehaviour {
     {
         while (true)
         {
-            time++;
-            if (time == endtime)
+            if (Camera.main.transform.position.y -  this.gameObject.transform.position.y >= 16.0f)
             {
-                if (GameManager.I.IsPlaying()) {
-                    Destroy(this.gameObject);
-                }
+                Destroy(this.gameObject);
             }
-            yield return new WaitForSeconds(1.0f);
+
+            yield return new WaitForSeconds(0.05f);
         }
     }
 }

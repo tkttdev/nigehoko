@@ -5,7 +5,7 @@ public class MovingBlock : MonoBehaviour {
 
     private int dir;
 
-    public float time = 8.0f;
+    [SerializeField] public float time = 8.0f;
 
     void Start () {
         if (this.gameObject.transform.position.x < 0)
