@@ -251,23 +251,6 @@ Prefab:
       propertyPath: m_RootOrder
       value: 2
       objectReference: {fileID: 0}
-    - target: {fileID: 114000013277659434, guid: eba7ce70673f644a2beacca585851a04,
-        type: 2}
-      propertyPath: stopButton
-      value: 
-      objectReference: {fileID: 21300000, guid: 882e4a4e5de7c46b5a8c3f63ae24eb22,
-        type: 3}
-    - target: {fileID: 114000013277659434, guid: eba7ce70673f644a2beacca585851a04,
-        type: 2}
-      propertyPath: startButton
-      value: 
-      objectReference: {fileID: 21300000, guid: a25ec0b71379c482a9a7f1ec909c590f,
-        type: 3}
-    - target: {fileID: 50000010026370296, guid: eba7ce70673f644a2beacca585851a04,
-        type: 2}
-      propertyPath: m_Mass
-      value: 1
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: eba7ce70673f644a2beacca585851a04, type: 2}
   m_IsPrefabParent: 0
@@ -300,7 +283,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children: []
   m_Father: {fileID: 675405548}
-  m_RootOrder: 2
+  m_RootOrder: 1
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
   m_AnchoredPosition: {x: 80, y: -15}
@@ -642,7 +625,7 @@ Transform:
   m_Children:
   - {fileID: 1803863182}
   m_Father: {fileID: 675405548}
-  m_RootOrder: 1
+  m_RootOrder: 3
 --- !u!225 &662991940
 CanvasGroup:
   m_ObjectHideFlags: 0
@@ -699,9 +682,9 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children:
   - {fileID: 2103173641}
-  - {fileID: 662991939}
   - {fileID: 422021319}
   - {fileID: 1164390840}
+  - {fileID: 662991939}
   - {fileID: 343593847}
   m_Father: {fileID: 1395413108}
   m_RootOrder: 1
@@ -1270,7 +1253,7 @@ Transform:
   m_Children:
   - {fileID: 740630574}
   m_Father: {fileID: 675405548}
-  m_RootOrder: 3
+  m_RootOrder: 2
 --- !u!114 &1164390841
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1484,7 +1467,7 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_Sprite: {fileID: 21300000, guid: aba63302b16bb4e99bc16ca2278cbe6b, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 19a31ce4d8d5e4bcaa9041faa59fb83b, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -1871,6 +1854,8 @@ GameObject:
   m_Component:
   - 4: {fileID: 2004633967}
   - 61: {fileID: 2004633968}
+  - 61: {fileID: 2004633970}
+  - 61: {fileID: 2004633969}
   m_Layer: 0
   m_Name: ZoukinChild
   m_TagString: Untagged
@@ -1905,6 +1890,34 @@ BoxCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Size: {x: 9, y: 3.2}
+--- !u!61 &2004633969
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2004633966}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_Offset: {x: -4.5, y: 5}
+  serializedVersion: 2
+  m_Size: {x: 2.5, y: 15}
+--- !u!61 &2004633970
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2004633966}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_Offset: {x: 4.5, y: 5}
+  serializedVersion: 2
+  m_Size: {x: 2.5, y: 15}
 --- !u!1 &2076993466
 GameObject:
   m_ObjectHideFlags: 0
@@ -1967,7 +1980,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
-  m_SortingOrder: 3
+  m_SortingOrder: 9
   m_Sprite: {fileID: 21300000, guid: 3b6ad2514bc4dcd4ba251bbba8dca110, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0

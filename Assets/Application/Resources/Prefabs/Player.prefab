@@ -53,7 +53,7 @@ Rigidbody2D:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1000012670480268}
   m_UseAutoMass: 0
-  m_Mass: 100
+  m_Mass: 1
   m_LinearDrag: 0
   m_AngularDrag: 0.05
   m_GravityScale: 0
@@ -189,6 +189,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   reduceNum: 0.003
   increaseNum: 0.2
+  desX: 0
+  desY: 0
   thresholdDis: 0.05
   moveDis: 0
   lastPos: {x: 0, y: 0, z: 0}
@@ -220,7 +222,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
-  m_SortingOrder: 1
+  m_SortingOrder: 3
   m_Sprite: {fileID: 21300000, guid: a720aa7c47d3c4c168b89409cfd3aadf, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
