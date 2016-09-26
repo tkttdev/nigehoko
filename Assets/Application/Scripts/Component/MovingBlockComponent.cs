@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class MovingBlock : MonoBehaviour {
+public class MovingBlockComponent : MonoBehaviour {
 
     private int dir;
 
