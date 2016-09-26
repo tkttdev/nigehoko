@@ -12,8 +12,11 @@ public class GameManager : SingletonBehaviour<GameManager> {
 
 	private STATE state;
 
+	public AudioSource bgmAudioSource;
+
 	protected override void Initialize () {
 		state = STATE.WAITING;
+		bgmAudioSource = gameObject.GetComponent<AudioSource> ();
 	}
 
 	public void SetStateWaiting(){
@@ -33,7 +36,7 @@ public class GameManager : SingletonBehaviour<GameManager> {
 	public void SetStateEnd(){
 		this.state = STATE.END;
 		ScoreManager.I.SetHighScore ();
-		GameoverDialog.I.Show ();
+		ObjectManager.I.gameOverDialog.Show ();
 		ObjectManager.I.InactiveEleDust ();
 	}
 

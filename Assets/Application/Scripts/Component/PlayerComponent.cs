@@ -60,26 +60,17 @@ public class PlayerComponent : MonoBehaviour {
 		if (!ObjectManager.I.IsEledust() && playerRigid2D.velocity != Vector2.zero || !GameManager.I.IsPlaying()) {
 			playerRigid2D.velocity = Vector2.zero;
 		}
-			
-		if (GameManager.I.IsPlaying () && ObjectManager.I.IsEledust ()) {
-			
-		}
 
 		if (Input.GetMouseButtonDown (0)) {
 			Ray ray = Camera.main.ScreenPointToRay (Input.mousePosition);
 			RaycastHit2D hit = Physics2D.Raycast ((Vector2)ray.origin, (Vector2)ray.direction, maxDistance,layerMask);
 
 			if (hit.collider) {
-				if (GameManager.I.IsPlaying () && hit.collider.tag == "Button") {
-					GameManager.I.SetStatePausing ();
-					return;
-				} else if (GameManager.I.IsPausing () && hit.collider.tag == "Button") {
-					GameManager.I.SetStatePlaying ();
-					return;
-				} else if (GameManager.I.IsPlaying ()) {
-					audioSource.PlayOneShot (tapMiss);
-					return;
+				if (hit.transform.tag == "MenuButton" && GameManager.I.IsPlaying()) {
+					
 				}
+				audioSource.PlayOneShot (tapMiss);
+				return;
 			}
 
 			if (!GameManager.I.IsWaiting() && !GameManager.I.IsPlaying()) {

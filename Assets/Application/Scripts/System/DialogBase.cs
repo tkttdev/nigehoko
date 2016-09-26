@@ -2,8 +2,7 @@
 using System.Collections;
 using UnityEngine.UI;
 
-//[RequireComponent(typeof(CanvasGroup))]
-public class DialogBase : SingletonBehaviour<DialogBase> {
+public class DialogBase : MonoBehaviour {
 
 	private CanvasGroup canvasGroup;
 

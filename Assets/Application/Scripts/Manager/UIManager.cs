@@ -13,7 +13,6 @@ public class UIManager : SingletonBehaviour<UIManager> {
 
 	[SerializeField] private Image menuButtonImage;
 
-
 	protected override void Initialize () {
 		tapText = GameObject.Find ("TapText").GetComponent<Text>();
 		scoreText = GameObject.Find("ScoreText").GetComponent<Text>();
@@ -54,12 +53,14 @@ public class UIManager : SingletonBehaviour<UIManager> {
 		if (GameManager.I.IsPlaying ()) {
 			GameManager.I.SetStatePausing ();
 			menuButtonImage.sprite = startButtonSprite;
-			PauseDialog.I.Show ();
+			ObjectManager.I.pauseDialog.Show ();
+			GameManager.I.bgmAudioSource.Pause ();
 		} else if (GameManager.I.IsPausing ()) {
 			GameManager.I.SetStatePlaying ();
 			ObjectManager.I.player.GetComponent<PlayerComponent> ().AddForcePlayer ();
 			menuButtonImage.sprite = stopButtonSprite;
-			PauseDialog.I.Hide ();
+			ObjectManager.I.pauseDialog.Hide ();
+			GameManager.I.bgmAudioSource.UnPause ();
 		}
 	}
 }

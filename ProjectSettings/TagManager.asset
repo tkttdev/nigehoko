@@ -5,12 +5,13 @@ TagManager:
   serializedVersion: 2
   tags:
   - EleDust
-  - RestartButton
   - ExitButton
   - DeadZone
   - Button
   - StopButton
   - MenuButton
+  - GameOverDialog
+  - PauseDialog
   layers:
   - Default
   - TransparentFX
