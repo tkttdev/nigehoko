@@ -16,10 +16,6 @@ public class GameManager : SingletonBehaviour<GameManager> {
 		state = STATE.WAITING;
 	}
 
-	private void GameProgress(){
-		//return null;
-	}
-
 	public void SetStateWaiting(){
 		this.state = STATE.WAITING;
 	}
@@ -38,7 +34,7 @@ public class GameManager : SingletonBehaviour<GameManager> {
 		this.state = STATE.END;
 		ScoreManager.I.SetHighScore ();
 		GameoverDialog.I.Show ();
-		ObjectManager.I.InactiveEleDusts ();
+		ObjectManager.I.InactiveEleDust ();
 	}
 
 	public bool IsPlaying(){
@@ -49,8 +45,24 @@ public class GameManager : SingletonBehaviour<GameManager> {
 		}
 	}
 
+	public bool IsPausing(){
+		if (this.state == STATE.PAUSING) {
+			return true;
+		} else {
+			return false;
+		}
+	}
+
 	public bool IsEnd(){
 		if (this.state == STATE.END) {
+			return true;
+		} else {
+			return false;
+		}
+	}
+
+	public bool IsWaiting(){
+		if (this.state == STATE.WAITING) {
 			return true;
 		} else {
 			return false;

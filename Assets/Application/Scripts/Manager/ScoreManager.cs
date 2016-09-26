@@ -3,7 +3,7 @@ using System.Collections;
 
 public class ScoreManager : SingletonBehaviour<ScoreManager> {
 
-	[SerializeField] private int score = -1;
+	private int score = -1;
 
 	const string HIGH_SCORE_KEY = "highScore";
 
@@ -21,7 +21,7 @@ public class ScoreManager : SingletonBehaviour<ScoreManager> {
 
 	IEnumerator AddScore(){
 		for (;;) {
-			if (ObjectManager.I.player != null) {
+				if (GameManager.I.IsPlaying()) {
 				if (ObjectManager.I.player.transform.position.y * 10.0f > this.score) {
 					this.score = (int)(ObjectManager.I.player.transform.position.y * 10.0f);
 					UIManager.I.SetScoreText (score);

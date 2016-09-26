@@ -9,6 +9,8 @@ TagManager:
   - ExitButton
   - DeadZone
   - Button
+  - StopButton
+  - MenuButton
   layers:
   - Default
   - TransparentFX

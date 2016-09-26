@@ -15,10 +15,8 @@ public class PlayerComponent : MonoBehaviour {
 	private AudioClip dead;
 	private AudioSource audioSource;
 
-	private bool isMove = false;
-
-	private float desX = 0.0f;
-	private float desY = 0.0f;
+	[SerializeField] private float desX = 0.0f;
+	[SerializeField] private float desY = 0.0f;
 
 	private float disX;
 	private float disY;
@@ -30,11 +28,10 @@ public class PlayerComponent : MonoBehaviour {
 	public float thresholdDis;
 	public float moveDis;
 
-	private float addForceNum = 20000.0f;
+	private float addForceNum = 200.0f;
 
 	private float maxDistance = 10.0f;
 	private int layerMask = 1;
-
 
 	[SerializeField] Vector3 lastPos;
 
@@ -42,18 +39,13 @@ public class PlayerComponent : MonoBehaviour {
 	private float velocityX;
 	private float velocityY;
 
-	private bool isCollisionEleDust = false;
-
-
 	private Rigidbody2D playerRigid2D;
 
 	void Start () {
 		desX = gameObject.transform.position.x;
 		desY = gameObject.transform.position.y;
 
-		scale = gameObject.transform.localScale.x;
-
-		isCollisionEleDust = false;
+		scale = 1.0f;
 
 		tapHit = Resources.Load ("SE/TapHit") as AudioClip;
 		tapMiss = Resources.Load ("SE/TapMiss") as AudioClip;
@@ -65,13 +57,12 @@ public class PlayerComponent : MonoBehaviour {
 
 	void FixedUpdate () {
 
-		if (GameManager.I.IsEnd()) {
-			return;
-		}
-
-		if (!ObjectManager.I.isEleDust && playerRigid2D.velocity != Vector2.zero) {
-			Debug.Log ("None");
+		if (!ObjectManager.I.IsEledust() && playerRigid2D.velocity != Vector2.zero || !GameManager.I.IsPlaying()) {
 			playerRigid2D.velocity = Vector2.zero;
+		}
+			
+		if (GameManager.I.IsPlaying () && ObjectManager.I.IsEledust ()) {
+			
 		}
 
 		if (Input.GetMouseButtonDown (0)) {
@@ -79,7 +70,19 @@ public class PlayerComponent : MonoBehaviour {
 			RaycastHit2D hit = Physics2D.Raycast ((Vector2)ray.origin, (Vector2)ray.direction, maxDistance,layerMask);
 
 			if (hit.collider) {
-				audioSource.PlayOneShot (tapMiss);
+				if (GameManager.I.IsPlaying () && hit.collider.tag == "Button") {
+					GameManager.I.SetStatePausing ();
+					return;
+				} else if (GameManager.I.IsPausing () && hit.collider.tag == "Button") {
+					GameManager.I.SetStatePlaying ();
+					return;
+				} else if (GameManager.I.IsPlaying ()) {
+					audioSource.PlayOneShot (tapMiss);
+					return;
+				}
+			}
+
+			if (!GameManager.I.IsWaiting() && !GameManager.I.IsPlaying()) {
 				return;
 			}
 
@@ -92,23 +95,14 @@ public class PlayerComponent : MonoBehaviour {
 			desX = worldPos.x;
 			desY = worldPos.y;
 
-			disX = desX - gameObject.transform.position.x;
-			disY = desY - gameObject.transform.position.y;
-
-			dis = Mathf.Abs (disX) + Mathf.Abs (disY);
-
-			playerRigid2D.velocity = Vector2.zero;
-
-			playerRigid2D.AddForce (new Vector2 (disX / dis * addForceNum, disY / dis * addForceNum));
+			AddForcePlayer ();
 
 			moveDis = 0.0f;
 			lastPos = gameObject.transform.position;
-
-			isCollisionEleDust = false;
-			isMove = true;
 		}
-		if (isMove) {
 
+		if (GameManager.I.IsPlaying() && ObjectManager.I.IsEledust()) {
+			
 			CheckVelocity ();
 
 			disX = desX - gameObject.transform.position.x;
@@ -123,10 +117,9 @@ public class PlayerComponent : MonoBehaviour {
 			scale -= reduceNum * (moveDis/thresholdDis);
 
 			if (dis < threshold) {
-				ObjectManager.I.InactiveTargetEleDust ();
+				ObjectManager.I.InactiveEleDust ();
 				playerRigid2D.velocity = Vector2.zero;
 				scale += increaseNum;
-				isMove = false;
 			}
 		}
 
@@ -151,6 +144,17 @@ public class PlayerComponent : MonoBehaviour {
 		}
 	}
 
+	public void AddForcePlayer(){
+		disX = desX - gameObject.transform.position.x;
+		disY = desY - gameObject.transform.position.y;
+
+		dis = Mathf.Abs (disX) + Mathf.Abs (disY);
+
+		playerRigid2D.velocity = Vector2.zero;
+
+		playerRigid2D.AddForce (new Vector2 (disX / dis * addForceNum, disY / dis * addForceNum));
+	}
+
 	private void CheckScale(){
 		if (gameObject.transform.localScale.x < lowestScale) {
 			Debug.Log ("GameOver");
@@ -162,15 +166,21 @@ public class PlayerComponent : MonoBehaviour {
 	}
 
 	void OnCollisionEnter2D(Collision2D other){
-		OtherCollision ();
+		if (GameManager.I.IsPlaying ()) {
+			OtherCollision ();
+		}
 	}
 
 	void OnCollisionStay2D(Collision2D other){
-		OtherCollision ();
+		if (GameManager.I.IsPlaying ()) {
+			OtherCollision ();
+		}
 	}
 
 	void OnCollisionExit2D(Collision2D other){
-		OtherCollision ();
+		if (GameManager.I.IsPlaying ()) {
+			OtherCollision ();
+		}
 	}
 
 	void OtherCollision(){
@@ -193,9 +203,6 @@ public class PlayerComponent : MonoBehaviour {
 			gameObject.GetComponent<SpriteRenderer> ().enabled = false;
 			playerRigid2D.velocity = Vector2.zero;
 			GameManager.I.SetStateEnd ();
-		} /*else if (other.transform.tag == "EleDust" && isCollisionEleDust) {
-			ObjectManager.I.InactiveTargetEleDust ();
-		}*/
+		}
 	}
-
 }

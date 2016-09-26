@@ -8,10 +8,20 @@ public class UIManager : SingletonBehaviour<UIManager> {
 
 	[SerializeField] private Text scoreText;
 
+	[SerializeField] private Sprite stopButtonSprite;
+	[SerializeField] private Sprite startButtonSprite;
+
+	[SerializeField] private Image menuButtonImage;
+
 
 	protected override void Initialize () {
 		tapText = GameObject.Find ("TapText").GetComponent<Text>();
 		scoreText = GameObject.Find("ScoreText").GetComponent<Text>();
+
+		stopButtonSprite = Resources.Load<Sprite> ("Images/StopSkelton");
+		startButtonSprite = Resources.Load<Sprite> ("Images/PlaySkelton");
+
+		menuButtonImage = GameObject.FindGameObjectWithTag ("MenuButton").GetComponent<Image> ();
 			
 		iTween.ScaleFrom (tapText.gameObject, iTween.Hash (
 			"x", 1.2f,
@@ -22,7 +32,7 @@ public class UIManager : SingletonBehaviour<UIManager> {
 	}
 
 	void Update(){
-		if (ObjectManager.I.isEleDust) {
+		if (ObjectManager.I.IsEledust()) {
 			SetStartText (false);
 		}
 	}
@@ -40,6 +50,16 @@ public class UIManager : SingletonBehaviour<UIManager> {
 		scoreText.text = string.Format ("{0} cm", score);
 	}
 
-
-
+	public void MenuButton(){
+		if (GameManager.I.IsPlaying ()) {
+			GameManager.I.SetStatePausing ();
+			menuButtonImage.sprite = startButtonSprite;
+			PauseDialog.I.Show ();
+		} else if (GameManager.I.IsPausing ()) {
+			GameManager.I.SetStatePlaying ();
+			ObjectManager.I.player.GetComponent<PlayerComponent> ().AddForcePlayer ();
+			menuButtonImage.sprite = stopButtonSprite;
+			PauseDialog.I.Hide ();
+		}
+	}
 }

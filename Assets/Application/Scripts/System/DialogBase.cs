@@ -2,6 +2,7 @@
 using System.Collections;
 using UnityEngine.UI;
 
+//[RequireComponent(typeof(CanvasGroup))]
 public class DialogBase : SingletonBehaviour<DialogBase> {
 
 	private CanvasGroup canvasGroup;
@@ -20,9 +21,5 @@ public class DialogBase : SingletonBehaviour<DialogBase> {
 
 	public virtual void Hide(){
 		canvasGroup.alpha = 0;
-	}
-
-	void Update () {
-	
 	}
 }

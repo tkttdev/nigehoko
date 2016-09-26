@@ -13,7 +13,7 @@ public class ObjectManager : SingletonBehaviour<ObjectManager> {
 
 	[SerializeField] private int eleDustNum = 0;
 
-	public bool isEleDust = false;
+	private bool isEleDust = false;
 
 	private bool firstTouch = false;
 
@@ -51,7 +51,7 @@ public class ObjectManager : SingletonBehaviour<ObjectManager> {
 		}
 	}
 
-	public void InactiveTargetEleDust(){
+	public void InactiveEleDust(){
 		if (eleDustNum < limitEleDustNum) {
 			eleDustList [eleDustNum - 1].SetActive (false);
 		} else {
@@ -60,9 +60,7 @@ public class ObjectManager : SingletonBehaviour<ObjectManager> {
 		isEleDust = false;
 	}
 
-	public void InactiveEleDusts(){
-		foreach (GameObject obj in eleDustList) {
-			obj.SetActive (false);
-		}
+	public bool IsEledust(){
+		return isEleDust;
 	}
 }
