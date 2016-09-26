@@ -66,6 +66,7 @@ public class PlayerComponent : MonoBehaviour {
 			RaycastHit2D hit = Physics2D.Raycast ((Vector2)ray.origin, (Vector2)ray.direction, maxDistance,layerMask);
 
 			if (hit.collider) {
+				Debug.Log (hit.transform.tag);
 				if (hit.transform.tag == "MenuButton" && GameManager.I.IsPlaying()) {
 					
 				}

@@ -43,9 +43,11 @@ public class GameoverDialog : DialogBase {
 
 	public void Restart(){
 		SceneManager.LoadScene ("Game");
+		Debug.Log ("TTT");
 	}
 
 	public void Exit(){
 		SceneManager.LoadScene ("Title");
+		Debug.Log ("TTT");
 	}
 }
