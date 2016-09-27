@@ -38,6 +38,9 @@ public class GameManager : SingletonBehaviour<GameManager> {
 		ScoreManager.I.SetHighScore ();
 		ObjectManager.I.gameOverDialog.Show ();
 		ObjectManager.I.InactiveEleDust ();
+		if (!Application.isEditor) {
+			AdsManager.I.ShowAd ();
+		}
 	}
 
 	public bool IsPlaying(){
