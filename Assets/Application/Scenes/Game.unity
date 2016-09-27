@@ -117,6 +117,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dc2fcb0c2ca0941b9a8cef4a519540a5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  adsTimes: 0
 --- !u!4 &220624307
 Transform:
   m_ObjectHideFlags: 0
@@ -1399,7 +1400,7 @@ MonoBehaviour:
   - 0.5
   - 0.5
   - 0.5
-  interval: 5
+  interval: 3
 --- !u!1 &1600776393
 GameObject:
   m_ObjectHideFlags: 0
