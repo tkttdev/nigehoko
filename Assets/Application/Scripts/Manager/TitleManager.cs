@@ -15,7 +15,7 @@ public class TitleManager : SingletonBehaviour<TitleManager> {
 
 	// Update is called once per frame
 	void Update () {
-		if (Input.GetMouseButtonDown (0) && !isTouch) {
+		if (Input.GetMouseButtonDown (0) && !isTouch && !Application.isShowingSplashScreen) {
 
 			isTouch = true;
 
