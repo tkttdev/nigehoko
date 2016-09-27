@@ -187,12 +187,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0d22c558fd3c54701826e6e02f16d5c4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  reduceNum: 0.003
+  reduceNum: 0.06
   increaseNum: 0.2
   desX: 0
   desY: 0
-  thresholdDis: 0.05
-  moveDis: 0
   lastPos: {x: 0, y: 0, z: 0}
 --- !u!212 &212000010111832132
 SpriteRenderer:

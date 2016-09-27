@@ -21,8 +21,8 @@ GameObject:
   - 4: {fileID: 4000012760777938}
   - 212: {fileID: 212000010902260936}
   - 95: {fileID: 95000012807396864}
-  - 68: {fileID: 68000012446246018}
   - 50: {fileID: 50000010184821846}
+  - 58: {fileID: 58000012325314976}
   m_Layer: 0
   m_Name: EleDust
   m_TagString: EleDust
@@ -60,8 +60,8 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
---- !u!68 &68000012446246018
-EdgeCollider2D:
+--- !u!58 &58000012325314976
+CircleCollider2D:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
@@ -72,17 +72,8 @@ EdgeCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_Offset: {x: 0, y: 0}
-  m_Points:
-  - {x: 0.43113622, y: 0.018082855}
-  - {x: 0.17935735, y: 0.027478762}
-  - {x: 0.09723305, y: -0.18261635}
-  - {x: -0.30077934, y: -0.2592367}
-  - {x: -0.43236747, y: -0.17893434}
-  - {x: -0.44305238, y: 0.083651364}
-  - {x: 0.008626878, y: 0.162801}
-  - {x: 0.25869772, y: 0.23361981}
-  - {x: 0.3978155, y: 0.1447555}
-  - {x: 0.40971583, y: 0.02712386}
+  serializedVersion: 2
+  m_Radius: 0.4
 --- !u!95 &95000012807396864
 Animator:
   serializedVersion: 3

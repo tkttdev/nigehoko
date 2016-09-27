@@ -4,10 +4,10 @@ using System.Collections;
 public class PlayerComponent : MonoBehaviour {
 
 	private float scale = 1.0f;
-	private float threshold = 0.1f;
+	private float thresholdDis = 0.4f;
 	private float limitScale = 1.5f;
 	private float lowestScale = 0.05f;
-	[SerializeField] private float reduceNum = 0.3f; 
+	[SerializeField] private float reduceNum = 0.06f; 
 	[SerializeField] private float increaseNum = 0.5f;
 
 	private AudioClip tapHit;
@@ -25,8 +25,7 @@ public class PlayerComponent : MonoBehaviour {
 
 	private Vector3 worldPos;
 
-	public float thresholdDis;
-	public float moveDis;
+	private float moveDis;
 
 	private float addForceNum = 200.0f;
 
@@ -65,7 +64,12 @@ public class PlayerComponent : MonoBehaviour {
 			Ray ray = Camera.main.ScreenPointToRay (Input.mousePosition);
 			RaycastHit2D hit = Physics2D.Raycast ((Vector2)ray.origin, (Vector2)ray.direction, maxDistance,layerMask);
 
+			//RaycastHit2D hit = Physics2D.CircleCast ((Vector2)ray.origin, 0.1f, (Vector2)ray.direction);
+
 			if (hit.collider) {
+				if (hit.transform.tag == "EleDust") {
+					return;
+				}
 				if (hit.transform.tag == "MenuButton") {
 					audioSource.PlayOneShot (tapHit);
 					return;
@@ -106,22 +110,21 @@ public class PlayerComponent : MonoBehaviour {
 
 			lastPos = gameObject.transform.position;
 
-			scale -= reduceNum * (moveDis/thresholdDis);
+			scale -= reduceNum * moveDis;
 
-			if (dis < threshold) {
+			if (dis < thresholdDis) {
 				ObjectManager.I.InactiveEleDust ();
 				playerRigid2D.velocity = Vector2.zero;
 				scale += increaseNum;
 			}
+
+			if (scale > limitScale) {
+				scale = limitScale;
+			}
+
+			gameObject.transform.localScale = new Vector3 (scale, scale, 1);
+			CheckScale ();
 		}
-
-		if (scale > limitScale) {
-			scale = limitScale;
-		}
-
-		gameObject.transform.localScale = new Vector3 (scale, scale, 1);
-
-		CheckScale ();
 	}
 
 	private void CheckVelocity(){
@@ -149,7 +152,6 @@ public class PlayerComponent : MonoBehaviour {
 
 	private void CheckScale(){
 		if (gameObject.transform.localScale.x < lowestScale) {
-			Debug.Log ("GameOver");
 			audioSource.PlayOneShot (dead);
 			gameObject.GetComponent<SpriteRenderer> ().enabled = false;
 			playerRigid2D.velocity = Vector2.zero;
@@ -190,7 +192,6 @@ public class PlayerComponent : MonoBehaviour {
 
 	void OnTriggerEnter2D(Collider2D other){
 		if (other.transform.tag == "DeadZone") {
-			Debug.Log ("GameOver");
 			audioSource.PlayOneShot (dead);
 			gameObject.GetComponent<SpriteRenderer> ().enabled = false;
 			playerRigid2D.velocity = Vector2.zero;
