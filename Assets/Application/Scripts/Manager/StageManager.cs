@@ -14,6 +14,8 @@ public class StageManager : SingletonBehaviour<StageManager> {
     private int speedlevel = 0;
     private int num = 0;
 
+    private bool flag = false;
+
     private float distcount = 0;
     [SerializeField] public int interval = 0;
 
@@ -57,12 +59,25 @@ public class StageManager : SingletonBehaviour<StageManager> {
                     Quaternion.identity);
                 cameyBfore = Camera.main.transform.position.y;
                 distcount++;
+                //Floorのバグ対策
+                if (flag)
+                {
+                    Instantiate(Resources.Load("Prefabs/StageBlocks/WoodFloor"),
+                        new Vector2(0.0f, Camera.main.transform.position.y + 2.0f * height),
+                        Quaternion.identity);
+                    flag = false;
+                }
+                else
+                {
+                    flag = true;
+                }
+
             }
 
             if (distcount == interval)
             {   //難易度段階が５段
                 distcount = 0;
-                if(level < 5)
+                if(level < 6)
                 {
                     level++;
                 }
