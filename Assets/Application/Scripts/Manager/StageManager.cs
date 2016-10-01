@@ -24,19 +24,19 @@ public class StageManager : SingletonBehaviour<StageManager> {
 
         for (int i = (-1) * (int)height; i <= 2 * height; i += (int)height)
         {
-            if (i <= 0)
-            {   //初期位置設定
+            if (i < 0)
+            {   
                 string num = ((int)(Random.Range(0.0f, 10.0f))).ToString();
                 Instantiate(Resources.Load("Prefabs/StageBlocks/stage" + "0" + "/" + "0" + "0"),
-                new Vector2(0.0f, Camera.main.transform.position.y + i),
-                Quaternion.Euler(0, 0, 0));
+                    new Vector2(0.0f, Camera.main.transform.position.y + i),
+                    Quaternion.Euler(0, 0, 0));
             }
             else
             {
                 num = (int)(Random.Range(0.0f, 10.0f));
                 Instantiate(Resources.Load("Prefabs/StageBlocks/stage" + level.ToString() + "/" + level.ToString() + num.ToString()),
-                new Vector2(0.0f, Camera.main.transform.position.y + i),
-                Quaternion.Euler(0, 0, 0));
+                    new Vector2(0.0f, Camera.main.transform.position.y + i),
+                    Quaternion.Euler(0, 0, 0));
             }
         }
     }
@@ -44,6 +44,37 @@ public class StageManager : SingletonBehaviour<StageManager> {
 	public void StartStage(){
 		StartCoroutine (MoveCamera());
 	}
+
+    public void Retry()
+    {
+        //現在のブロックをすべて削除
+        GameObject[] blocks = GameObject.FindGameObjectsWithTag("block");
+        for (int i=0; i<blocks.Length; i++)
+        {
+            Destroy(blocks[i]);
+        }
+        //現レベルのブロックを生成
+        for (int i = (-1) * (int)height; i <= 2 * height; i += (int)height)
+        {
+            if (i < 0)
+            { 
+                string num = ((int)(Random.Range(0.0f, 10.0f))).ToString();
+                Instantiate(Resources.Load("Prefabs/StageBlocks/stage" + "0" + "/" + "0" + "0"),
+                    new Vector2(0.0f, Camera.main.transform.position.y + i),
+                    Quaternion.Euler(0, 0, 0));
+            }
+            else
+            {
+                num = (int)(Random.Range(0.0f, 10.0f));
+                Instantiate(Resources.Load("Prefabs/StageBlocks/stage" + level.ToString() + "/" + level.ToString() + num.ToString()),
+                    new Vector2(0.0f, Camera.main.transform.position.y + i),
+                    Quaternion.Euler(0, 0, 0));
+            }
+        }
+
+        distcount = 0;
+
+    }
 
     IEnumerator MoveCamera()
     {
@@ -75,7 +106,8 @@ public class StageManager : SingletonBehaviour<StageManager> {
             }
 
             if (distcount == interval)
-            {   //難易度段階が５段
+            {  
+                //難易度段階が6段,スピードレベルは5段
                 distcount = 0;
                 if(level < 6)
                 {

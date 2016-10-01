@@ -12,6 +12,8 @@ TagManager:
   - MenuButton
   - GameOverDialog
   - PauseDialog
+  - RestartButton
+  - block
   layers:
   - Default
   - TransparentFX

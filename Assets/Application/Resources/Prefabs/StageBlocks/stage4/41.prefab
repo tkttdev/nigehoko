@@ -22,7 +22,7 @@ GameObject:
   - 114: {fileID: 114000010769830942}
   m_Layer: 0
   m_Name: 41
-  m_TagString: Untagged
+  m_TagString: block
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -737,6 +737,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 17dc907bf7df96f47a919cc18f1fa227, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  cost: 3
 --- !u!212 &212000011447434514
 SpriteRenderer:
   m_ObjectHideFlags: 1
