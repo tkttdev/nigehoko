@@ -24,7 +24,7 @@ public class StageManager : SingletonBehaviour<StageManager> {
 
         for (int i = (-1) * (int)height; i <= 2 * height; i += (int)height)
         {
-            if (i < 0)
+            if (i < 1)
             {   
                 string num = ((int)(Random.Range(0.0f, 10.0f))).ToString();
                 Instantiate(Resources.Load("Prefabs/StageBlocks/stage" + "0" + "/" + "0" + "0"),
@@ -56,7 +56,7 @@ public class StageManager : SingletonBehaviour<StageManager> {
         //現レベルのブロックを生成
         for (int i = (-1) * (int)height; i <= 2 * height; i += (int)height)
         {
-            if (i < 0)
+            if (i < 1)
             { 
                 string num = ((int)(Random.Range(0.0f, 10.0f))).ToString();
                 Instantiate(Resources.Load("Prefabs/StageBlocks/stage" + "0" + "/" + "0" + "0"),
