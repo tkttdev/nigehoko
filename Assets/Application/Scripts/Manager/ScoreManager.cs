@@ -7,6 +7,8 @@ public class ScoreManager : SingletonBehaviour<ScoreManager> {
 
 	const string HIGH_SCORE_KEY = "highScore";
 
+	private PlayerComponent playerComponent;
+
 	protected override void Initialize (){
 		base.Initialize ();
 	}
@@ -20,12 +22,11 @@ public class ScoreManager : SingletonBehaviour<ScoreManager> {
 	}
 
 	IEnumerator AddScore(){
+		playerComponent = ObjectManager.I.player.GetComponent<PlayerComponent> ();
 		for (;;) {
-				if (GameManager.I.IsPlaying()) {
-				if (ObjectManager.I.player.transform.position.y * 10.0f > this.score) {
-					this.score = (int)(ObjectManager.I.player.transform.position.y * 10.0f);
-					UIManager.I.SetScoreText (score);
-				}
+			if (GameManager.I.IsPlaying()) {
+				this.score = (int)(playerComponent.moveSumY * 10.0f);
+				UIManager.I.SetScoreText (score);
 			}
 			yield return null;
 		}

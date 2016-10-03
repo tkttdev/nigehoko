@@ -27,6 +27,9 @@ public class PlayerComponent : MonoBehaviour {
 
 	private float moveDis;
 
+	public float moveSumY = 0.0f;
+	private float maxY = 0.0f;
+
 	private float addForceNum = 200.0f;
 
 	private float maxDistance = 10.0f;
@@ -45,6 +48,8 @@ public class PlayerComponent : MonoBehaviour {
 		desY = gameObject.transform.position.y;
 
 		scale = 1.0f;
+		maxY = 0.0f;
+		moveSumY = 0.0f;
 
 		tapHit = Resources.Load ("SE/TapHit") as AudioClip;
 		tapMiss = Resources.Load ("SE/TapMiss") as AudioClip;
@@ -107,6 +112,11 @@ public class PlayerComponent : MonoBehaviour {
 			dis = Mathf.Abs (disX) + Mathf.Abs (disY);
 
 			moveDis = Mathf.Abs (gameObject.transform.position.x - lastPos.x) + Mathf.Abs (gameObject.transform.position.y - lastPos.y);
+
+			if (gameObject.transform.position.y > maxY) {
+				moveSumY += gameObject.transform.position.y - lastPos.y;
+				maxY = gameObject.transform.position.y;
+			}
 
 			lastPos = gameObject.transform.position;
 
@@ -197,5 +207,12 @@ public class PlayerComponent : MonoBehaviour {
 			playerRigid2D.velocity = Vector2.zero;
 			GameManager.I.SetStateEnd ();
 		}
+	}
+
+	public void RetryInitialize(){
+		scale = 1.0f;
+		gameObject.transform.localScale = new Vector3 (scale, scale, 1);
+		gameObject.transform.position = new Vector3 (Camera.main.transform.position.x, Camera.main.transform.position.y, 0);
+		gameObject.GetComponent<SpriteRenderer> ().enabled = true;
 	}
 }

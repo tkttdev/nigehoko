@@ -4,19 +4,27 @@ using UnityEngine.Advertisements;
 
 public class AdsManager : SingletonBehaviour<AdsManager> {
 
-	string ADS_KEY = "adsKey";
-	[SerializeField] private int adsTimes = 0;
-
-	protected override void Initialize (){
-		adsTimes = PlayerPrefs.GetInt(ADS_KEY, 0);
-		base.Initialize ();
+	public void ShowRewardedAd(){
+		if (Advertisement.IsReady("rewardedVideo")){
+			var options = new ShowOptions { resultCallback = HandleShowResult };
+			Advertisement.Show("rewardedVideo", options);
+		}
 	}
-	
-	public void ShowAd() {
-		adsTimes++;
-		PlayerPrefs.SetInt (ADS_KEY, adsTimes);
-		if (Advertisement.IsReady() && adsTimes % 3 == 0){
-			Advertisement.Show();
+
+	private void HandleShowResult(ShowResult result){
+		switch (result){
+		case ShowResult.Finished:
+			Debug.Log ("The ad was successfully shown.");
+			StageManager.I.Retry ();
+			ObjectManager.I.player.GetComponent<PlayerComponent> ().RetryInitialize ();
+			GameManager.I.SetStatePlaying ();
+			break;
+		case ShowResult.Skipped:
+			Debug.Log("The ad was skipped before reaching the end.");
+			break;
+		case ShowResult.Failed:
+			Debug.LogError("The ad failed to be shown.");
+			break;
 		}
 	}
 }

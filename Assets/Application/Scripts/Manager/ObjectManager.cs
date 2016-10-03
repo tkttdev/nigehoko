@@ -17,13 +17,9 @@ public class ObjectManager : SingletonBehaviour<ObjectManager> {
 
 	private bool firstTouch = false;
 
-	public DialogBase gameOverDialog;
-	public DialogBase pauseDialog;
-
 	protected override void Initialize () {
 		player = GameObject.FindGameObjectWithTag ("Player");
-		gameOverDialog = GameObject.FindGameObjectWithTag ("GameOverDialog").GetComponent<GameoverDialog> ();
-		pauseDialog = GameObject.FindGameObjectWithTag ("PauseDialog").GetComponent<PauseDialog> ();
+
 	}
 
 

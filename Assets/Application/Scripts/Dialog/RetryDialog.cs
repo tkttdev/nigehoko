@@ -5,47 +5,61 @@ using UnityEngine.UI;
 
 public class RetryDialog : DialogBase {
 
-	[SerializeField] private GameObject restartButton;
-	[SerializeField] private GameObject exitButton;
+	private int time = 3;
+	private Text countText;
 
-	[SerializeField] private Text resultScoreText;
-	[SerializeField] private Text highScoreText;
+	[SerializeField] private GameObject retryButton;
+	[SerializeField] private GameObject backgroundImage;
+
+	private Coroutine countCorutine;
 
 	protected override void Start () {
-
-		restartButton = GameObject.FindWithTag ("RestartButton");
-		exitButton = GameObject.FindWithTag ("ExitButton");
-
-		resultScoreText = GameObject.Find ("ResultScoreText").GetComponent<Text> ();
-		highScoreText = GameObject.Find ("HighScoreText").GetComponent<Text> ();
-
-		SetButtonsInactive ();
-
 		base.Start ();
+		countText = GameObject.Find ("CountText").GetComponent<Text> ();
+		retryButton= GameObject.FindGameObjectWithTag ("RetryButton");
+		backgroundImage = GameObject.FindGameObjectWithTag ("RetryDialogBackground");
+		time = 3;
+		SetComponentsInactive ();
 	}
 
 	public override void Show() {
 		base.Show ();
-		SetButtonsActive ();
-		resultScoreText.text = string.Format ("{0} cm 生きのびた!", ScoreManager.I.GetScore ());
-		highScoreText.text = string.Format ("BEST : {0} cm", ScoreManager.I.GetHighScore ());
+		SetComponentsActive ();
+		countCorutine = StartCoroutine (Count ());
 	}
 
-	private void SetButtonsInactive(){
-		restartButton.SetActive (false);
-		exitButton.SetActive (false);
+	public override void Hide () {
+		base.Hide ();
+		SetComponentsInactive ();
 	}
 
-	private void SetButtonsActive(){
-		restartButton.SetActive (true);
-		exitButton.SetActive (true);
+	private void SetComponentsInactive(){
+		retryButton.SetActive (false);
+		backgroundImage.SetActive (false);
 	}
 
-	public void Restart(){
-		SceneManager.LoadScene ("Game");
+	private void SetComponentsActive(){
+		retryButton.SetActive (true);
+		backgroundImage.SetActive (true);
 	}
 
-	public void Exit(){
-		SceneManager.LoadScene ("Title");
+	public void Retry(){
+		AdsManager.I.ShowRewardedAd ();
+		Hide ();
+		StopCoroutine (countCorutine);
+	}
+
+	IEnumerator Count(){
+		countText.text = time.ToString ();
+		yield return new WaitForSeconds (1.0f);
+		time--;
+		countText.text = time.ToString ();
+		yield return new WaitForSeconds (1.0f);
+		time--;
+		countText.text = time.ToString ();
+		yield return new WaitForSeconds (1.0f);
+		Hide ();
+		UIManager.I.gameOverDialog.Show ();
+		yield break;
 	}
 }

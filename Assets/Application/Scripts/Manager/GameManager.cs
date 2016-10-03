@@ -14,7 +14,10 @@ public class GameManager : SingletonBehaviour<GameManager> {
 
 	public AudioSource bgmAudioSource;
 
+	private bool isFirst = true;
+
 	protected override void Initialize () {
+		isFirst = true;
 		state = STATE.WAITING;
 		bgmAudioSource = gameObject.GetComponent<AudioSource> ();
 	}
@@ -36,10 +39,12 @@ public class GameManager : SingletonBehaviour<GameManager> {
 	public void SetStateEnd(){
 		this.state = STATE.END;
 		ScoreManager.I.SetHighScore ();
-		ObjectManager.I.gameOverDialog.Show ();
 		ObjectManager.I.InactiveEleDust ();
-		if (!Application.isEditor) {
-			AdsManager.I.ShowAd ();
+		if (isFirst) {
+			isFirst = false;
+			UIManager.I.retryDialog.Show ();
+		} else {
+			UIManager.I.gameOverDialog.Show ();
 		}
 	}
 

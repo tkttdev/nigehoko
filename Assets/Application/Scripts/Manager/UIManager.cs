@@ -13,12 +13,20 @@ public class UIManager : SingletonBehaviour<UIManager> {
 
 	[SerializeField] private Image menuButtonImage;
 
+	public DialogBase gameOverDialog;
+	public DialogBase pauseDialog;
+	public DialogBase retryDialog;
+
 	protected override void Initialize () {
 		tapText = GameObject.Find ("TapText").GetComponent<Text>();
 		scoreText = GameObject.Find("ScoreText").GetComponent<Text>();
 
 		stopButtonSprite = Resources.Load<Sprite> ("Images/StopSkelton");
 		startButtonSprite = Resources.Load<Sprite> ("Images/PlaySkelton");
+
+		gameOverDialog = GameObject.FindGameObjectWithTag ("GameOverDialog").GetComponent<GameOverDialog> ();
+		pauseDialog = GameObject.FindGameObjectWithTag ("PauseDialog").GetComponent<PauseDialog> ();
+		retryDialog = GameObject.FindGameObjectWithTag ("RetryDialog").GetComponent<RetryDialog> ();
 
 		menuButtonImage = GameObject.FindGameObjectWithTag ("MenuButton").GetComponent<Image> ();
 			
@@ -53,13 +61,13 @@ public class UIManager : SingletonBehaviour<UIManager> {
 		if (GameManager.I.IsPlaying ()) {
 			GameManager.I.SetStatePausing ();
 			menuButtonImage.sprite = startButtonSprite;
-			ObjectManager.I.pauseDialog.Show ();
+			UIManager.I.pauseDialog.Show ();
 			GameManager.I.bgmAudioSource.Pause ();
 		} else if (GameManager.I.IsPausing ()) {
 			GameManager.I.SetStatePlaying ();
 			ObjectManager.I.player.GetComponent<PlayerComponent> ().AddForcePlayer ();
 			menuButtonImage.sprite = stopButtonSprite;
-			ObjectManager.I.pauseDialog.Hide ();
+			UIManager.I.pauseDialog.Hide ();
 			GameManager.I.bgmAudioSource.UnPause ();
 		}
 	}

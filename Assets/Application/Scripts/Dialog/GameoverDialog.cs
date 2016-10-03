@@ -3,13 +3,15 @@ using System.Collections;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
-public class GameoverDialog : DialogBase {
+public class GameOverDialog : DialogBase {
 
 	[SerializeField] private GameObject restartButton;
 	[SerializeField] private GameObject exitButton;
 
 	[SerializeField] private Text resultScoreText;
 	[SerializeField] private Text highScoreText;
+
+	[SerializeField] private GameObject backgroundImage;
 
 	protected override void Start () {
 
@@ -19,26 +21,30 @@ public class GameoverDialog : DialogBase {
 		resultScoreText = GameObject.Find ("ResultScoreText").GetComponent<Text> ();
 		highScoreText = GameObject.Find ("HighScoreText").GetComponent<Text> ();
 
-		SetButtonsInactive ();
+		backgroundImage = GameObject.FindGameObjectWithTag ("GameOverDialogBackground");
+
+		SetComponentsInactive ();
 
 		base.Start ();
 	}
 
 	public override void Show() {
 		base.Show ();
-		SetButtonsActive ();
+		SetComponentsActive ();
 		resultScoreText.text = string.Format ("{0} cm 生きのびた!", ScoreManager.I.GetScore ());
 		highScoreText.text = string.Format ("BEST : {0} cm", ScoreManager.I.GetHighScore ());
 	}
 
-	private void SetButtonsInactive(){
+	private void SetComponentsInactive(){
 		restartButton.SetActive (false);
 		exitButton.SetActive (false);
+		backgroundImage.SetActive (false);
 	}
 
-	private void SetButtonsActive(){
+	private void SetComponentsActive(){
 		restartButton.SetActive (true);
 		exitButton.SetActive (true);
+		backgroundImage.SetActive (true);
 	}
 
 	public void Restart(){
