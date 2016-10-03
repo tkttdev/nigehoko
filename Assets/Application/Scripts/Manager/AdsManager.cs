@@ -17,7 +17,7 @@ public class AdsManager : SingletonBehaviour<AdsManager> {
 			Debug.Log ("The ad was successfully shown.");
 			StageManager.I.Retry ();
 			ObjectManager.I.player.GetComponent<PlayerComponent> ().RetryInitialize ();
-			GameManager.I.SetStatePlaying ();
+			UIManager.I.retryDialog.GetComponent<RetryDialog> ().StartCorutineCount ();
 			break;
 		case ShowResult.Skipped:
 			Debug.Log("The ad was skipped before reaching the end.");

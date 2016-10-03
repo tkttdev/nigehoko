@@ -7,9 +7,11 @@ public class RetryDialog : DialogBase {
 
 	private int time = 3;
 	private Text countText;
+	private Text retryText;
 
 	[SerializeField] private GameObject retryButton;
 	[SerializeField] private GameObject backgroundImage;
+	[SerializeField] private Text startCountText;
 
 	private Coroutine countCorutine;
 
@@ -18,6 +20,9 @@ public class RetryDialog : DialogBase {
 		countText = GameObject.Find ("CountText").GetComponent<Text> ();
 		retryButton= GameObject.FindGameObjectWithTag ("RetryButton");
 		backgroundImage = GameObject.FindGameObjectWithTag ("RetryDialogBackground");
+		startCountText = GameObject.Find ("StartCountText").GetComponent<Text> ();
+		retryText = GameObject.Find ("RetryText").GetComponent<Text> ();
+		startCountText.gameObject.SetActive (false);
 		time = 3;
 		SetComponentsInactive ();
 	}
@@ -36,17 +41,22 @@ public class RetryDialog : DialogBase {
 	private void SetComponentsInactive(){
 		retryButton.SetActive (false);
 		backgroundImage.SetActive (false);
+		retryText.gameObject.SetActive (false);
+		countText.gameObject.SetActive (false);
 	}
 
 	private void SetComponentsActive(){
 		retryButton.SetActive (true);
 		backgroundImage.SetActive (true);
+		retryText.gameObject.SetActive (true);
+		countText.gameObject.SetActive (true);
 	}
 
 	public void Retry(){
 		AdsManager.I.ShowRewardedAd ();
-		Hide ();
+		SetComponentsInactive ();
 		StopCoroutine (countCorutine);
+		time = 3;
 	}
 
 	IEnumerator Count(){
@@ -62,4 +72,24 @@ public class RetryDialog : DialogBase {
 		UIManager.I.gameOverDialog.Show ();
 		yield break;
 	}
+
+	public void StartCorutineCount(){
+		StartCoroutine (StartCount ());
+	}
+
+	IEnumerator StartCount(){
+		startCountText.gameObject.SetActive (true);
+		startCountText.text = time.ToString ();
+		yield return new WaitForSeconds (1.0f);
+		time--;
+		startCountText.text = time.ToString ();
+		yield return new WaitForSeconds (1.0f);
+		time--;
+		startCountText.text = time.ToString ();
+		yield return new WaitForSeconds (1.0f);
+		Hide ();
+		GameManager.I.SetStatePlaying ();
+		yield break;
+	}
+
 }
