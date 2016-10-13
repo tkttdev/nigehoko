@@ -34,12 +34,14 @@ public class GameManager : SingletonBehaviour<GameManager> {
 
 	public void SetStatePausing(){
 		this.state = STATE.PAUSING;
+		ScoreManager.I.StopAddScore ();
 	}
 
 	public void SetStateEnd(){
 		this.state = STATE.END;
 		ScoreManager.I.SetHighScore ();
 		ObjectManager.I.InactiveEleDust ();
+		ScoreManager.I.StopAddScore ();
 		if (isFirst) {
 			isFirst = false;
 			UIManager.I.retryDialog.Show ();

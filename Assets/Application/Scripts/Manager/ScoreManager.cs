@@ -4,6 +4,7 @@ using System.Collections;
 public class ScoreManager : SingletonBehaviour<ScoreManager> {
 
 	private int score = -1;
+	private Coroutine addScore;
 
 	const string HIGH_SCORE_KEY = "highScore";
 
@@ -14,12 +15,12 @@ public class ScoreManager : SingletonBehaviour<ScoreManager> {
 		DontDestroyOnLoad (gameObject);
 	}
 
-	public void StopAddScore(){
-		StopCoroutine ("AddScore");
+	public void StartAddScore(){
+		addScore = StartCoroutine (AddScore());
 	}
 
-	public void StartAddScore(){
-		StartCoroutine ("AddScore");
+	public void StopAddScore(){
+		StopCoroutine (addScore);
 	}
 
 	IEnumerator AddScore(){
