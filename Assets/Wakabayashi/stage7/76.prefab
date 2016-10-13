@@ -145,6 +145,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 4000010909287430}
+  - 114: {fileID: 114000010593228056}
   m_Layer: 0
   m_Name: 76
   m_TagString: block
@@ -1032,6 +1033,18 @@ PolygonCollider2D:
       - {x: 0.45, y: -3.165}
       - {x: 0.62, y: -3.145}
       - {x: 0.88, y: -3.105}
+--- !u!114 &114000010593228056
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1000012503281436}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 17dc907bf7df96f47a919cc18f1fa227, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  cost: 3
 --- !u!212 &212000010108779776
 SpriteRenderer:
   m_ObjectHideFlags: 1

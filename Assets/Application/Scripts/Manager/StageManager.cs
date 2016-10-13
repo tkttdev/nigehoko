@@ -109,7 +109,7 @@ public class StageManager : SingletonBehaviour<StageManager> {
             {  
                 //難易度段階が6段,スピードレベルは5段
                 distcount = 0;
-                if(level < 6)
+                if(level < 8)
                 {
                     level++;
                 }
