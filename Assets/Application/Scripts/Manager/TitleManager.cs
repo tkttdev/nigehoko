@@ -1,16 +1,20 @@
 ﻿using UnityEngine;
 using System.Collections;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class TitleManager : SingletonBehaviour<TitleManager> {
 
 	[SerializeField] private AudioClip startSE;
 	[SerializeField] private AudioSource audioSource;
+	[SerializeField] private Text highScoreText;
 	private bool isTouch = false;
 
 	protected override void Initialize (){
 		audioSource = gameObject.GetComponent<AudioSource> ();
 		startSE = Resources.Load ("SE/decision01") as AudioClip;
+		highScoreText = GameObject.Find ("HighScoreText").GetComponent<Text> ();
+		highScoreText.text = string.Format ("HIGH SCORE : {0}", ScoreManager.I.GetHighScore());
 	}
 
 	// Update is called once per frame
