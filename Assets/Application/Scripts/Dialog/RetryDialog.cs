@@ -69,7 +69,7 @@ public class RetryDialog : DialogBase {
 		countText.text = time.ToString ();
 		yield return new WaitForSeconds (1.0f);
 		Hide ();
-		UIManager.I.gameOverDialog.Show ();
+        UIManager.I.gameOverDialog.Show();
 		yield break;
 	}
 
