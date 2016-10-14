@@ -12,8 +12,8 @@ public abstract class SingletonBehaviour<T> : MonoBehaviour where T : MonoBehavi
 
 				if (instance == null) {
 					Debug.LogWarning (typeof(T) + "is nothing");
-					GameObject obj = new GameObject (typeof(T).ToString ());
-					obj.AddComponent<T> ();
+					//GameObject obj = new GameObject (typeof(T).ToString ());
+					//obj.AddComponent<T> ();
 					//instance = obj.GetComponent<T>();
 				}
 			}
@@ -47,5 +47,9 @@ public abstract class SingletonBehaviour<T> : MonoBehaviour where T : MonoBehavi
 		if (instance != null) {
 			instance = null;
 		}
+	}
+
+	static public bool IsExist(){
+		return (instance != null);
 	}
 }

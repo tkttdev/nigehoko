@@ -48,10 +48,12 @@ public class GameOverDialog : DialogBase {
 	}
 
 	public void Restart(){
-		SceneManager.LoadScene ("Game");
+		SoundManager.I.ButtonSE ();
+		AppSceneManager.I.GoGame ();
 	}
 
 	public void Exit(){
-		SceneManager.LoadScene ("Title");
+		SoundManager.I.ButtonSE ();
+		AppSceneManager.I.GoTitle ();
 	}
 }

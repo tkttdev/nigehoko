@@ -12,7 +12,6 @@ public class ScoreManager : SingletonBehaviour<ScoreManager> {
 
 	protected override void Initialize (){
 		base.Initialize ();
-		DontDestroyOnLoad (gameObject);
 	}
 
 	public void StartAddScore(){

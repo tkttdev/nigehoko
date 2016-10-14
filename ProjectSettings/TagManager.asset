@@ -18,6 +18,8 @@ TagManager:
   - GameOverDialogBackground
   - RetryDialogBackground
   - RetryButton
+  - CreditButton
+  - HowToButton
   layers:
   - Default
   - TransparentFX
