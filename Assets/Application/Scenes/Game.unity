@@ -1847,7 +1847,7 @@ MonoBehaviour:
   - 0.5
   isDemo: 0
   demoBlocks: []
-  interval: 0
+  interval: 2
 --- !u!1 &1600776393
 GameObject:
   m_ObjectHideFlags: 0

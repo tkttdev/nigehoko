@@ -42,12 +42,13 @@ public class GameManager : SingletonBehaviour<GameManager> {
 		ScoreManager.I.SetHighScore ();
 		ObjectManager.I.InactiveEleDust ();
 		ScoreManager.I.StopAddScore ();
-		if (isFirst) {
+		UIManager.I.gameOverDialog.Show ();
+		/*if (isFirst) {
 			isFirst = false;
 			UIManager.I.retryDialog.Show ();
 		} else {
 			UIManager.I.gameOverDialog.Show ();
-		}
+		}*/
 	}
 
 	public bool IsPlaying(){
