@@ -13,7 +13,7 @@ public class TitleManager : SingletonBehaviour<TitleManager> {
 
 	protected override void Initialize (){
 		bestScoreText = GameObject.Find ("BestScoreText").GetComponent<Text> ();
-		bestScoreText.text = string.Format ("Best SCORE : {0}", ScoreManager.I.GetHighScore());
+		bestScoreText.text = string.Format ("BEST SCORE : {0}", ScoreManager.I.GetHighScore());
 
 
 		tapText = GameObject.Find ("TapText").GetComponent<Text> ();
