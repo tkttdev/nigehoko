@@ -172,6 +172,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 162246451}
+  - 114: {fileID: 162246452}
   m_Layer: 0
   m_Name: GameSystems
   m_TagString: Untagged
@@ -198,6 +199,17 @@ Transform:
   - {fileID: 220624307}
   m_Father: {fileID: 0}
   m_RootOrder: 2
+--- !u!114 &162246452
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 162246450}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f75ba76dc0b1743488f6e7f54e3e296b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &198133640
 GameObject:
   m_ObjectHideFlags: 0
@@ -2040,7 +2052,6 @@ GameObject:
   - 4: {fileID: 1696826769}
   - 114: {fileID: 1696826768}
   - 82: {fileID: 1696826770}
-  - 114: {fileID: 1696826771}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -2147,17 +2158,6 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 0
---- !u!114 &1696826771
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1696826767}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f75ba76dc0b1743488f6e7f54e3e296b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1769742721
 GameObject:
   m_ObjectHideFlags: 0

@@ -17,6 +17,7 @@ public class AppSceneManager : SingletonBehaviour<AppSceneManager> {
 
 	protected override void Initialize (){
 		base.Initialize ();
+		DontDestroyOnLoad (this);
 	}
 
 	public void GoTitle(){
