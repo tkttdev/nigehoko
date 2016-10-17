@@ -1,11 +1,9 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class SystemsComponent : SingletonBehaviour<SystemsComponent> {
+public class SystemsComponent : MonoBehaviour {
 
-	protected override void Initialize (){
-		base.Initialize ();
+	private void Start(){
 		DontDestroyOnLoad (this);
-		Debug.Log (instance);
 	}
 }
