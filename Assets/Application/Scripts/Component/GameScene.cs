@@ -4,8 +4,9 @@ using System.Collections;
 public class GameScene : MonoBehaviour{
 
 	void Start(){
-		if (!SystemsComponent.IsExist ()) {
+		if (GameObject.Find("Systems") == null) {
 			GameObject sys = Resources.Load("Prefabs/Systems") as GameObject;
+			sys.transform.name = "Systems";
 			Instantiate (sys);
 		}
 	}
