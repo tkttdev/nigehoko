@@ -13,9 +13,8 @@ public class UIManager : SingletonBehaviour<UIManager> {
 
 	[SerializeField] private Image menuButtonImage;
 
-	public DialogBase gameOverDialog;
-	public DialogBase pauseDialog;
-	public DialogBase retryDialog;
+	public GameOverDialog gameOverDialog;
+	public PauseDialog pauseDialog;
 
 	protected override void Initialize () {
 		tapText = GameObject.Find ("TapText").GetComponent<Text>();
@@ -26,7 +25,6 @@ public class UIManager : SingletonBehaviour<UIManager> {
 
 		gameOverDialog = GameObject.FindGameObjectWithTag ("GameOverDialog").GetComponent<GameOverDialog> ();
 		pauseDialog = GameObject.FindGameObjectWithTag ("PauseDialog").GetComponent<PauseDialog> ();
-		retryDialog = GameObject.FindGameObjectWithTag ("RetryDialog").GetComponent<RetryDialog> ();
 
 		menuButtonImage = GameObject.FindGameObjectWithTag ("MenuButton").GetComponent<Image> ();
 			
