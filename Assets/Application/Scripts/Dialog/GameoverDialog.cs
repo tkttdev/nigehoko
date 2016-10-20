@@ -36,13 +36,14 @@ public class GameOverDialog : DialogBase {
 
 		isFirst = true;
 
+		countText.enabled = false;
+
 		base.Start ();
 	}
 
 	public override void Show() {
 		base.Show ();
 		SetComponentsActive ();
-		countText.enabled = false;
 		resultScoreText.text = string.Format ("{0} cm 生きのびた!", ScoreManager.I.GetScore ());
 		bestScoreText.text = string.Format ("BEST : {0} cm", ScoreManager.I.GetHighScore ());
 		if (isFirst) {
@@ -51,6 +52,39 @@ public class GameOverDialog : DialogBase {
 			restartButton.transform.localPosition = new Vector3 (restartButton.transform.localPosition.x, 160, restartButton.transform.localPosition.z);
 			exitButton.transform.localPosition = new Vector3 (exitButton.transform.localPosition.x, 160, exitButton.transform.localPosition.z);
 			retryButton.SetActive (false);
+		}
+		CheckRank ();
+	}
+
+	public override void Hide () {
+		base.Hide ();
+		SetComponentsInactive ();
+	}
+
+	private void CheckRank(){
+		int rank = ScoreManager.I.GetScore () % 400;
+		switch (rank) {
+		case 0:
+			rankText.text = "D";
+			break;
+		case 1:
+			rankText.text = "C";
+			break;
+		case 2:
+			rankText.text = "B";
+			break;
+		case 3:
+			rankText.text = "A";
+			break;
+		case 4:
+			rankText.text = "S";
+			break;
+		case 5:
+			rankText.text = "SS";
+			break;
+		case 6:
+			rankText.text = "SSS";
+			break;
 		}
 	}
 
@@ -79,8 +113,7 @@ public class GameOverDialog : DialogBase {
 	}
 
 	public void Retry(){
-		this.Hide ();
-		SetComponentsInactive ();
+		Hide ();
 		AdsManager.I.ShowRewardedAd ();
 	}
 
