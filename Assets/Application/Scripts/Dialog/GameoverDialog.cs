@@ -62,28 +62,35 @@ public class GameOverDialog : DialogBase {
 	}
 
 	private void CheckRank(){
-		int rank = ScoreManager.I.GetScore () % 400;
+		int rank = ScoreManager.I.GetScore () / 400;
 		switch (rank) {
 		case 0:
 			rankText.text = "D";
+			rankText.color = new Color (142.0f/255.0f,  62.0f/255.0f,   3.0f/255.0f);
 			break;
 		case 1:
 			rankText.text = "C";
+			rankText.color = new Color (255.0f/255.0f, 204.0f/255.0f,   0.0f/255.0f);
 			break;
 		case 2:
 			rankText.text = "B";
+			rankText.color = new Color (  0.0f/255.0f,   0.0f/255.0f, 255.0f/255.0f);
 			break;
 		case 3:
 			rankText.text = "A";
+			rankText.color = new Color (142.0f/255.0f,  62.0f/255.0f,   3.0f/255.0f);
 			break;
 		case 4:
 			rankText.text = "S";
+			rankText.color = new Color (174.0f/255.0f,  68.0f/255.0f, 154.0f/255.0f);
 			break;
 		case 5:
 			rankText.text = "SS";
+			rankText.color = new Color (174.0f/255.0f,  68.0f/255.0f, 154.0f/255.0f);
 			break;
 		case 6:
 			rankText.text = "SSS";
+			rankText.color = new Color (174.0f/255.0f,  68.0f/255.0f, 154.0f/255.0f);
 			break;
 		}
 	}
