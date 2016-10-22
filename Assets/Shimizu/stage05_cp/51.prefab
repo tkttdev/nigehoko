@@ -9,15 +9,22 @@ Prefab:
     m_Modifications: []
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
+<<<<<<< HEAD:Assets/Shimizu/stage05_cp/51.prefab
   m_RootGameObject: {fileID: 1000011966087508}
   m_IsPrefabParent: 1
 --- !u!1 &1000010215448804
+=======
+  m_RootGameObject: {fileID: 1000013254969928}
+  m_IsPrefabParent: 1
+--- !u!1 &1000010196993928
+>>>>>>> 15889d1631c344582cc52e93d7f0a3db03549330:Assets/Tamaki/Stage5/51.prefab
 GameObject:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   serializedVersion: 4
   m_Component:
+<<<<<<< HEAD:Assets/Shimizu/stage05_cp/51.prefab
   - 4: {fileID: 4000013150351060}
   - 212: {fileID: 212000013649665224}
   - 50: {fileID: 50000011497069022}
@@ -42,36 +49,58 @@ GameObject:
   - 60: {fileID: 60000014027668520}
   m_Layer: 0
   m_Name: flyingpan
+=======
+  - 4: {fileID: 4000013562399318}
+  - 212: {fileID: 212000013443949126}
+  m_Layer: 0
+  m_Name: WoodFloor
+>>>>>>> 15889d1631c344582cc52e93d7f0a3db03549330:Assets/Tamaki/Stage5/51.prefab
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+<<<<<<< HEAD:Assets/Shimizu/stage05_cp/51.prefab
 --- !u!1 &1000010704454004
+=======
+--- !u!1 &1000011407321710
+>>>>>>> 15889d1631c344582cc52e93d7f0a3db03549330:Assets/Tamaki/Stage5/51.prefab
 GameObject:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   serializedVersion: 4
   m_Component:
+<<<<<<< HEAD:Assets/Shimizu/stage05_cp/51.prefab
   - 4: {fileID: 4000012665582564}
   - 212: {fileID: 212000013689553660}
   - 50: {fileID: 50000011799754466}
   - 58: {fileID: 58000013666527504}
+=======
+  - 4: {fileID: 4000011264044964}
+  - 212: {fileID: 212000011620793066}
+  - 50: {fileID: 50000012659333282}
+  - 60: {fileID: 60000011235711134}
+>>>>>>> 15889d1631c344582cc52e93d7f0a3db03549330:Assets/Tamaki/Stage5/51.prefab
   m_Layer: 0
-  m_Name: dish
+  m_Name: glass
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+<<<<<<< HEAD:Assets/Shimizu/stage05_cp/51.prefab
 --- !u!1 &1000011263865030
+=======
+--- !u!1 &1000011993372306
+>>>>>>> 15889d1631c344582cc52e93d7f0a3db03549330:Assets/Tamaki/Stage5/51.prefab
 GameObject:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   serializedVersion: 4
   m_Component:
+<<<<<<< HEAD:Assets/Shimizu/stage05_cp/51.prefab
   - 4: {fileID: 4000012113444156}
   - 212: {fileID: 212000011606119096}
   m_Layer: 0
@@ -94,38 +123,68 @@ GameObject:
   - 60: {fileID: 60000010629412224}
   m_Layer: 0
   m_Name: glass (1)
+=======
+  - 4: {fileID: 4000013430075170}
+  - 212: {fileID: 212000013181013818}
+  - 50: {fileID: 50000011042009678}
+  - 60: {fileID: 60000013922110594}
+  m_Layer: 0
+  m_Name: flyingpan
+>>>>>>> 15889d1631c344582cc52e93d7f0a3db03549330:Assets/Tamaki/Stage5/51.prefab
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+<<<<<<< HEAD:Assets/Shimizu/stage05_cp/51.prefab
 --- !u!1 &1000011750510912
+=======
+--- !u!1 &1000013125748896
+>>>>>>> 15889d1631c344582cc52e93d7f0a3db03549330:Assets/Tamaki/Stage5/51.prefab
 GameObject:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   serializedVersion: 4
   m_Component:
+<<<<<<< HEAD:Assets/Shimizu/stage05_cp/51.prefab
   - 4: {fileID: 4000011217420820}
   - 212: {fileID: 212000010463761268}
   - 50: {fileID: 50000011553954340}
   - 60: {fileID: 60000013939257912}
   m_Layer: 0
   m_Name: glass
+=======
+  - 4: {fileID: 4000012736275132}
+  - 212: {fileID: 212000011998165848}
+  - 50: {fileID: 50000013592825760}
+  - 58: {fileID: 58000012667151466}
+  m_Layer: 0
+  m_Name: dish (2)
+>>>>>>> 15889d1631c344582cc52e93d7f0a3db03549330:Assets/Tamaki/Stage5/51.prefab
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+<<<<<<< HEAD:Assets/Shimizu/stage05_cp/51.prefab
 --- !u!1 &1000011966087508
+=======
+--- !u!1 &1000013254969928
+>>>>>>> 15889d1631c344582cc52e93d7f0a3db03549330:Assets/Tamaki/Stage5/51.prefab
 GameObject:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   serializedVersion: 4
   m_Component:
+<<<<<<< HEAD:Assets/Shimizu/stage05_cp/51.prefab
   - 4: {fileID: 4000012843217416}
   - 114: {fileID: 114000011617278760}
+=======
+  - 4: {fileID: 4000010527801148}
+  - 114: {fileID: 114000011634305742}
+>>>>>>> 15889d1631c344582cc52e93d7f0a3db03549330:Assets/Tamaki/Stage5/51.prefab
   m_Layer: 0
   m_Name: 51
   m_TagString: block
@@ -133,47 +192,78 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+<<<<<<< HEAD:Assets/Shimizu/stage05_cp/51.prefab
 --- !u!1 &1000013612906518
+=======
+--- !u!1 &1000013395776790
+>>>>>>> 15889d1631c344582cc52e93d7f0a3db03549330:Assets/Tamaki/Stage5/51.prefab
 GameObject:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   serializedVersion: 4
   m_Component:
+<<<<<<< HEAD:Assets/Shimizu/stage05_cp/51.prefab
   - 4: {fileID: 4000012454789606}
   - 212: {fileID: 212000013244440966}
   - 50: {fileID: 50000011024853748}
   - 58: {fileID: 58000011599994592}
   m_Layer: 0
   m_Name: disk
+=======
+  - 4: {fileID: 4000013512493116}
+  - 212: {fileID: 212000010293042704}
+  - 50: {fileID: 50000013418143142}
+  - 58: {fileID: 58000011311459828}
+  m_Layer: 0
+  m_Name: dish (1)
+>>>>>>> 15889d1631c344582cc52e93d7f0a3db03549330:Assets/Tamaki/Stage5/51.prefab
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+<<<<<<< HEAD:Assets/Shimizu/stage05_cp/51.prefab
 --- !u!1 &1000013798298758
+=======
+--- !u!1 &1000013944100284
+>>>>>>> 15889d1631c344582cc52e93d7f0a3db03549330:Assets/Tamaki/Stage5/51.prefab
 GameObject:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   serializedVersion: 4
   m_Component:
+<<<<<<< HEAD:Assets/Shimizu/stage05_cp/51.prefab
   - 4: {fileID: 4000011349666424}
   - 212: {fileID: 212000010494853930}
   - 50: {fileID: 50000011095520684}
   - 60: {fileID: 60000010141984890}
   m_Layer: 0
   m_Name: glass (2)
+=======
+  - 4: {fileID: 4000011903036354}
+  - 212: {fileID: 212000010160049088}
+  - 50: {fileID: 50000013015255152}
+  - 58: {fileID: 58000010189655266}
+  m_Layer: 0
+  m_Name: dish
+>>>>>>> 15889d1631c344582cc52e93d7f0a3db03549330:Assets/Tamaki/Stage5/51.prefab
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+<<<<<<< HEAD:Assets/Shimizu/stage05_cp/51.prefab
 --- !u!4 &4000011217420820
+=======
+--- !u!4 &4000010527801148
+>>>>>>> 15889d1631c344582cc52e93d7f0a3db03549330:Assets/Tamaki/Stage5/51.prefab
 Transform:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
+<<<<<<< HEAD:Assets/Shimizu/stage05_cp/51.prefab
   m_GameObject: {fileID: 1000011750510912}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: -1.4140046, y: -1.2570298, z: 0}
@@ -196,10 +286,28 @@ Transform:
   m_Father: {fileID: 4000012843217416}
   m_RootOrder: 5
 --- !u!4 &4000012113444156
+=======
+  m_GameObject: {fileID: 1000013254969928}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_Children:
+  - {fileID: 4000013562399318}
+  - {fileID: 4000011903036354}
+  - {fileID: 4000011264044964}
+  - {fileID: 4000013512493116}
+  - {fileID: 4000012736275132}
+  - {fileID: 4000013430075170}
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+--- !u!4 &4000011264044964
+>>>>>>> 15889d1631c344582cc52e93d7f0a3db03549330:Assets/Tamaki/Stage5/51.prefab
 Transform:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
+<<<<<<< HEAD:Assets/Shimizu/stage05_cp/51.prefab
   m_GameObject: {fileID: 1000011263865030}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
@@ -222,10 +330,22 @@ Transform:
   m_Father: {fileID: 4000012843217416}
   m_RootOrder: 3
 --- !u!4 &4000012492735240
+=======
+  m_GameObject: {fileID: 1000011407321710}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -2.46, y: -2.17, z: 0}
+  m_LocalScale: {x: 0.3, y: 0.3, z: 1}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_Children: []
+  m_Father: {fileID: 4000010527801148}
+  m_RootOrder: 2
+--- !u!4 &4000011903036354
+>>>>>>> 15889d1631c344582cc52e93d7f0a3db03549330:Assets/Tamaki/Stage5/51.prefab
 Transform:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
+<<<<<<< HEAD:Assets/Shimizu/stage05_cp/51.prefab
   m_GameObject: {fileID: 1000011602089464}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: -0.46, y: 0.71, z: 0}
@@ -235,23 +355,45 @@ Transform:
   m_Father: {fileID: 4000012843217416}
   m_RootOrder: 4
 --- !u!4 &4000012665582564
-Transform:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1000010704454004}
+=======
+  m_GameObject: {fileID: 1000013944100284}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 2.0094275, y: -0.846218, z: 0}
+  m_LocalPosition: {x: 2.1, y: -1.07, z: 0}
   m_LocalScale: {x: 0.7, y: 0.7, z: 1}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children: []
-  m_Father: {fileID: 4000012843217416}
-  m_RootOrder: 2
---- !u!4 &4000012840558572
+  m_Father: {fileID: 4000010527801148}
+  m_RootOrder: 1
+--- !u!4 &4000012736275132
+>>>>>>> 15889d1631c344582cc52e93d7f0a3db03549330:Assets/Tamaki/Stage5/51.prefab
 Transform:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
+<<<<<<< HEAD:Assets/Shimizu/stage05_cp/51.prefab
+  m_GameObject: {fileID: 1000010704454004}
+=======
+  m_GameObject: {fileID: 1000013125748896}
+>>>>>>> 15889d1631c344582cc52e93d7f0a3db03549330:Assets/Tamaki/Stage5/51.prefab
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -0.54, y: 0.57, z: 0}
+  m_LocalScale: {x: 0.7, y: 0.7, z: 1}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_Children: []
+<<<<<<< HEAD:Assets/Shimizu/stage05_cp/51.prefab
+  m_Father: {fileID: 4000012843217416}
+  m_RootOrder: 2
+--- !u!4 &4000012840558572
+=======
+  m_Father: {fileID: 4000010527801148}
+  m_RootOrder: 4
+--- !u!4 &4000013430075170
+>>>>>>> 15889d1631c344582cc52e93d7f0a3db03549330:Assets/Tamaki/Stage5/51.prefab
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+<<<<<<< HEAD:Assets/Shimizu/stage05_cp/51.prefab
   m_GameObject: {fileID: 1000010340002942}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: -1.1857758, y: 2.9423807, z: 0}
@@ -261,10 +403,22 @@ Transform:
   m_Father: {fileID: 4000012843217416}
   m_RootOrder: 6
 --- !u!4 &4000012843217416
+=======
+  m_GameObject: {fileID: 1000011993372306}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -1.18, y: 3.21, z: 0}
+  m_LocalScale: {x: 0.6, y: 0.6, z: 1}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_Children: []
+  m_Father: {fileID: 4000010527801148}
+  m_RootOrder: 5
+--- !u!4 &4000013512493116
+>>>>>>> 15889d1631c344582cc52e93d7f0a3db03549330:Assets/Tamaki/Stage5/51.prefab
 Transform:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
+<<<<<<< HEAD:Assets/Shimizu/stage05_cp/51.prefab
   m_GameObject: {fileID: 1000011966087508}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
@@ -282,10 +436,22 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
 --- !u!4 &4000013150351060
+=======
+  m_GameObject: {fileID: 1000013395776790}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 2.75, y: 2.26, z: 0}
+  m_LocalScale: {x: 0.7, y: 0.7, z: 1}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_Children: []
+  m_Father: {fileID: 4000010527801148}
+  m_RootOrder: 3
+--- !u!4 &4000013562399318
+>>>>>>> 15889d1631c344582cc52e93d7f0a3db03549330:Assets/Tamaki/Stage5/51.prefab
 Transform:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
+<<<<<<< HEAD:Assets/Shimizu/stage05_cp/51.prefab
   m_GameObject: {fileID: 1000010215448804}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 2.648469, y: 1.8012364, z: 0}
@@ -329,12 +495,27 @@ Rigidbody2D:
   m_CollisionDetection: 1
   m_Constraints: 7
 --- !u!50 &50000011095520684
+=======
+  m_GameObject: {fileID: 1000010196993928}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1.1, z: 1}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_Children: []
+  m_Father: {fileID: 4000010527801148}
+  m_RootOrder: 0
+--- !u!50 &50000011042009678
+>>>>>>> 15889d1631c344582cc52e93d7f0a3db03549330:Assets/Tamaki/Stage5/51.prefab
 Rigidbody2D:
   serializedVersion: 2
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
+<<<<<<< HEAD:Assets/Shimizu/stage05_cp/51.prefab
   m_GameObject: {fileID: 1000013798298758}
+=======
+  m_GameObject: {fileID: 1000011993372306}
+>>>>>>> 15889d1631c344582cc52e93d7f0a3db03549330:Assets/Tamaki/Stage5/51.prefab
   m_UseAutoMass: 0
   m_Mass: 10000
   m_LinearDrag: 0
@@ -345,13 +526,21 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 1
   m_Constraints: 7
+<<<<<<< HEAD:Assets/Shimizu/stage05_cp/51.prefab
 --- !u!50 &50000011497069022
+=======
+--- !u!50 &50000012659333282
+>>>>>>> 15889d1631c344582cc52e93d7f0a3db03549330:Assets/Tamaki/Stage5/51.prefab
 Rigidbody2D:
   serializedVersion: 2
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
+<<<<<<< HEAD:Assets/Shimizu/stage05_cp/51.prefab
   m_GameObject: {fileID: 1000010215448804}
+=======
+  m_GameObject: {fileID: 1000011407321710}
+>>>>>>> 15889d1631c344582cc52e93d7f0a3db03549330:Assets/Tamaki/Stage5/51.prefab
   m_UseAutoMass: 0
   m_Mass: 10000
   m_LinearDrag: 0
@@ -362,13 +551,21 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 1
   m_Constraints: 7
+<<<<<<< HEAD:Assets/Shimizu/stage05_cp/51.prefab
 --- !u!50 &50000011553954340
+=======
+--- !u!50 &50000013015255152
+>>>>>>> 15889d1631c344582cc52e93d7f0a3db03549330:Assets/Tamaki/Stage5/51.prefab
 Rigidbody2D:
   serializedVersion: 2
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
+<<<<<<< HEAD:Assets/Shimizu/stage05_cp/51.prefab
   m_GameObject: {fileID: 1000011750510912}
+=======
+  m_GameObject: {fileID: 1000013944100284}
+>>>>>>> 15889d1631c344582cc52e93d7f0a3db03549330:Assets/Tamaki/Stage5/51.prefab
   m_UseAutoMass: 0
   m_Mass: 10000
   m_LinearDrag: 0
@@ -379,13 +576,21 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 1
   m_Constraints: 7
+<<<<<<< HEAD:Assets/Shimizu/stage05_cp/51.prefab
 --- !u!50 &50000011799754466
+=======
+--- !u!50 &50000013418143142
+>>>>>>> 15889d1631c344582cc52e93d7f0a3db03549330:Assets/Tamaki/Stage5/51.prefab
 Rigidbody2D:
   serializedVersion: 2
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
+<<<<<<< HEAD:Assets/Shimizu/stage05_cp/51.prefab
   m_GameObject: {fileID: 1000010704454004}
+=======
+  m_GameObject: {fileID: 1000013395776790}
+>>>>>>> 15889d1631c344582cc52e93d7f0a3db03549330:Assets/Tamaki/Stage5/51.prefab
   m_UseAutoMass: 0
   m_Mass: 10000
   m_LinearDrag: 0
@@ -396,13 +601,21 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 1
   m_Constraints: 7
+<<<<<<< HEAD:Assets/Shimizu/stage05_cp/51.prefab
 --- !u!50 &50000012626698698
+=======
+--- !u!50 &50000013592825760
+>>>>>>> 15889d1631c344582cc52e93d7f0a3db03549330:Assets/Tamaki/Stage5/51.prefab
 Rigidbody2D:
   serializedVersion: 2
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
+<<<<<<< HEAD:Assets/Shimizu/stage05_cp/51.prefab
   m_GameObject: {fileID: 1000011602089464}
+=======
+  m_GameObject: {fileID: 1000013125748896}
+>>>>>>> 15889d1631c344582cc52e93d7f0a3db03549330:Assets/Tamaki/Stage5/51.prefab
   m_UseAutoMass: 0
   m_Mass: 10000
   m_LinearDrag: 0
@@ -413,26 +626,20 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 1
   m_Constraints: 7
+<<<<<<< HEAD:Assets/Shimizu/stage05_cp/51.prefab
 --- !u!58 &58000011599994592
+=======
+--- !u!58 &58000010189655266
+>>>>>>> 15889d1631c344582cc52e93d7f0a3db03549330:Assets/Tamaki/Stage5/51.prefab
 CircleCollider2D:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
+<<<<<<< HEAD:Assets/Shimizu/stage05_cp/51.prefab
   m_GameObject: {fileID: 1000013612906518}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_Offset: {x: 0, y: 0}
-  serializedVersion: 2
-  m_Radius: 2
---- !u!58 &58000013666527504
-CircleCollider2D:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1000010704454004}
+=======
+  m_GameObject: {fileID: 1000013944100284}
+>>>>>>> 15889d1631c344582cc52e93d7f0a3db03549330:Assets/Tamaki/Stage5/51.prefab
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
@@ -441,6 +648,29 @@ CircleCollider2D:
   m_Offset: {x: -0.33, y: 0}
   serializedVersion: 2
   m_Radius: 2
+<<<<<<< HEAD:Assets/Shimizu/stage05_cp/51.prefab
+--- !u!58 &58000013666527504
+=======
+--- !u!58 &58000011311459828
+>>>>>>> 15889d1631c344582cc52e93d7f0a3db03549330:Assets/Tamaki/Stage5/51.prefab
+CircleCollider2D:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+<<<<<<< HEAD:Assets/Shimizu/stage05_cp/51.prefab
+  m_GameObject: {fileID: 1000010704454004}
+=======
+  m_GameObject: {fileID: 1000013395776790}
+>>>>>>> 15889d1631c344582cc52e93d7f0a3db03549330:Assets/Tamaki/Stage5/51.prefab
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_Offset: {x: -0.33, y: 0}
+  serializedVersion: 2
+  m_Radius: 2
+<<<<<<< HEAD:Assets/Shimizu/stage05_cp/51.prefab
 --- !u!60 &60000010141984890
 PolygonCollider2D:
   m_ObjectHideFlags: 1
@@ -607,11 +837,20 @@ PolygonCollider2D:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1000010215448804}
+=======
+--- !u!58 &58000012667151466
+CircleCollider2D:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1000013125748896}
+>>>>>>> 15889d1631c344582cc52e93d7f0a3db03549330:Assets/Tamaki/Stage5/51.prefab
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_UsedByEffector: 0
+<<<<<<< HEAD:Assets/Shimizu/stage05_cp/51.prefab
   m_Offset: {x: 0, y: 0}
   m_Points:
     m_Paths:
@@ -682,11 +921,21 @@ PolygonCollider2D:
       - {x: 0.62, y: -3.145}
       - {x: 0.88, y: -3.105}
 --- !u!60 &60000013939257912
+=======
+  m_Offset: {x: -0.33, y: 0}
+  serializedVersion: 2
+  m_Radius: 2
+--- !u!60 &60000011235711134
+>>>>>>> 15889d1631c344582cc52e93d7f0a3db03549330:Assets/Tamaki/Stage5/51.prefab
 PolygonCollider2D:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
+<<<<<<< HEAD:Assets/Shimizu/stage05_cp/51.prefab
   m_GameObject: {fileID: 1000011750510912}
+=======
+  m_GameObject: {fileID: 1000011407321710}
+>>>>>>> 15889d1631c344582cc52e93d7f0a3db03549330:Assets/Tamaki/Stage5/51.prefab
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
@@ -761,12 +1010,20 @@ PolygonCollider2D:
       - {x: 0.45, y: -3.165}
       - {x: 0.62, y: -3.145}
       - {x: 0.88, y: -3.105}
+<<<<<<< HEAD:Assets/Shimizu/stage05_cp/51.prefab
 --- !u!60 &60000014027668520
+=======
+--- !u!60 &60000013922110594
+>>>>>>> 15889d1631c344582cc52e93d7f0a3db03549330:Assets/Tamaki/Stage5/51.prefab
 PolygonCollider2D:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
+<<<<<<< HEAD:Assets/Shimizu/stage05_cp/51.prefab
   m_GameObject: {fileID: 1000010340002942}
+=======
+  m_GameObject: {fileID: 1000011993372306}
+>>>>>>> 15889d1631c344582cc52e93d7f0a3db03549330:Assets/Tamaki/Stage5/51.prefab
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
@@ -876,24 +1133,40 @@ PolygonCollider2D:
       - {x: -0.87, y: -1.4499999}
       - {x: -0.68, y: -1.43}
       - {x: -0.55, y: -1.41}
+<<<<<<< HEAD:Assets/Shimizu/stage05_cp/51.prefab
 --- !u!114 &114000011617278760
+=======
+--- !u!114 &114000011634305742
+>>>>>>> 15889d1631c344582cc52e93d7f0a3db03549330:Assets/Tamaki/Stage5/51.prefab
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
+<<<<<<< HEAD:Assets/Shimizu/stage05_cp/51.prefab
   m_GameObject: {fileID: 1000011966087508}
+=======
+  m_GameObject: {fileID: 1000013254969928}
+>>>>>>> 15889d1631c344582cc52e93d7f0a3db03549330:Assets/Tamaki/Stage5/51.prefab
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 17dc907bf7df96f47a919cc18f1fa227, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   cost: 3
+<<<<<<< HEAD:Assets/Shimizu/stage05_cp/51.prefab
 --- !u!212 &212000010463761268
+=======
+--- !u!212 &212000010160049088
+>>>>>>> 15889d1631c344582cc52e93d7f0a3db03549330:Assets/Tamaki/Stage5/51.prefab
 SpriteRenderer:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
+<<<<<<< HEAD:Assets/Shimizu/stage05_cp/51.prefab
   m_GameObject: {fileID: 1000011750510912}
+=======
+  m_GameObject: {fileID: 1000013944100284}
+>>>>>>> 15889d1631c344582cc52e93d7f0a3db03549330:Assets/Tamaki/Stage5/51.prefab
   m_Enabled: 1
   m_CastShadows: 0
   m_ReceiveShadows: 0
@@ -917,16 +1190,28 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingOrder: 8
+<<<<<<< HEAD:Assets/Shimizu/stage05_cp/51.prefab
   m_Sprite: {fileID: 21300000, guid: d0016bb2b32154d44be2e4ca26826eb6, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
 --- !u!212 &212000010494853930
+=======
+  m_Sprite: {fileID: 21300000, guid: 60fda4da607eef14099f082e6909a53b, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_FlipX: 0
+  m_FlipY: 0
+--- !u!212 &212000010293042704
+>>>>>>> 15889d1631c344582cc52e93d7f0a3db03549330:Assets/Tamaki/Stage5/51.prefab
 SpriteRenderer:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
+<<<<<<< HEAD:Assets/Shimizu/stage05_cp/51.prefab
   m_GameObject: {fileID: 1000013798298758}
+=======
+  m_GameObject: {fileID: 1000013395776790}
+>>>>>>> 15889d1631c344582cc52e93d7f0a3db03549330:Assets/Tamaki/Stage5/51.prefab
   m_Enabled: 1
   m_CastShadows: 0
   m_ReceiveShadows: 0
@@ -954,12 +1239,20 @@ SpriteRenderer:
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
+<<<<<<< HEAD:Assets/Shimizu/stage05_cp/51.prefab
 --- !u!212 &212000011606119096
+=======
+--- !u!212 &212000011620793066
+>>>>>>> 15889d1631c344582cc52e93d7f0a3db03549330:Assets/Tamaki/Stage5/51.prefab
 SpriteRenderer:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
+<<<<<<< HEAD:Assets/Shimizu/stage05_cp/51.prefab
   m_GameObject: {fileID: 1000011263865030}
+=======
+  m_GameObject: {fileID: 1000011407321710}
+>>>>>>> 15889d1631c344582cc52e93d7f0a3db03549330:Assets/Tamaki/Stage5/51.prefab
   m_Enabled: 1
   m_CastShadows: 0
   m_ReceiveShadows: 0
@@ -987,12 +1280,20 @@ SpriteRenderer:
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
+<<<<<<< HEAD:Assets/Shimizu/stage05_cp/51.prefab
 --- !u!212 &212000011647801914
+=======
+--- !u!212 &212000011998165848
+>>>>>>> 15889d1631c344582cc52e93d7f0a3db03549330:Assets/Tamaki/Stage5/51.prefab
 SpriteRenderer:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
+<<<<<<< HEAD:Assets/Shimizu/stage05_cp/51.prefab
   m_GameObject: {fileID: 1000010340002942}
+=======
+  m_GameObject: {fileID: 1000013125748896}
+>>>>>>> 15889d1631c344582cc52e93d7f0a3db03549330:Assets/Tamaki/Stage5/51.prefab
   m_Enabled: 1
   m_CastShadows: 0
   m_ReceiveShadows: 0
@@ -1016,16 +1317,28 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingOrder: 8
+<<<<<<< HEAD:Assets/Shimizu/stage05_cp/51.prefab
   m_Sprite: {fileID: 21300000, guid: 6752cffcaa924d54484a9de1723839d6, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
 --- !u!212 &212000013244440966
+=======
+  m_Sprite: {fileID: 21300000, guid: 60fda4da607eef14099f082e6909a53b, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_FlipX: 0
+  m_FlipY: 0
+--- !u!212 &212000013181013818
+>>>>>>> 15889d1631c344582cc52e93d7f0a3db03549330:Assets/Tamaki/Stage5/51.prefab
 SpriteRenderer:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
+<<<<<<< HEAD:Assets/Shimizu/stage05_cp/51.prefab
   m_GameObject: {fileID: 1000013612906518}
+=======
+  m_GameObject: {fileID: 1000011993372306}
+>>>>>>> 15889d1631c344582cc52e93d7f0a3db03549330:Assets/Tamaki/Stage5/51.prefab
   m_Enabled: 1
   m_CastShadows: 0
   m_ReceiveShadows: 0
@@ -1049,16 +1362,28 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingOrder: 8
+<<<<<<< HEAD:Assets/Shimizu/stage05_cp/51.prefab
   m_Sprite: {fileID: 21300000, guid: 0ef45e9aa5a4a334f864cb402e372775, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
 --- !u!212 &212000013649665224
+=======
+  m_Sprite: {fileID: 21300000, guid: 6752cffcaa924d54484a9de1723839d6, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_FlipX: 0
+  m_FlipY: 0
+--- !u!212 &212000013443949126
+>>>>>>> 15889d1631c344582cc52e93d7f0a3db03549330:Assets/Tamaki/Stage5/51.prefab
 SpriteRenderer:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
+<<<<<<< HEAD:Assets/Shimizu/stage05_cp/51.prefab
   m_GameObject: {fileID: 1000010215448804}
+=======
+  m_GameObject: {fileID: 1000010196993928}
+>>>>>>> 15889d1631c344582cc52e93d7f0a3db03549330:Assets/Tamaki/Stage5/51.prefab
   m_Enabled: 1
   m_CastShadows: 0
   m_ReceiveShadows: 0
@@ -1086,6 +1411,7 @@ SpriteRenderer:
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
+<<<<<<< HEAD:Assets/Shimizu/stage05_cp/51.prefab
 --- !u!212 &212000013686378206
 SpriteRenderer:
   m_ObjectHideFlags: 1
@@ -1152,3 +1478,5 @@ SpriteRenderer:
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
+=======
+>>>>>>> 15889d1631c344582cc52e93d7f0a3db03549330:Assets/Tamaki/Stage5/51.prefab

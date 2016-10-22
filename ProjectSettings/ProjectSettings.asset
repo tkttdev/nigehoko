@@ -7,7 +7,7 @@ PlayerSettings:
   productGUID: ea0ae76462e40497dbfed9eb104d0a74
   AndroidProfiler: 0
   defaultScreenOrientation: 0
-  targetDevice: 2
+  targetDevice: 0
   useOnDemandResources: 0
   accelerometerFrequency: 60
   companyName: Finders
@@ -95,7 +95,7 @@ PlayerSettings:
     16:9: 1
     Others: 1
   bundleIdentifier: com.finders.rundust
-  bundleVersion: 1.0
+  bundleVersion: 2.0.0
   preloadedAssets: []
   metroEnableIndependentInputSource: 0
   xboxOneDisableKinectGpuReservation: 0

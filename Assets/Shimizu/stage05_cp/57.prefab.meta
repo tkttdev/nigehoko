@@ -1,6 +1,11 @@
 fileFormatVersion: 2
+<<<<<<< HEAD:Assets/Shimizu/stage05_cp/57.prefab.meta
 guid: 0cae4675aab34044190ad84f93dbb2c2
 timeCreated: 1474378487
+=======
+guid: 877a888b1564ed743b71d1ba957e7792
+timeCreated: 1476496326
+>>>>>>> 15889d1631c344582cc52e93d7f0a3db03549330:Assets/Tamaki/Stage5/57.prefab.meta
 licenseType: Free
 NativeFormatImporter:
   userData: 

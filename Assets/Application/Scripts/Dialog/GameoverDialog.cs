@@ -36,13 +36,14 @@ public class GameOverDialog : DialogBase {
 
 		isFirst = true;
 
+		countText.enabled = false;
+
 		base.Start ();
 	}
 
 	public override void Show() {
 		base.Show ();
 		SetComponentsActive ();
-		countText.enabled = false;
 		resultScoreText.text = string.Format ("{0} cm 生きのびた!", ScoreManager.I.GetScore ());
 		bestScoreText.text = string.Format ("BEST : {0} cm", ScoreManager.I.GetHighScore ());
 		if (isFirst) {
@@ -51,6 +52,46 @@ public class GameOverDialog : DialogBase {
 			restartButton.transform.localPosition = new Vector3 (restartButton.transform.localPosition.x, 160, restartButton.transform.localPosition.z);
 			exitButton.transform.localPosition = new Vector3 (exitButton.transform.localPosition.x, 160, exitButton.transform.localPosition.z);
 			retryButton.SetActive (false);
+		}
+		CheckRank ();
+	}
+
+	public override void Hide () {
+		base.Hide ();
+		SetComponentsInactive ();
+	}
+
+	private void CheckRank(){
+		int rank = ScoreManager.I.GetScore () / 400;
+		switch (rank) {
+		case 0:
+			rankText.text = "D";
+			rankText.color = new Color (142.0f/255.0f,  62.0f/255.0f,   3.0f/255.0f);
+			break;
+		case 1:
+			rankText.text = "C";
+			rankText.color = new Color (255.0f/255.0f, 204.0f/255.0f,   0.0f/255.0f);
+			break;
+		case 2:
+			rankText.text = "B";
+			rankText.color = new Color (  0.0f/255.0f,   0.0f/255.0f, 255.0f/255.0f);
+			break;
+		case 3:
+			rankText.text = "A";
+			rankText.color = new Color (142.0f/255.0f,  62.0f/255.0f,   3.0f/255.0f);
+			break;
+		case 4:
+			rankText.text = "S";
+			rankText.color = new Color (174.0f/255.0f,  68.0f/255.0f, 154.0f/255.0f);
+			break;
+		case 5:
+			rankText.text = "SS";
+			rankText.color = new Color (174.0f/255.0f,  68.0f/255.0f, 154.0f/255.0f);
+			break;
+		case 6:
+			rankText.text = "SSS";
+			rankText.color = new Color (174.0f/255.0f,  68.0f/255.0f, 154.0f/255.0f);
+			break;
 		}
 	}
 
@@ -79,8 +120,7 @@ public class GameOverDialog : DialogBase {
 	}
 
 	public void Retry(){
-		this.Hide ();
-		SetComponentsInactive ();
+		Hide ();
 		AdsManager.I.ShowRewardedAd ();
 	}
 
