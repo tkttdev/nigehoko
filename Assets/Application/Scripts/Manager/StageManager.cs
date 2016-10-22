@@ -9,7 +9,7 @@ public class StageManager : SingletonBehaviour<StageManager> {
     private float cameyBfore;
     private float cameyAfter;
 
-	public float[] speed;
+	public float speed = 0.5f;
 
     private int level = 0;
     private int speedlevel = 0;
@@ -57,6 +57,9 @@ public class StageManager : SingletonBehaviour<StageManager> {
         {
             Destroy(blocks[i]);
         }
+
+        Camera.main.transform.position = new Vector3(0.0f, 0.0f, -10.0f);
+
         //現レベルのブロックを生成
         for (int i = (-1) * (int)height; i <= 2 * height; i += (int)height)
         {
@@ -85,7 +88,7 @@ public class StageManager : SingletonBehaviour<StageManager> {
 		while (GameManager.I.IsPlaying())
         {
             //カメラの移動
-            Camera.main.transform.position = new Vector3(0.0f, Camera.main.transform.position.y + speed[speedlevel]*0.1f, -10.0f);
+            Camera.main.transform.position = new Vector3(0.0f, Camera.main.transform.position.y + speed*0.1f, -10.0f);
 			if (!isDemo) {
 				if (Camera.main.transform.position.y - cameyBfore >= height) {
 					num = (int)(Random.Range (0.0f, 10.0f));
@@ -107,13 +110,10 @@ public class StageManager : SingletonBehaviour<StageManager> {
 				}
 
 				if (distcount == interval) {  
-					//難易度段階が6段,スピードレベルは5段
+					//難易度段階が6段
 					distcount = 0;
 					if (level < 8) {
 						level++;
-					} else {
-						if (speedlevel < 5)
-							speedlevel++;
 					}
 				}
 			}
