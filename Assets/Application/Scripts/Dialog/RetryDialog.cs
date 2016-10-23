@@ -55,8 +55,6 @@ public class RetryDialog : DialogBase {
 	public void Retry(){
 		AdsManager.I.ShowRewardedAd ();
 		SetComponentsInactive ();
-		StopCoroutine (countCorutine);
-		time = 3;
 	}
 
 	IEnumerator Count(){

@@ -15,16 +15,29 @@ public class StageManager : SingletonBehaviour<StageManager> {
     private int speedlevel = 0;
     private int num = 0;
 
-    private bool flag = false;
-
 	public bool isDemo = false;
 	public List<GameObject> demoBlocks = new List<GameObject> ();
+
+	[SerializeField] private GameObject[] backgroud = new GameObject[6];
 
     private float distcount = 0;
     [SerializeField] public int interval = 0;
 
+	[SerializeField] GameObject[] background0 = new GameObject[3];
+	[SerializeField] GameObject[] background1 = new GameObject[3];
+
+	[SerializeField] private int generatedStageNum = 0;
+	[SerializeField] private int backgroundTypeIndex = 0;
+
     protected override void Initialize() {
         height = 8;  // 8 : blocksize
+		generatedStageNum = 0;
+		backgroundTypeIndex = 0;
+
+		for (int i = 0; i < 3; i++) {
+			background0 [i] = Resources.Load ("Prefabs/Background0/Background" + i.ToString ()) as GameObject;
+			background1 [i] = Resources.Load ("Prefabs/Background1/Background" + i.ToString ()) as GameObject;
+		}
 
         for (int i = (-1) * (int)height; i <= 2 * height; i += (int)height)
         {
@@ -34,6 +47,13 @@ public class StageManager : SingletonBehaviour<StageManager> {
                 Instantiate(Resources.Load("Prefabs/StageBlocks/stage" + "0" + "/" + "0" + "0"),
                     new Vector2(0.0f, Camera.main.transform.position.y + i),
                     Quaternion.Euler(0, 0, 0));
+				if (generatedStageNum % 2 == 0) {
+					Instantiate (background0 [backgroundTypeIndex], new Vector2 (0.0f, Camera.main.transform.position.y + i), Quaternion.Euler (0, 0, 0));
+				}else if (generatedStageNum % 2 == 1) {
+					Instantiate (background1 [backgroundTypeIndex], new Vector2 (0.0f, Camera.main.transform.position.y + i), Quaternion.Euler (0, 0, 0));
+				}
+				generatedStageNum++;
+				
             }
             else
             {
@@ -41,6 +61,12 @@ public class StageManager : SingletonBehaviour<StageManager> {
                 Instantiate(Resources.Load("Prefabs/StageBlocks/stage" + level.ToString() + "/" + level.ToString() + num.ToString()),
                     new Vector2(0.0f, Camera.main.transform.position.y + i),
                     Quaternion.Euler(0, 0, 0));
+				if (generatedStageNum % 2 == 0) {
+					Instantiate (background0 [backgroundTypeIndex], new Vector2 (0.0f, Camera.main.transform.position.y + i), Quaternion.Euler (0, 0, 0));
+				}else if (generatedStageNum % 2 == 1) {
+					Instantiate (background1 [backgroundTypeIndex], new Vector2 (0.0f, Camera.main.transform.position.y + i), Quaternion.Euler (0, 0, 0));
+				}
+				generatedStageNum++;
             }
         }
     }
@@ -65,7 +91,6 @@ public class StageManager : SingletonBehaviour<StageManager> {
         {
             if (i < 1)
             { 
-                string num = ((int)(Random.Range(0.0f, 10.0f))).ToString();
                 Instantiate(Resources.Load("Prefabs/StageBlocks/stage" + "0" + "/" + "0" + "0"),
                     new Vector2(0.0f, Camera.main.transform.position.y + i),
                     Quaternion.Euler(0, 0, 0));
@@ -77,6 +102,13 @@ public class StageManager : SingletonBehaviour<StageManager> {
                     new Vector2(0.0f, Camera.main.transform.position.y + i),
                     Quaternion.Euler(0, 0, 0));
             }
+
+			if (generatedStageNum % 2 == 0) {
+				Instantiate (background0 [backgroundTypeIndex], new Vector2(0.0f, Camera.main.transform.position.y + i), Quaternion.identity);
+			}else if (generatedStageNum % 2 == 1) {
+				Instantiate (background1 [backgroundTypeIndex], new Vector2(0.0f, Camera.main.transform.position.y + i), Quaternion.identity);
+			}
+			generatedStageNum++;
         }
 
         distcount = 0;
@@ -95,17 +127,21 @@ public class StageManager : SingletonBehaviour<StageManager> {
 					Instantiate (Resources.Load ("Prefabs/StageBlocks/stage" + level.ToString () + "/" + level.ToString () + num.ToString ()),
 						new Vector2 (0.0f, Camera.main.transform.position.y + 2.0f * height),
 						Quaternion.identity);
+
+					if (generatedStageNum % 2 == 0) {
+						Instantiate (background0 [backgroundTypeIndex], new Vector2 (0.0f, Camera.main.transform.position.y + 2.0f * height), Quaternion.identity);
+					}else if (generatedStageNum % 2 == 1) {
+						Instantiate (background1 [backgroundTypeIndex], new Vector2 (0.0f, Camera.main.transform.position.y + 2.0f * height), Quaternion.identity);
+					}
+
+					if (backgroundTypeIndex < 2) {
+						backgroundTypeIndex = ScoreManager.I.GetScore() / 1000;
+					}
+
+					generatedStageNum++;
 					cameyBfore = Camera.main.transform.position.y;
 					distcount++;
-					//Floorのバグ対策
-					if (flag) {
-						Instantiate (Resources.Load ("Prefabs/StageBlocks/WoodFloor"),
-							new Vector2 (0.0f, Camera.main.transform.position.y + 2.0f * height),
-							Quaternion.identity);
-						flag = false;
-					} else {
-						flag = true;
-					}
+
 
 				}
 
@@ -124,15 +160,6 @@ public class StageManager : SingletonBehaviour<StageManager> {
 
 					Instantiate (obj, new Vector2 (0.0f, Camera.main.transform.position.y + 2.0f * height), Quaternion.identity);
 					cameyBfore = Camera.main.transform.position.y;
-					//Floorのバグ対策
-					if (flag) {
-						Instantiate (Resources.Load ("Prefabs/StageBlocks/WoodFloor"),
-							new Vector2 (0.0f, Camera.main.transform.position.y + 2.0f * height),
-							Quaternion.identity);
-						flag = false;
-					} else {
-						flag = true;
-					}
 
 				}
 			}

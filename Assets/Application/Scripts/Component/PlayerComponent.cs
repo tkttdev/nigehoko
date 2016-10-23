@@ -25,7 +25,7 @@ public class PlayerComponent : MonoBehaviour {
 
 	private Vector3 worldPos;
 
-	private float moveDis;
+	[SerializeField] private float moveDis;
 
 	public float moveSumY = 0.0f;
 	private float maxY = 0.0f;
@@ -68,8 +68,6 @@ public class PlayerComponent : MonoBehaviour {
 		if (Input.GetMouseButtonDown (0)) {
 			Ray ray = Camera.main.ScreenPointToRay (Input.mousePosition);
 			RaycastHit2D hit = Physics2D.Raycast ((Vector2)ray.origin, (Vector2)ray.direction, maxDistance,layerMask);
-
-			//RaycastHit2D hit = Physics2D.CircleCast ((Vector2)ray.origin, 0.1f, (Vector2)ray.direction);
 
 			if (hit.collider) {
 				if (hit.transform.tag == "EleDust") {
@@ -211,6 +209,7 @@ public class PlayerComponent : MonoBehaviour {
 
 	public void RetryInitialize(){
 		scale = 1.0f;
+		maxY = 0.0f;
 		gameObject.transform.localScale = new Vector3 (scale, scale, 1);
 		gameObject.transform.position = new Vector3 (Camera.main.transform.position.x, Camera.main.transform.position.y, 0);
 		gameObject.GetComponent<SpriteRenderer> ().enabled = true;
