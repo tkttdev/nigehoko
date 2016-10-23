@@ -8,6 +8,8 @@ public class UIManager : SingletonBehaviour<UIManager> {
 
 	[SerializeField] private Text scoreText;
 
+	[SerializeField] private Text fpsText;
+
 	[SerializeField] private Sprite stopButtonSprite;
 	[SerializeField] private Sprite startButtonSprite;
 
@@ -19,6 +21,7 @@ public class UIManager : SingletonBehaviour<UIManager> {
 	protected override void Initialize () {
 		tapText = GameObject.Find ("TapText").GetComponent<Text>();
 		scoreText = GameObject.Find("ScoreText").GetComponent<Text>();
+		fpsText = GameObject.Find ("FpsText").GetComponent<Text> ();
 
 		stopButtonSprite = Resources.Load<Sprite> ("Images/StopSkelton");
 		startButtonSprite = Resources.Load<Sprite> ("Images/PlaySkelton");
@@ -36,10 +39,23 @@ public class UIManager : SingletonBehaviour<UIManager> {
 		));
 	}
 
+	int frameCount = 0;
+	float prevTime = 0.0f;
+
 	void Update(){
 		if (ObjectManager.I.IsEledust()) {
 			SetStartText (false);
 		}
+		++frameCount;
+		float time = Time.realtimeSinceStartup - prevTime;
+
+		if (time >= 0.5f) {
+			fpsText.text = "FPS : " + frameCount / time;
+
+			frameCount = 0;
+			prevTime = Time.realtimeSinceStartup;
+		}
+
 	}
 
 	public void SetStartText(bool active) {
