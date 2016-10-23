@@ -33,6 +33,7 @@ public class StageManager : SingletonBehaviour<StageManager> {
         height = 8;  // 8 : blocksize
 		generatedStageNum = 0;
 		backgroundTypeIndex = 0;
+		cameyBfore = 0.0f;
 
 		for (int i = 0; i < 3; i++) {
 			background0 [i] = Resources.Load ("Prefabs/Background0/Background" + i.ToString ()) as GameObject;
@@ -85,6 +86,7 @@ public class StageManager : SingletonBehaviour<StageManager> {
         }
 
         Camera.main.transform.position = new Vector3(0.0f, 0.0f, -10.0f);
+		cameyBfore = 0.0f;
 
         //現レベルのブロックを生成
         for (int i = (-1) * (int)height; i <= 2 * height; i += (int)height)

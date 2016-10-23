@@ -1465,7 +1465,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 1
     m_VerticalOverflow: 1
     m_LineSpacing: 1
-  m_Text: "XXX cm \u751F\u304D\u5EF6\u3073\u305F"
+  m_Text: "XXXX cm \u751F\u304D\u5EF6\u3073\u305F"
 --- !u!222 &783965554
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -2222,7 +2222,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 156.50002, y: 279.00003}
-  m_SizeDelta: {x: 600, y: 1000}
+  m_SizeDelta: {x: 680, y: 1000}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1803863183
 MonoBehaviour:
