@@ -43,6 +43,8 @@ public class PlayerComponent : MonoBehaviour {
 
 	private Rigidbody2D playerRigid2D;
 
+	private bool isCollisionOther = false;
+
 	void Start () {
 		desX = gameObject.transform.position.x;
 		desY = gameObject.transform.position.y;
@@ -57,6 +59,8 @@ public class PlayerComponent : MonoBehaviour {
 
 		audioSource = gameObject.GetComponent<AudioSource> ();
 		playerRigid2D = gameObject.GetComponent<Rigidbody2D> ();
+
+		isCollisionOther = false;
 	}
 
 	void FixedUpdate () {
@@ -103,6 +107,8 @@ public class PlayerComponent : MonoBehaviour {
 		if (GameManager.I.IsPlaying() && ObjectManager.I.IsEledust()) {
 			
 			CheckVelocity ();
+			desX = ObjectManager.I.ActiveEledustPos ().x;
+			desY = ObjectManager.I.ActiveEledustPos ().y;
 
 			disX = desX - gameObject.transform.position.x;
 			disY = desY - gameObject.transform.position.y;
@@ -126,10 +132,14 @@ public class PlayerComponent : MonoBehaviour {
 				scale += increaseNum;
 			}
 
+			if (isCollisionOther) {
+				OtherCollision ();
+			}
+
+
 			if (scale > limitScale) {
 				scale = limitScale;
 			}
-
 			gameObject.transform.localScale = new Vector3 (scale, scale, 1);
 			CheckScale ();
 		}
@@ -168,21 +178,11 @@ public class PlayerComponent : MonoBehaviour {
 	}
 
 	void OnCollisionEnter2D(Collision2D other){
-		if (GameManager.I.IsPlaying ()) {
-			OtherCollision ();
-		}
-	}
-
-	void OnCollisionStay2D(Collision2D other){
-		if (GameManager.I.IsPlaying ()) {
-			OtherCollision ();
-		}
+		isCollisionOther = true;
 	}
 
 	void OnCollisionExit2D(Collision2D other){
-		if (GameManager.I.IsPlaying ()) {
-			OtherCollision ();
-		}
+		isCollisionOther = false;
 	}
 
 	void OtherCollision(){

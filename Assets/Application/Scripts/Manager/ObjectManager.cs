@@ -8,10 +8,8 @@ public class ObjectManager : SingletonBehaviour<ObjectManager> {
 	private GameObject eleDust;
 
 	[SerializeField] List<GameObject> eleDustList = new List<GameObject>();
-	[SerializeField] private int limitEleDustNum = 3;
-	[SerializeField] private int currentActiveEledustNum = 2;
-
-	[SerializeField] private int eleDustNum = 0;
+	[SerializeField] private int limitEleDustNum = 5;
+	[SerializeField] private int currentActiveEledustIndex = 0;
 
 	private bool isEleDust = false;
 
@@ -19,7 +17,13 @@ public class ObjectManager : SingletonBehaviour<ObjectManager> {
 
 	protected override void Initialize () {
 		player = GameObject.FindGameObjectWithTag ("Player");
-
+		currentActiveEledustIndex = 0;
+		GameObject obj;
+		for (int i = 0; i < limitEleDustNum; i++) {
+			obj = Instantiate (Resources.Load ("Prefabs/EleDust") as GameObject, Vector3.zero, Quaternion.identity) as GameObject;
+			eleDustList.Add (obj);
+			obj.SetActive (false);
+		}
 	}
 
 
@@ -29,39 +33,31 @@ public class ObjectManager : SingletonBehaviour<ObjectManager> {
 			GameManager.I.SetStatePlaying ();
 		}
 
-		if (eleDustNum < limitEleDustNum) {
-			GameObject obj = Instantiate (Resources.Load ("Prefabs/EleDust") as GameObject, pos, Quaternion.identity) as GameObject;
-			eleDustList.Add (obj);
-			if (eleDustNum > 0 && eleDustList[eleDustNum - 1].activeSelf) {
-				eleDustList [eleDustNum - 1].SetActive (false);
-			}
-			eleDustNum++;
+		InactiveEleDust ();
 
-			isEleDust = true;
-		} else {
-			if (eleDustList [currentActiveEledustNum].activeSelf) {
-				eleDustList [currentActiveEledustNum].SetActive (false);
-			}
-			currentActiveEledustNum++;
-			currentActiveEledustNum %= limitEleDustNum;
+		currentActiveEledustIndex++;
+		currentActiveEledustIndex %= limitEleDustNum;
 
-			eleDustList [currentActiveEledustNum].SetActive (true);
-			eleDustList [currentActiveEledustNum].transform.position = pos;
+		eleDustList [currentActiveEledustIndex].SetActive (true);
+		eleDustList [currentActiveEledustIndex].transform.position = pos;
 
-			isEleDust = true;
-		}
+		isEleDust = true;
 	}
 
 	public void InactiveEleDust(){
-		if (eleDustNum < limitEleDustNum) {
-			eleDustList [eleDustNum - 1].SetActive (false);
-		} else {
-			eleDustList [currentActiveEledustNum].SetActive (false);
-		}
+		eleDustList [currentActiveEledustIndex].SetActive (false);
 		isEleDust = false;
 	}
 
 	public bool IsEledust(){
 		return isEleDust;
+	}
+
+	/// <summary>
+	/// Return active eledust position;
+	/// </summary>
+	/// <returns>The eledust position.</returns>
+	public Vector3 ActiveEledustPos(){
+		return eleDustList [currentActiveEledustIndex].transform.position;
 	}
 }
