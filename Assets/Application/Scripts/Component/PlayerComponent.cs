@@ -68,6 +68,7 @@ public class PlayerComponent : MonoBehaviour {
 		if (!ObjectManager.I.IsActiveEledust() && playerRigid2D.velocity != Vector2.zero || !GameManager.I.IsPlaying()) {
 			playerRigid2D.velocity = Vector2.zero;
 		}
+
 		#if UNITY_EDITOR
 		if (Input.GetMouseButtonDown (0)) {
 			Ray ray = Camera.main.ScreenPointToRay (Input.mousePosition);
@@ -140,7 +141,6 @@ public class PlayerComponent : MonoBehaviour {
 			lastPos = gameObject.transform.position;
 		}
 		#endif
-
 
 		if (GameManager.I.IsPlaying() && ObjectManager.I.IsActiveEledust()) {
 			
