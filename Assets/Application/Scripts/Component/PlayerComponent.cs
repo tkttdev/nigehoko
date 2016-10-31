@@ -65,10 +65,10 @@ public class PlayerComponent : MonoBehaviour {
 
 	void FixedUpdate () {
 
-		if (!ObjectManager.I.IsEledust() && playerRigid2D.velocity != Vector2.zero || !GameManager.I.IsPlaying()) {
+		if (!ObjectManager.I.IsActiveEledust() && playerRigid2D.velocity != Vector2.zero || !GameManager.I.IsPlaying()) {
 			playerRigid2D.velocity = Vector2.zero;
 		}
-
+		#if UNITY_EDITOR
 		if (Input.GetMouseButtonDown (0)) {
 			Ray ray = Camera.main.ScreenPointToRay (Input.mousePosition);
 			RaycastHit2D hit = Physics2D.Raycast ((Vector2)ray.origin, (Vector2)ray.direction, maxDistance,layerMask);
@@ -104,7 +104,45 @@ public class PlayerComponent : MonoBehaviour {
 			lastPos = gameObject.transform.position;
 		}
 
-		if (GameManager.I.IsPlaying() && ObjectManager.I.IsEledust()) {
+		#elif (UNITY_IOS || UNITY_ANDROID) && !UNITY_EDITOR
+		if (Input.touchCount > 0 && Input.touches[0].phase == TouchPhase.Began) {
+			Ray ray = Camera.main.ScreenPointToRay (Input.touches[0].position);
+			RaycastHit2D hit = Physics2D.Raycast ((Vector2)ray.origin, (Vector2)ray.direction, maxDistance,layerMask);
+
+			if (hit.collider) {
+				if (hit.transform.tag == "EleDust") {
+					return;
+				}
+				if (hit.transform.tag == "MenuButton") {
+					audioSource.PlayOneShot (tapHit);
+					return;
+				}
+			audioSource.PlayOneShot (tapMiss);
+			return;
+			}
+
+			if (!GameManager.I.IsWaiting() && !GameManager.I.IsPlaying()) {
+				return;
+			}
+
+			audioSource.PlayOneShot (tapHit);
+
+			worldPos = Camera.main.ScreenToWorldPoint (new Vector3(Input.touches[0].position.x,Input.touches[0].position.y,10));
+
+			ObjectManager.I.ActiveEleDust (worldPos);
+
+			desX = worldPos.x;
+			desY = worldPos.y;
+
+			AddForcePlayer ();
+
+			moveDis = 0.0f;
+			lastPos = gameObject.transform.position;
+		}
+		#endif
+
+
+		if (GameManager.I.IsPlaying() && ObjectManager.I.IsActiveEledust()) {
 			
 			CheckVelocity ();
 			desX = ObjectManager.I.ActiveEledustPos ().x;

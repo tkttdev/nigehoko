@@ -126,7 +126,7 @@ public class GameOverDialog : DialogBase {
 		AppSceneManager.I.GoTitle ();
 	}
 
-	public void ShareSNS(){
+	public void PostSNS(){
 		string msg = string.Format ("{0} cm 生き延びたよ!{1}君はどれだけ生き延びれるかな？？{1}" +
 			"iOS版 : https://itunes.apple.com/jp/app/taoge-qiere!hokorikun!/id1158796150?l=en&mt=8{1}" +
 			"Android版 : https://play.google.com/store/apps/details?id=com.finders.rundust&hl=ja"

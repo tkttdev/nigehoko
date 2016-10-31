@@ -47,7 +47,7 @@ public class UIManager : SingletonBehaviour<UIManager> {
 	float prevTime = 0.0f;
 
 	void Update(){
-		if (ObjectManager.I.IsEledust()) {
+		if (ObjectManager.I.IsActiveEledust()) {
 			SetStartText (false);
 		}
 
