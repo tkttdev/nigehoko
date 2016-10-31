@@ -1,13 +1,16 @@
 ﻿using UnityEngine;
 using System.Collections;
+using System;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
+using UnityEngine.Advertisements;
 
 public class GameOverDialog : DialogBase {
 
 	[SerializeField] private GameObject restartButton;
 	[SerializeField] private GameObject exitButton;
 	[SerializeField] private GameObject retryButton;
+	[SerializeField] private GameObject shareButton;
 		
 	[SerializeField] private Text resultScoreText;
 	[SerializeField] private Text bestScoreText;
@@ -21,9 +24,10 @@ public class GameOverDialog : DialogBase {
 
 	protected override void Start () {
 
-		restartButton = GameObject.FindWithTag ("RestartButton");
-		exitButton = GameObject.FindWithTag ("ExitButton");
+		restartButton = GameObject.Find ("RestartButton");
+		exitButton = GameObject.Find ("ExitButton");
 		retryButton = GameObject.Find ("RetryButton");
+		shareButton = GameObject.Find ("ShareButton");
 
 		rankText = GameObject.Find ("RankText").GetComponent<Text> ();
 		resultScoreText = GameObject.Find ("ResultScoreText").GetComponent<Text> ();
@@ -46,11 +50,12 @@ public class GameOverDialog : DialogBase {
 		SetComponentsActive ();
 		resultScoreText.text = string.Format ("{0} cm 生きのびた!", ScoreManager.I.GetScore ());
 		bestScoreText.text = string.Format ("BEST : {0} cm", ScoreManager.I.GetHighScore ());
-		if (isFirst) {
+		if (isFirst && Advertisement.IsReady()) {
 			isFirst = false;
 		} else {
 			restartButton.transform.localPosition = new Vector3 (restartButton.transform.localPosition.x, 160, restartButton.transform.localPosition.z);
 			exitButton.transform.localPosition = new Vector3 (exitButton.transform.localPosition.x, 160, exitButton.transform.localPosition.z);
+			shareButton.transform.localPosition = new Vector3 (shareButton.transform.localPosition.x, 160, shareButton.transform.localPosition.z);
 			retryButton.SetActive (false);
 		}
 		CheckRank ();
@@ -100,6 +105,7 @@ public class GameOverDialog : DialogBase {
 		exitButton.SetActive (false);
 		backgroundImage.SetActive (false);
 		retryButton.SetActive (false);
+		shareButton.SetActive (false);
 	}
 
 	private void SetComponentsActive(){
@@ -107,6 +113,7 @@ public class GameOverDialog : DialogBase {
 		exitButton.SetActive (true);
 		backgroundImage.SetActive (true);
 		retryButton.SetActive (true);
+		shareButton.SetActive (true);
 	}
 
 	public void Restart(){
@@ -117,6 +124,14 @@ public class GameOverDialog : DialogBase {
 	public void Exit(){
 		SoundManager.I.ButtonSE ();
 		AppSceneManager.I.GoTitle ();
+	}
+
+	public void PostSNS(){
+		string msg = string.Format ("{0} cm 生き延びたよ!{1}君はどれだけ生き延びれるかな？？{1}" +
+			"iOS版 : https://itunes.apple.com/jp/app/taoge-qiere!hokorikun!/id1158796150?l=en&mt=8{1}" +
+			"Android版 : https://play.google.com/store/apps/details?id=com.finders.rundust&hl=ja"
+			, ScoreManager.I.GetScore (),Environment.NewLine);
+		UniTwitter.Share (msg);
 	}
 
 	public void Retry(){

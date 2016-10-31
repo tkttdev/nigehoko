@@ -37,15 +37,21 @@ public class UIManager : SingletonBehaviour<UIManager> {
 			"looptype", iTween.LoopType.pingPong,
 			"easetype", iTween.EaseType.linear
 		));
+
+		#if UNITY_EDITOR
+		fpsText.enabled = true;
+		#endif
 	}
 
 	int frameCount = 0;
 	float prevTime = 0.0f;
 
 	void Update(){
-		if (ObjectManager.I.IsEledust()) {
+		if (ObjectManager.I.IsActiveEledust()) {
 			SetStartText (false);
 		}
+
+		#if UNITY_EDITOR
 		++frameCount;
 		float time = Time.realtimeSinceStartup - prevTime;
 
@@ -55,6 +61,9 @@ public class UIManager : SingletonBehaviour<UIManager> {
 			frameCount = 0;
 			prevTime = Time.realtimeSinceStartup;
 		}
+		#else
+		fpsText.enabled = false;
+		#endif
 
 	}
 

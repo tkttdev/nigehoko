@@ -8,10 +8,10 @@ public class ObjectManager : SingletonBehaviour<ObjectManager> {
 	private GameObject eleDust;
 
 	[SerializeField] List<GameObject> eleDustList = new List<GameObject>();
-	[SerializeField] private int limitEleDustNum = 5;
-	[SerializeField] private int currentActiveEledustIndex = 0;
+	private int limitEleDustNum = 5;
+	private int currentActiveEledustIndex = 0;
 
-	private bool isEleDust = false;
+	private bool isActiveEleDust = false;
 
 	private bool firstTouch = false;
 
@@ -41,16 +41,21 @@ public class ObjectManager : SingletonBehaviour<ObjectManager> {
 		eleDustList [currentActiveEledustIndex].SetActive (true);
 		eleDustList [currentActiveEledustIndex].transform.position = pos;
 
-		isEleDust = true;
+		isActiveEleDust = true;
 	}
 
 	public void InactiveEleDust(){
 		eleDustList [currentActiveEledustIndex].SetActive (false);
-		isEleDust = false;
+		isActiveEleDust = false;
 	}
 
-	public bool IsEledust(){
-		return isEleDust;
+	/// <summary>
+	/// Return true if eledust is active in scene.
+	/// Else return false this func.
+	/// </summary>
+	/// <returns><c>true</c> if this instance is active eledust; otherwise, <c>false</c>.</returns>
+	public bool IsActiveEledust(){
+		return isActiveEleDust;
 	}
 
 	/// <summary>
