@@ -34,8 +34,6 @@ public class TitleManager : SingletonBehaviour<TitleManager> {
 			Ray ray = Camera.main.ScreenPointToRay (Input.mousePosition);
 			RaycastHit2D hit = Physics2D.Raycast ((Vector2)ray.origin, (Vector2)ray.direction, 20.0f,1);
 
-			Debug.Log (hit.collider);
-
 			if (hit.collider == null) {
 				SoundManager.I.ButtonSE ();
 				AppSceneManager.I.GoGame ();

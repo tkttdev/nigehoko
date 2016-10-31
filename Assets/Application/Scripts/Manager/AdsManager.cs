@@ -4,27 +4,43 @@ using UnityEngine.Advertisements;
 
 public class AdsManager : SingletonBehaviour<AdsManager> {
 
+	private const string ADS_SHOW_TIMES_KEY = "adsShowTimesKey";
+	private int adsShowTimes = 0;
+
+	protected override void Initialize (){
+		base.Initialize ();
+		adsShowTimes = PlayerPrefs.GetInt (ADS_SHOW_TIMES_KEY, 0);
+	}
+
 	public void ShowRewardedAd(){
-		if (Advertisement.IsReady("rewardedVideo")){
+		adsShowTimes++;
+		adsShowTimes %= 3;
+		PlayerPrefs.SetInt (ADS_SHOW_TIMES_KEY, adsShowTimes);
+		if (Advertisement.IsReady ("rewardedVideo") && adsShowTimes == 0) {
 			var options = new ShowOptions { resultCallback = HandleShowResult };
-			Advertisement.Show("rewardedVideo", options);
+			Advertisement.Show ("rewardedVideo", options);
+		} else {
+			RetryGame ();
 		}
 	}
 
 	private void HandleShowResult(ShowResult result){
 		switch (result){
 		case ShowResult.Finished:
-			Debug.Log ("The ad was successfully shown.");
-			StageManager.I.Retry ();
-			ObjectManager.I.player.GetComponent<PlayerComponent> ().RetryInitialize ();
-			UIManager.I.gameOverDialog.StartRetryCount ();
+			RetryGame ();
 			break;
 		case ShowResult.Skipped:
-			Debug.Log("The ad was skipped before reaching the end.");
+			RetryGame ();
 			break;
 		case ShowResult.Failed:
-			Debug.LogError("The ad failed to be shown.");
+			RetryGame ();
 			break;
 		}
+	}
+
+	private void RetryGame(){
+		StageManager.I.Retry ();
+		ObjectManager.I.player.GetComponent<PlayerComponent> ().RetryInitialize ();
+		UIManager.I.gameOverDialog.StartRetryCount ();
 	}
 }
