@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using System;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
@@ -125,7 +126,11 @@ public class GameOverDialog : DialogBase {
 	}
 
 	public void ShareSNS(){
-		UniTwitter.Share (string.Format ("{0} cm 生き延びたよ!!¥n", ScoreManager.I.GetScore ()));
+		string msg = string.Format ("{0} cm 生き延びたよ!{1}君はどれだけ生き延びれるかな？？{1}" +
+			"iOS版 : https://itunes.apple.com/jp/app/taoge-qiere!hokorikun!/id1158796150?l=en&mt=8{1}" +
+			"Android版 : https://play.google.com/store/apps/details?id=com.finders.rundust&hl=ja"
+			, ScoreManager.I.GetScore (),Environment.NewLine);
+		UniTwitter.Share (msg);
 	}
 
 	public void Retry(){
