@@ -3,7 +3,7 @@ using System.Collections;
 
 public class ScoreManager : SingletonBehaviour<ScoreManager> {
 
-	private int score = -1;
+	private int score = 0;
 	private Coroutine addScore;
 
 	const string HIGH_SCORE_KEY = "highScore";
@@ -38,13 +38,13 @@ public class ScoreManager : SingletonBehaviour<ScoreManager> {
 	}
 
 	public void SetHighScore(){
-		if (this.score > PlayerPrefs.GetInt (HIGH_SCORE_KEY, -1)) {
+		if (this.score > PlayerPrefs.GetInt (HIGH_SCORE_KEY, 0)) {
 			PlayerPrefs.SetInt (HIGH_SCORE_KEY, score);
 			PlayerPrefs.Save ();
 		}
 	}
 
 	public int GetHighScore(){
-		return PlayerPrefs.GetInt(HIGH_SCORE_KEY, -1);
+		return PlayerPrefs.GetInt(HIGH_SCORE_KEY, 0);
 	}
 }

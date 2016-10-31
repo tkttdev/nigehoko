@@ -8,6 +8,7 @@ public class GameOverDialog : DialogBase {
 	[SerializeField] private GameObject restartButton;
 	[SerializeField] private GameObject exitButton;
 	[SerializeField] private GameObject retryButton;
+	[SerializeField] private GameObject shareButton;
 		
 	[SerializeField] private Text resultScoreText;
 	[SerializeField] private Text bestScoreText;
@@ -21,9 +22,10 @@ public class GameOverDialog : DialogBase {
 
 	protected override void Start () {
 
-		restartButton = GameObject.FindWithTag ("RestartButton");
-		exitButton = GameObject.FindWithTag ("ExitButton");
+		restartButton = GameObject.Find ("RestartButton");
+		exitButton = GameObject.Find ("ExitButton");
 		retryButton = GameObject.Find ("RetryButton");
+		shareButton = GameObject.Find ("ShareButton");
 
 		rankText = GameObject.Find ("RankText").GetComponent<Text> ();
 		resultScoreText = GameObject.Find ("ResultScoreText").GetComponent<Text> ();
@@ -51,6 +53,7 @@ public class GameOverDialog : DialogBase {
 		} else {
 			restartButton.transform.localPosition = new Vector3 (restartButton.transform.localPosition.x, 160, restartButton.transform.localPosition.z);
 			exitButton.transform.localPosition = new Vector3 (exitButton.transform.localPosition.x, 160, exitButton.transform.localPosition.z);
+			shareButton.transform.localPosition = new Vector3 (shareButton.transform.localPosition.x, 160, shareButton.transform.localPosition.z);
 			retryButton.SetActive (false);
 		}
 		CheckRank ();
@@ -100,6 +103,7 @@ public class GameOverDialog : DialogBase {
 		exitButton.SetActive (false);
 		backgroundImage.SetActive (false);
 		retryButton.SetActive (false);
+		shareButton.SetActive (false);
 	}
 
 	private void SetComponentsActive(){
@@ -107,6 +111,7 @@ public class GameOverDialog : DialogBase {
 		exitButton.SetActive (true);
 		backgroundImage.SetActive (true);
 		retryButton.SetActive (true);
+		shareButton.SetActive (true);
 	}
 
 	public void Restart(){
@@ -117,6 +122,10 @@ public class GameOverDialog : DialogBase {
 	public void Exit(){
 		SoundManager.I.ButtonSE ();
 		AppSceneManager.I.GoTitle ();
+	}
+
+	public void ShareSNS(){
+		UniTwitter.Share (string.Format ("{0} cm 生き延びたよ!!¥n", ScoreManager.I.GetScore ()));
 	}
 
 	public void Retry(){
