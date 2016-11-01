@@ -188,7 +188,7 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 7
+  m_Constraints: 2
 --- !u!50 &50000013156594688
 Rigidbody2D:
   serializedVersion: 2
@@ -205,7 +205,7 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 7
+  m_Constraints: 2
 --- !u!50 &50000013311550038
 Rigidbody2D:
   serializedVersion: 2
@@ -222,7 +222,7 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 7
+  m_Constraints: 2
 --- !u!50 &50000014005740776
 Rigidbody2D:
   serializedVersion: 2
@@ -239,7 +239,7 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 7
+  m_Constraints: 2
 --- !u!58 &58000011949518870
 CircleCollider2D:
   m_ObjectHideFlags: 1

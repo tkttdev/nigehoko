@@ -143,8 +143,6 @@ public class PlayerComponent : MonoBehaviour {
 		#endif
 
 		if (GameManager.I.IsPlaying() && ObjectManager.I.IsActiveEledust()) {
-			
-			CheckVelocity ();
 			desX = ObjectManager.I.ActiveEledustPos ().x;
 			desY = ObjectManager.I.ActiveEledustPos ().y;
 
@@ -171,9 +169,9 @@ public class PlayerComponent : MonoBehaviour {
 			}
 
 			if (isCollisionOther) {
-				OtherCollision ();
+				AddForcePlayer ();
+				CheckVelocity ();
 			}
-
 
 			if (scale > limitScale) {
 				scale = limitScale;
@@ -184,7 +182,6 @@ public class PlayerComponent : MonoBehaviour {
 	}
 
 	private void CheckVelocity(){
-
 		velocitySum = Mathf.Abs (playerRigid2D.velocity.x) + Mathf.Abs (playerRigid2D.velocity.y);
 
 		if (velocitySum > 5.0f) {
@@ -198,11 +195,9 @@ public class PlayerComponent : MonoBehaviour {
 	public void AddForcePlayer(){
 		disX = desX - gameObject.transform.position.x;
 		disY = desY - gameObject.transform.position.y;
-
 		dis = Mathf.Abs (disX) + Mathf.Abs (disY);
 
 		playerRigid2D.velocity = Vector2.zero;
-
 		playerRigid2D.AddForce (new Vector2 (disX / dis * addForceNum, disY / dis * addForceNum));
 	}
 
@@ -220,20 +215,11 @@ public class PlayerComponent : MonoBehaviour {
 	}
 
 	void OnCollisionExit2D(Collision2D other){
-		isCollisionOther = false;
-	}
-
-	void OtherCollision(){
-		disX = desX - gameObject.transform.position.x;
-		disY = desY - gameObject.transform.position.y;
-
-		dis = Mathf.Abs (disX) + Mathf.Abs (disY);
-
-		playerRigid2D.velocity = Vector2.zero;
-		playerRigid2D.AddForce (new Vector2 (disX / dis * addForceNum, disY / dis * addForceNum));
-
+		desX = ObjectManager.I.ActiveEledustPos ().x;
+		desY = ObjectManager.I.ActiveEledustPos ().y;
+		AddForcePlayer ();
 		CheckVelocity ();
-
+		isCollisionOther = false;
 	}
 
 	void OnTriggerEnter2D(Collider2D other){

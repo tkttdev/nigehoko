@@ -107,7 +107,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1000010385834560}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -7.79, y: -1.83, z: 0}
+  m_LocalPosition: {x: -7.79, y: -1.85, z: 0}
   m_LocalScale: {x: 0.4, y: 0.4, z: 1}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children: []
@@ -155,7 +155,7 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 1
-  m_Constraints: 7
+  m_Constraints: 2
 --- !u!50 &50000012089042314
 Rigidbody2D:
   serializedVersion: 2
@@ -172,7 +172,7 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 1
-  m_Constraints: 7
+  m_Constraints: 2
 --- !u!50 &50000012334754086
 Rigidbody2D:
   serializedVersion: 2
@@ -189,7 +189,7 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 1
-  m_Constraints: 7
+  m_Constraints: 2
 --- !u!58 &58000011604026504
 CircleCollider2D:
   m_ObjectHideFlags: 1

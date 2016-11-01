@@ -159,6 +159,7 @@ public class StageManager : SingletonBehaviour<StageManager> {
 				}
 			}
 
+			#if UNITY_EDITOR
 			if (isDemo) {
 				if (Camera.main.transform.position.y - cameyBfore >= height) {
 					GameObject obj = demoBlocks[Random.Range (0, demoBlocks.Count)];
@@ -168,6 +169,7 @@ public class StageManager : SingletonBehaviour<StageManager> {
 
 				}
 			}
+			#endif
 
             yield return new WaitForSeconds(0.02f);
         }

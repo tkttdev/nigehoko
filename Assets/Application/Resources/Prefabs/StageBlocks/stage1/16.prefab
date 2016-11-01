@@ -89,7 +89,7 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 1
-  m_Constraints: 7
+  m_Constraints: 2
 --- !u!58 &58000010907945788
 CircleCollider2D:
   m_ObjectHideFlags: 1
