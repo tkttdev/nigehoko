@@ -11,23 +11,21 @@ public class StageManager : SingletonBehaviour<StageManager> {
 
 	public float speed = 0.5f;
 
-    private int level = 0;
-    private int speedlevel = 0;
+	private int selectLevel = 0;
+    private int limitLevel = 2;
     private int num = 0;
 
 	public bool isDemo = false;
 	public List<GameObject> demoBlocks = new List<GameObject> ();
 
-	[SerializeField] private GameObject[] backgroud = new GameObject[6];
-
     private float distcount = 0;
     [SerializeField] public int interval = 0;
 
-	[SerializeField] GameObject[] background0 = new GameObject[3];
-	[SerializeField] GameObject[] background1 = new GameObject[3];
+	GameObject[] background0 = new GameObject[3];
+	GameObject[] background1 = new GameObject[3];
 
-	[SerializeField] private int generatedStageNum = 0;
-	[SerializeField] private int backgroundTypeIndex = 0;
+	private int generatedStageNum = 0;
+	private int backgroundTypeIndex = 0;
 
 	const string background0Path = "Prefabs/Background0/Background";
 	const string background1Path = "Prefabs/Background1/Background";
@@ -62,7 +60,7 @@ public class StageManager : SingletonBehaviour<StageManager> {
             else
             {
                 num = (int)(Random.Range(0.0f, 10.0f));
-				Instantiate(Resources.Load(stageBlockPath + level.ToString() + "/" + level.ToString() + num.ToString()),
+				Instantiate(Resources.Load(stageBlockPath + selectLevel.ToString() + "/" + selectLevel.ToString() + num.ToString()),
                     new Vector2(0.0f, Camera.main.transform.position.y + i),
                     Quaternion.Euler(0, 0, 0));
 				if (generatedStageNum % 2 == 0) {
@@ -102,8 +100,9 @@ public class StageManager : SingletonBehaviour<StageManager> {
             }
             else
             {
-                num = (int)(Random.Range(0.0f, 10.0f));
-				Instantiate(Resources.Load(stageBlockPath + level.ToString() + "/" + level.ToString() + num.ToString()),
+                num = Random.Range(0, 10);
+				selectLevel = SelectStageLevel ();
+				Instantiate(Resources.Load(stageBlockPath + selectLevel.ToString() + "/" + selectLevel.ToString() + num.ToString()),
                     new Vector2(0.0f, Camera.main.transform.position.y + i),
                     Quaternion.Euler(0, 0, 0));
             }
@@ -128,8 +127,9 @@ public class StageManager : SingletonBehaviour<StageManager> {
             Camera.main.transform.position = new Vector3(0.0f, Camera.main.transform.position.y + speed*0.1f, -10.0f);
 			if (!isDemo) {
 				if (Camera.main.transform.position.y - cameyBfore >= height) {
-					num = (int)(Random.Range (0.0f, 10.0f));
-					Instantiate (Resources.Load (stageBlockPath + level.ToString () + "/" + level.ToString () + num.ToString ()),
+					selectLevel = SelectStageLevel ();
+					num = Random.Range (0, 10);
+					Instantiate (Resources.Load (stageBlockPath + selectLevel.ToString () + "/" + selectLevel.ToString () + num.ToString ()),
 						new Vector2 (0.0f, Camera.main.transform.position.y + 2.0f * height),
 						Quaternion.identity);
 
@@ -146,15 +146,13 @@ public class StageManager : SingletonBehaviour<StageManager> {
 					generatedStageNum++;
 					cameyBfore = Camera.main.transform.position.y;
 					distcount++;
-
-
 				}
 
 				if (distcount == interval) {  
 					//難易度段階が6段
 					distcount = 0;
-					if (level < 8) {
-						level++;
+					if (limitLevel < 8) {
+						limitLevel++;
 					}
 				}
 			}
@@ -176,4 +174,15 @@ public class StageManager : SingletonBehaviour<StageManager> {
 
 		yield break;
     }
+
+	int beforeLevel = 0;
+
+	private int SelectStageLevel(){
+		int selLevel = Random.Range (limitLevel - 2, limitLevel);
+		while (beforeLevel + selLevel > 14) {
+			selectLevel = Random.Range (0, limitLevel);
+		}
+		beforeLevel = selLevel;
+		return selLevel;
+	}
 }

@@ -170,7 +170,6 @@ public class PlayerComponent : MonoBehaviour {
 
 			if (isCollisionOther) {
 				AddForcePlayer ();
-				CheckVelocity ();
 			}
 
 			if (scale > limitScale) {
@@ -184,7 +183,7 @@ public class PlayerComponent : MonoBehaviour {
 	private void CheckVelocity(){
 		velocitySum = Mathf.Abs (playerRigid2D.velocity.x) + Mathf.Abs (playerRigid2D.velocity.y);
 
-		if (velocitySum > 5.0f) {
+		if (velocitySum > 4.5f) {
 			velocityX = playerRigid2D.velocity.x;
 			velocityY = playerRigid2D.velocity.y;
 			playerRigid2D.velocity = Vector2.zero;
@@ -199,6 +198,7 @@ public class PlayerComponent : MonoBehaviour {
 
 		playerRigid2D.velocity = Vector2.zero;
 		playerRigid2D.AddForce (new Vector2 (disX / dis * addForceNum, disY / dis * addForceNum));
+		CheckVelocity ();
 	}
 
 	private void CheckScale(){
@@ -215,10 +215,6 @@ public class PlayerComponent : MonoBehaviour {
 	}
 
 	void OnCollisionExit2D(Collision2D other){
-		desX = ObjectManager.I.ActiveEledustPos ().x;
-		desY = ObjectManager.I.ActiveEledustPos ().y;
-		AddForcePlayer ();
-		CheckVelocity ();
 		isCollisionOther = false;
 	}
 

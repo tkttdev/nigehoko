@@ -1995,24 +1995,7 @@ MonoBehaviour:
   speed: 0.5
   isDemo: 0
   demoBlocks: []
-  backgroud:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
   interval: 3
-  background0:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  background1:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  generatedStageNum: 0
-  backgroundTypeIndex: 0
 --- !u!1 &1600776393
 GameObject:
   m_ObjectHideFlags: 0

@@ -7,6 +7,9 @@ public class ReplaceChildren : EditorWindow {
 	const string WINDOW_WIDTH_SIZE_KEY = "WindowWidthSize";
 	const string WINDOW_HEIGHT_SIZE_KEY = "WindowHeightSize";
 
+	private Object parent = null;
+	private Object children = null;
+
 	[MenuItem("Custom Tools/Prefab/ReplaceChildren")]
 	public static void Open()
 	{
@@ -21,7 +24,10 @@ public class ReplaceChildren : EditorWindow {
 	}
 
 	void OnGUI(){
-		EditorGUILayout.ObjectField (null, typeof(Object), false);
+		EditorGUILayout.LabelField ("Latest Children Object");
+		children = EditorGUILayout.ObjectField (children, typeof(Object), true) as GameObject;
+		EditorGUILayout.LabelField ("Target Parent Prefab");
+		parent = EditorGUILayout.ObjectField (parent, typeof(Object), true) as GameObject;
 	}
 
 	void OnDisable ()
