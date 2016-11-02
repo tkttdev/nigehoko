@@ -74,7 +74,7 @@ GameObject:
   - 212: {fileID: 212000011879053730}
   - 50: {fileID: 50000012381946702}
   - 58: {fileID: 58000010262548598}
-  - 114: {fileID: 114000010552547422}
+  - 114: {fileID: 114000010221047144}
   m_Layer: 0
   m_Name: soccerball
   m_TagString: Untagged
@@ -230,7 +230,7 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 2
---- !u!114 &114000010552547422
+--- !u!114 &114000010221047144
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -238,10 +238,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 1000013040003276}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8cd5308a1944e6f438a18d74ece3f83c, type: 3}
+  m_Script: {fileID: 11500000, guid: e3dd17817458a42719cca0e2a59297fb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  time: 8
+  perRotateZ: 100
+  thresholdY: 1.8
+  addForceNum: 1300000
 --- !u!114 &114000011525459186
 MonoBehaviour:
   m_ObjectHideFlags: 1

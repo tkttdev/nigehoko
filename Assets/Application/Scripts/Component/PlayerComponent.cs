@@ -153,6 +153,12 @@ public class PlayerComponent : MonoBehaviour {
 
 			moveDis = Mathf.Abs (gameObject.transform.position.x - lastPos.x) + Mathf.Abs (gameObject.transform.position.y - lastPos.y);
 
+			if (isCollisionOther) {
+				AddForcePlayer ();
+			}
+
+			CheckVelocity ();
+
 			if (gameObject.transform.position.y > maxY) {
 				moveSumY += gameObject.transform.position.y - lastPos.y;
 				maxY = gameObject.transform.position.y;
@@ -166,10 +172,6 @@ public class PlayerComponent : MonoBehaviour {
 				ObjectManager.I.InactiveEleDust ();
 				playerRigid2D.velocity = Vector2.zero;
 				scale += increaseNum;
-			}
-
-			if (isCollisionOther) {
-				AddForcePlayer ();
 			}
 
 			if (scale > limitScale) {
@@ -198,7 +200,6 @@ public class PlayerComponent : MonoBehaviour {
 
 		playerRigid2D.velocity = Vector2.zero;
 		playerRigid2D.AddForce (new Vector2 (disX / dis * addForceNum, disY / dis * addForceNum));
-		CheckVelocity ();
 	}
 
 	private void CheckScale(){
@@ -215,6 +216,8 @@ public class PlayerComponent : MonoBehaviour {
 	}
 
 	void OnCollisionExit2D(Collision2D other){
+		AddForcePlayer ();
+		CheckVelocity ();
 		isCollisionOther = false;
 	}
 
