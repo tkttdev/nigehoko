@@ -803,7 +803,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   perRotateZ: 200
   thresholdY: 1.5
-  speed: 1.3
+  speed: 1.816
 --- !u!212 &212000010016994606
 SpriteRenderer:
   m_ObjectHideFlags: 1
