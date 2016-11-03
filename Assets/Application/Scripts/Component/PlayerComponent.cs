@@ -194,6 +194,9 @@ public class PlayerComponent : MonoBehaviour {
 	}
 
 	public void AddForcePlayer(){
+		desX = ObjectManager.I.ActiveEledustPos ().x;
+		desY = ObjectManager.I.ActiveEledustPos ().y;
+
 		disX = desX - gameObject.transform.position.x;
 		disY = desY - gameObject.transform.position.y;
 		dis = Mathf.Abs (disX) + Mathf.Abs (disY);

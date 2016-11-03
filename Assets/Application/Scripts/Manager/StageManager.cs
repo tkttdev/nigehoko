@@ -16,6 +16,7 @@ public class StageManager : SingletonBehaviour<StageManager> {
     private int num = 0;
 
 	public bool isDemo = false;
+	private int demoBlockIndex = 0;
 	public List<GameObject> demoBlocks = new List<GameObject> ();
 
     private float distcount = 0;
@@ -160,8 +161,11 @@ public class StageManager : SingletonBehaviour<StageManager> {
 			#if UNITY_EDITOR
 			if (isDemo) {
 				if (Camera.main.transform.position.y - cameyBfore >= height) {
-					GameObject obj = demoBlocks[Random.Range (0, demoBlocks.Count)];
-
+					GameObject obj = demoBlocks[demoBlockIndex];
+					demoBlockIndex++;
+					if(demoBlockIndex == demoBlocks.Count){
+						demoBlockIndex = 0;
+					}
 					Instantiate (obj, new Vector2 (0.0f, Camera.main.transform.position.y + 2.0f * height), Quaternion.identity);
 					cameyBfore = Camera.main.transform.position.y;
 
