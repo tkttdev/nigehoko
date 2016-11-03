@@ -1993,7 +1993,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 0.5
-  isDemo: 1
+  isDemo: 0
   demoBlocks:
   - {fileID: 1000011038575216, guid: 272036fd204a447d3adf0d2de8fad80f, type: 2}
   interval: 3
