@@ -178,20 +178,13 @@ public class StageManager : SingletonBehaviour<StageManager> {
 	int beforeLevel = 0;
 
 	private int SelectStageLevel(){
-		/*
-		int selLevel = Random.Range (limitLevel - 2, limitLevel);
-		while (beforeLevel + selLevel > 14) {
-			selectLevel = Random.Range (0, limitLevel);
-		}
-		beforeLevel = selLevel;
-		*/
 		int selLevel;
-		if (15 - beforeLevel > 8) {
-			selLevel = Random.Range (limitLevel - 2, limitLevel);
-		} else if (15 - beforeLevel == limitLevel - 2) {
-			selLevel = limitLevel - 2;
+		if (beforeLevel == 7) {
+			selLevel = Random.Range (limitLevel - 2, 7);
+		} else if (beforeLevel == 8) {
+			selLevel = 6;
 		} else {
-			selLevel = Random.Range (limitLevel - 2, 15 - beforeLevel);
+			selLevel = Random.Range (limitLevel - 2, limitLevel);
 		}
 		beforeLevel = selLevel;
 		return selLevel;
