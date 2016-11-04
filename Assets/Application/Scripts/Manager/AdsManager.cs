@@ -20,27 +20,21 @@ public class AdsManager : SingletonBehaviour<AdsManager> {
 			var options = new ShowOptions { resultCallback = HandleShowResult };
 			Advertisement.Show ("rewardedVideo", options);
 		} else {
-			RetryGame ();
+			GameManager.I.RetryGame ();
 		}
 	}
 
 	private void HandleShowResult(ShowResult result){
 		switch (result){
 		case ShowResult.Finished:
-			RetryGame ();
+			GameManager.I.RetryGame ();
 			break;
 		case ShowResult.Skipped:
-			RetryGame ();
+			GameManager.I.RetryGame ();
 			break;
 		case ShowResult.Failed:
-			RetryGame ();
+			GameManager.I.RetryGame ();
 			break;
 		}
-	}
-
-	private void RetryGame(){
-		StageManager.I.Retry ();
-		ObjectManager.I.player.GetComponent<PlayerComponent> ().RetryInitialize ();
-		UIManager.I.gameOverDialog.StartRetryCount ();
 	}
 }

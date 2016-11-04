@@ -50,7 +50,7 @@ public class GameOverDialog : DialogBase {
 		SetComponentsActive ();
 		resultScoreText.text = string.Format ("{0} cm 生きのびた!", ScoreManager.I.GetScore ());
 		bestScoreText.text = string.Format ("BEST : {0} cm", ScoreManager.I.GetHighScore ());
-		if (isFirst && Advertisement.IsReady()) {
+		if (isFirst) {
 			isFirst = false;
 		} else {
 			restartButton.transform.localPosition = new Vector3 (restartButton.transform.localPosition.x, 160, restartButton.transform.localPosition.z);
@@ -67,7 +67,7 @@ public class GameOverDialog : DialogBase {
 	}
 
 	private void CheckRank(){
-		int rank = ScoreManager.I.GetScore () / 400;
+		int rank = ScoreManager.I.GetScore () / 500;
 		switch (rank) {
 		case 0:
 			rankText.text = "D";

@@ -73,4 +73,10 @@ public class GameManager : SingletonBehaviour<GameManager> {
 			return false;
 		}
 	}
+
+	public void RetryGame(){
+		StageManager.I.Retry ();
+		ObjectManager.I.player.GetComponent<PlayerComponent> ().RetryInitialize ();
+		UIManager.I.gameOverDialog.StartRetryCount ();
+	}
 }

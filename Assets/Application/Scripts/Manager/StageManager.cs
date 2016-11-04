@@ -179,18 +179,7 @@ public class StageManager : SingletonBehaviour<StageManager> {
 		yield break;
     }
 
-	int beforeLevel = 0;
-
 	private int SelectStageLevel(){
-		int selLevel;
-		if (beforeLevel == 7) {
-			selLevel = Random.Range (limitLevel - 2, 7);
-		} else if (beforeLevel == 8) {
-			selLevel = 6;
-		} else {
-			selLevel = Random.Range (limitLevel - 2, limitLevel);
-		}
-		beforeLevel = selLevel;
-		return selLevel;
+		return Random.Range (limitLevel - 2, limitLevel);
 	}
 }

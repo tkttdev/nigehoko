@@ -51,7 +51,7 @@ public class UIManager : SingletonBehaviour<UIManager> {
 			SetStartText (false);
 		}
 
-		//#if UNITY_EDITOR
+		#if UNITY_EDITOR
 		++frameCount;
 		float time = Time.realtimeSinceStartup - prevTime;
 
@@ -61,9 +61,9 @@ public class UIManager : SingletonBehaviour<UIManager> {
 			frameCount = 0;
 			prevTime = Time.realtimeSinceStartup;
 		}
-		//#else
-		//fpsText.enabled = false;
-		//#endif
+		#else
+		fpsText.enabled = false;
+		#endif
 
 	}
 
