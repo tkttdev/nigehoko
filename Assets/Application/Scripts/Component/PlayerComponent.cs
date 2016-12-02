@@ -69,21 +69,22 @@ public class PlayerComponent : MonoBehaviour {
 			playerRigid2D.velocity = Vector2.zero;
 		}
 
+		if(GameManager.I.IsEnd()){
+			return;
+		}
+
 		#if UNITY_EDITOR
 		if (Input.GetMouseButtonDown (0)) {
 			Ray ray = Camera.main.ScreenPointToRay (Input.mousePosition);
 			RaycastHit2D hit = Physics2D.Raycast ((Vector2)ray.origin, (Vector2)ray.direction, maxDistance,layerMask);
 
 			if (hit.collider) {
-				if (hit.transform.tag == "EleDust") {
+				if (hit.collider.tag == "EleDust" || hit.collider.tag == "MenuButton") {
+					return;
+				} else if(GameManager.I.IsPlaying()){
+					audioSource.PlayOneShot (tapMiss);
 					return;
 				}
-				if (hit.transform.tag == "MenuButton") {
-					audioSource.PlayOneShot (tapHit);
-					return;
-				}
-				audioSource.PlayOneShot (tapMiss);
-				return;
 			}
 
 			if (!GameManager.I.IsWaiting() && !GameManager.I.IsPlaying()) {
@@ -107,19 +108,16 @@ public class PlayerComponent : MonoBehaviour {
 
 		#elif (UNITY_IOS || UNITY_ANDROID) && !UNITY_EDITOR
 		if (Input.touchCount > 0 && Input.touches[0].phase == TouchPhase.Began) {
-			Ray ray = Camera.main.ScreenPointToRay (Input.touches[0].position);
+			Ray ray = Camera.main.ScreenPointToRay (Input.mousePosition);
 			RaycastHit2D hit = Physics2D.Raycast ((Vector2)ray.origin, (Vector2)ray.direction, maxDistance,layerMask);
 
 			if (hit.collider) {
-				if (hit.transform.tag == "EleDust") {
+				if (hit.collider.tag == "EleDust" || hit.collider.tag == "MenuButton") {
+					return;
+				} else if(GameManager.I.IsPlaying()){
+					audioSource.PlayOneShot (tapMiss);
 					return;
 				}
-				if (hit.transform.tag == "MenuButton") {
-					audioSource.PlayOneShot (tapHit);
-					return;
-				}
-			audioSource.PlayOneShot (tapMiss);
-			return;
 			}
 
 			if (!GameManager.I.IsWaiting() && !GameManager.I.IsPlaying()) {
@@ -127,9 +125,9 @@ public class PlayerComponent : MonoBehaviour {
 			}
 
 			audioSource.PlayOneShot (tapHit);
-
-			worldPos = Camera.main.ScreenToWorldPoint (new Vector3(Input.touches[0].position.x,Input.touches[0].position.y,10));
-
+	
+			worldPos = Camera.main.ScreenToWorldPoint (new Vector3(Input.mousePosition.x,Input.mousePosition.y,10));
+	
 			ObjectManager.I.ActiveEleDust (worldPos);
 
 			desX = worldPos.x;
