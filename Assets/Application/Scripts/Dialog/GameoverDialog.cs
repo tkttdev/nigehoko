@@ -25,15 +25,15 @@ public class GameOverDialog : DialogBase {
 
 	protected override void Start () {
 
-		restartButton = GameObject.Find ("RestartButton");
-		exitButton = GameObject.Find ("ExitButton");
-		retryButton = GameObject.Find ("RetryButton");
-		shareButton = GameObject.Find ("ShareButton");
-		rankingButton = GameObject.Find ("RankingButton");
+		restartButton = gameObject.transform.FindChild ("RestartButton").gameObject;
+		exitButton = gameObject.transform.FindChild ("ExitButton").gameObject;
+		retryButton = gameObject.transform.FindChild ("RetryButton").gameObject;
+		shareButton = gameObject.transform.FindChild ("ShareButton").gameObject;
+		rankingButton = gameObject.transform.FindChild ("RankingButton").gameObject;
 
-		rankText = GameObject.Find ("RankText").GetComponent<Text> ();
-		resultScoreText = GameObject.Find ("ResultScoreText").GetComponent<Text> ();
-		bestScoreText = GameObject.Find ("BestScoreText").GetComponent<Text> ();
+		rankText = gameObject.transform.FindChild ("RankText").gameObject.GetComponent<Text> ();
+		resultScoreText = gameObject.transform.FindChild ("ResultScoreText").gameObject.GetComponent<Text> ();
+		bestScoreText = gameObject.transform.FindChild ("BestScoreText").gameObject.GetComponent<Text> ();
 		countText = GameObject.Find ("CountText").GetComponent<Text> ();
 
 		backgroundImage = GameObject.FindGameObjectWithTag ("GameOverDialogBackground");
@@ -52,11 +52,13 @@ public class GameOverDialog : DialogBase {
 		SetComponentsActive ();
 		resultScoreText.text = string.Format ("{0} cm 生きのびた!", ScoreManager.I.GetScore ());
 		bestScoreText.text = string.Format ("BEST : {0} cm", ScoreManager.I.GetHighScore ());
-		if (isFirst) {
-			isFirst = false;
-		} else {
-			rankingButton.transform.position = new Vector3 (100, rankingButton.transform.localPosition.y, rankingButton.transform.localPosition.z);
+		if (!isFirst && UIManager.I.rankingDialog.isPost) {
+			rankingButton.transform.localPosition = new Vector3 (150, rankingButton.transform.localPosition.y, rankingButton.transform.localPosition.z);
 			retryButton.SetActive (false);
+		} else if (!isFirst && !UIManager.I.rankingDialog.isPost) {
+			retryButton.SetActive (false);
+			rankingButton.SetActive (false);
+
 		}
 		CheckRank ();
 	}
@@ -143,6 +145,7 @@ public class GameOverDialog : DialogBase {
 	}
 
 	public void Retry(){
+		isFirst = false;
 		Hide ();
 		AdsManager.I.ShowRewardedAd ();
 	}
