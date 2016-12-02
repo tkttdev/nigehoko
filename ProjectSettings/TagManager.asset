@@ -19,6 +19,8 @@ TagManager:
   - CreditButton
   - HowToButton
   - Systems
+  - RankingDialogBackground
+  - RankingDialog
   layers:
   - Default
   - TransparentFX

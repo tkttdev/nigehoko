@@ -17,6 +17,7 @@ public class UIManager : SingletonBehaviour<UIManager> {
 
 	public GameOverDialog gameOverDialog;
 	public PauseDialog pauseDialog;
+	public RankingDialog rankingDialog;
 
 	protected override void Initialize () {
 		tapText = GameObject.Find ("TapText").GetComponent<Text>();
@@ -28,6 +29,7 @@ public class UIManager : SingletonBehaviour<UIManager> {
 
 		gameOverDialog = GameObject.FindGameObjectWithTag ("GameOverDialog").GetComponent<GameOverDialog> ();
 		pauseDialog = GameObject.FindGameObjectWithTag ("PauseDialog").GetComponent<PauseDialog> ();
+		rankingDialog = GameObject.FindGameObjectWithTag ("RankingDialog").GetComponent<RankingDialog> ();
 
 		menuButtonImage = GameObject.FindGameObjectWithTag ("MenuButton").GetComponent<Image> ();
 			

@@ -11,6 +11,7 @@ public class GameOverDialog : DialogBase {
 	[SerializeField] private GameObject exitButton;
 	[SerializeField] private GameObject retryButton;
 	[SerializeField] private GameObject shareButton;
+	[SerializeField] private GameObject rankingButton;
 		
 	[SerializeField] private Text resultScoreText;
 	[SerializeField] private Text bestScoreText;
@@ -28,6 +29,7 @@ public class GameOverDialog : DialogBase {
 		exitButton = GameObject.Find ("ExitButton");
 		retryButton = GameObject.Find ("RetryButton");
 		shareButton = GameObject.Find ("ShareButton");
+		rankingButton = GameObject.Find ("RankingButton");
 
 		rankText = GameObject.Find ("RankText").GetComponent<Text> ();
 		resultScoreText = GameObject.Find ("ResultScoreText").GetComponent<Text> ();
@@ -53,9 +55,7 @@ public class GameOverDialog : DialogBase {
 		if (isFirst) {
 			isFirst = false;
 		} else {
-			restartButton.transform.localPosition = new Vector3 (restartButton.transform.localPosition.x, 160, restartButton.transform.localPosition.z);
-			exitButton.transform.localPosition = new Vector3 (exitButton.transform.localPosition.x, 160, exitButton.transform.localPosition.z);
-			shareButton.transform.localPosition = new Vector3 (shareButton.transform.localPosition.x, 160, shareButton.transform.localPosition.z);
+			rankingButton.transform.position = new Vector3 (100, rankingButton.transform.localPosition.y, rankingButton.transform.localPosition.z);
 			retryButton.SetActive (false);
 		}
 		CheckRank ();
@@ -106,6 +106,7 @@ public class GameOverDialog : DialogBase {
 		backgroundImage.SetActive (false);
 		retryButton.SetActive (false);
 		shareButton.SetActive (false);
+		rankingButton.SetActive (false);
 	}
 
 	private void SetComponentsActive(){
@@ -114,6 +115,7 @@ public class GameOverDialog : DialogBase {
 		backgroundImage.SetActive (true);
 		retryButton.SetActive (true);
 		shareButton.SetActive (true);
+		rankingButton.SetActive (true);
 	}
 
 	public void Restart(){
@@ -125,6 +127,12 @@ public class GameOverDialog : DialogBase {
 		SoundManager.I.ButtonSE ();
 		AppSceneManager.I.GoTitle ();
 	}
+
+	public void Ranking (){
+		UIManager.I.rankingDialog.Show ();
+		Hide ();
+	}
+
 
 	public void PostSNS(){
 		string msg = string.Format ("{0} cm 生き延びたよ!{1}君はどれだけ生き延びれるかな？？{1}" +
