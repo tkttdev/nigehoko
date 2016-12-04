@@ -9,20 +9,22 @@ public class RankingDialog : DialogBase {
 	private GameObject postButton;
 	private GameObject cancelButton;
 
+	private Text resultScoreText;
+
 	private Button _postButton;
 
 	private InputField inputField;
 
 	public bool isPost = false;
 
-	private string nickname;
 
 	protected override void Start (){
 		isPost = false;
-		backgroundImage = GameObject.FindGameObjectWithTag ("RankingDialogBackground");
 
+		backgroundImage = GameObject.FindGameObjectWithTag ("RankingDialogBackground");
 		postButton = gameObject.transform.FindChild ("PostButton").gameObject;
 		cancelButton = gameObject.transform.FindChild ("CancelButton").gameObject;
+		resultScoreText = gameObject.transform.FindChild ("ResultScoreText").gameObject.GetComponent<Text> (); 
 
 		_postButton = postButton.GetComponent<Button> ();
 
@@ -33,8 +35,7 @@ public class RankingDialog : DialogBase {
 	}
 
 	private void Update(){
-		nickname = inputField.text;
-		if (nickname.Length != 0) {
+		if (inputField.text.Length != 0) {
 			_postButton.interactable = true;
 		} else {
 			_postButton.interactable = false;
@@ -44,6 +45,7 @@ public class RankingDialog : DialogBase {
 	public override void Show (){
 		base.Show ();
 		SetComponentsActive ();
+		resultScoreText.text = ScoreManager.I.GetScore ().ToString();
 	}
 
 	public override void Hide (){
@@ -76,10 +78,13 @@ public class RankingDialog : DialogBase {
 
 	IEnumerator PostScore(){
 		string url = "http://rundustfinderssrv.gq/postranking.php";
-		WWW result = new WWW (url);
+		WWWForm wwwForm = new WWWForm ();
+		wwwForm.AddField ("name", inputField.text);
+		wwwForm.AddField ("score", ScoreManager.I.GetScore ());
+		WWW www = new WWW (url, wwwForm);
+		yield return www;
 
-		yield return result;
-		Debug.Log (result.text);
+		//Debug.Log (www.text);
 		yield break;
 	}
 }

@@ -2723,7 +2723,7 @@ GameObject:
   - component: {fileID: 1168965887}
   - component: {fileID: 1168965886}
   m_Layer: 5
-  m_Name: ResultScore
+  m_Name: ResultScoreText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3072,6 +3072,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5579725d9a209414ca9e7688662b990d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isPost: 0
 --- !u!225 &1591950040
 CanvasGroup:
   m_ObjectHideFlags: 0
@@ -3079,7 +3080,7 @@ CanvasGroup:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1591950037}
   m_Enabled: 1
-  m_Alpha: 1
+  m_Alpha: 0
   m_Interactable: 1
   m_BlocksRaycasts: 1
   m_IgnoreParentGroups: 0

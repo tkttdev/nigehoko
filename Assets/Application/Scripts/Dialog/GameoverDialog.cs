@@ -52,13 +52,18 @@ public class GameOverDialog : DialogBase {
 		SetComponentsActive ();
 		resultScoreText.text = string.Format ("{0} cm 生きのびた!", ScoreManager.I.GetScore ());
 		bestScoreText.text = string.Format ("BEST : {0} cm", ScoreManager.I.GetHighScore ());
-		if (!isFirst && UIManager.I.rankingDialog.isPost) {
+		if (isFirst && UIManager.I.rankingDialog.isPost) {
+			retryButton.transform.localPosition = new Vector3 (150, rankingButton.transform.localPosition.y, rankingButton.transform.localPosition.z);
+			rankingButton.SetActive (false);
+		}else if (!isFirst && !UIManager.I.rankingDialog.isPost) {
 			rankingButton.transform.localPosition = new Vector3 (150, rankingButton.transform.localPosition.y, rankingButton.transform.localPosition.z);
 			retryButton.SetActive (false);
-		} else if (!isFirst && !UIManager.I.rankingDialog.isPost) {
+		} else if (!isFirst && UIManager.I.rankingDialog.isPost) {
 			retryButton.SetActive (false);
 			rankingButton.SetActive (false);
-
+			restartButton.transform.localPosition = new Vector3 (restartButton.transform.localPosition.x, 160, restartButton.transform.localPosition.z);
+			exitButton.transform.localPosition = new Vector3 (exitButton.transform.localPosition.x, 160, exitButton.transform.localPosition.z);
+			shareButton.transform.localPosition = new Vector3 (shareButton.transform.localPosition.x, 160, shareButton.transform.localPosition.z);
 		}
 		CheckRank ();
 	}

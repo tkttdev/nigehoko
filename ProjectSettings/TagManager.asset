@@ -21,6 +21,7 @@ TagManager:
   - Systems
   - RankingDialogBackground
   - RankingDialog
+  - RankingButton
   layers:
   - Default
   - TransparentFX

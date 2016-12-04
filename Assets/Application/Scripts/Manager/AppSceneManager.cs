@@ -8,6 +8,7 @@ public enum GAMESCENETYPE : int {
 	GAME = 1,
 	CREDIT = 2,
 	HOWTO = 3,
+	RANKING = 4,
 }
 
 
@@ -38,6 +39,11 @@ public class AppSceneManager : SingletonBehaviour<AppSceneManager> {
 	public void GoHowTo(){
 		FreeMemory ();
 		SceneManager.LoadScene ((int)GAMESCENETYPE.HOWTO);
+	}
+
+	public void GoRanking(){
+		FreeMemory ();
+		SceneManager.LoadScene ((int)GAMESCENETYPE.RANKING);
 	}
 
 	private void FreeMemory(){

@@ -43,6 +43,8 @@ public class TitleManager : SingletonBehaviour<TitleManager> {
 			} else if (hit.collider.transform.tag == "HowToButton") {
 				SoundManager.I.ButtonSE ();
 				AppSceneManager.I.GoHowTo ();
+			} else if (hit.collider.transform.tag == "RankingButton") {
+				
 			}
 				
 		}
