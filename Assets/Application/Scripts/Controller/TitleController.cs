@@ -5,10 +5,7 @@ using UnityEngine.UI;
 
 public class TitleController : SingletonBehaviour<TitleController> {
 
-	[SerializeField] private AudioClip startSE;
-	[SerializeField] private AudioSource audioSource;
 	[SerializeField] private Text bestScoreText;
-	[SerializeField] private bool isTouch = false;
 	private Text tapText;
 
 	protected override void Initialize (){
@@ -24,30 +21,24 @@ public class TitleController : SingletonBehaviour<TitleController> {
 			"easetype", iTween.EaseType.linear
 		));
 	}
-		
-	// Update is called once per frame
-	void Update () {
-		if (Input.GetMouseButtonDown (0) && !isTouch && !Application.isShowingSplashScreen) {
 
-			isTouch = true;
+	public void GameButton(){
+		SoundManager.I.ButtonSE ();
+		AppSceneManager.I.GoGame ();
+	}
 
-			Ray ray = Camera.main.ScreenPointToRay (Input.mousePosition);
-			RaycastHit2D hit = Physics2D.Raycast ((Vector2)ray.origin, (Vector2)ray.direction, 20.0f,1);
+	public void CreditButton(){
+		SoundManager.I.ButtonSE ();
+		AppSceneManager.I.GoCredit ();
+	}
 
-			if (hit.collider == null) {
-				SoundManager.I.ButtonSE ();
-				AppSceneManager.I.GoGame ();
-			} else if (hit.collider.transform.tag == "CreditButton") {
-				SoundManager.I.ButtonSE ();
-				AppSceneManager.I.GoCredit ();
-			} else if (hit.collider.transform.tag == "HowToButton") {
-				SoundManager.I.ButtonSE ();
-				AppSceneManager.I.GoHowTo ();
-			} else if (hit.collider.transform.tag == "RankingButton") {
-				SoundManager.I.ButtonSE ();
-				AppSceneManager.I.GoRanking ();
-			}
-				
-		}
+	public void HowToButton(){
+		SoundManager.I.ButtonSE ();
+		AppSceneManager.I.GoHowTo ();
+	}
+
+	public void RankingButton(){
+		SoundManager.I.ButtonSE ();
+		AppSceneManager.I.GoRanking ();
 	}
 }

@@ -72,17 +72,7 @@ public class RankingDialog : DialogBase {
 
 	public void Post(){
 		isPost = true;
-		StartCoroutine (PostScore ());
+		RankingManager.I.PostScore (inputField.text);
 		Quit ();
-	}
-
-	IEnumerator PostScore(){
-		string url = "http://rundustfinderssrv.gq/postranking.php";
-		WWWForm wwwForm = new WWWForm ();
-		wwwForm.AddField ("name", inputField.text);
-		wwwForm.AddField ("score", ScoreManager.I.GetScore ().ToString ());
-		WWW www = new WWW (url, wwwForm);
-		yield return www;
-		yield break;
 	}
 }

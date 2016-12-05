@@ -7,7 +7,7 @@ public class RankingController : MonoBehaviour {
 
 	private string[] data;
 	private string[] names = new string[15];
-	[SerializeField]private string[] scores = new string[15];
+	private string[] scores = new string[15];
 
 	private Text[] nameTexts;
 	private Text[] scoreTexts;
@@ -40,7 +40,7 @@ public class RankingController : MonoBehaviour {
 			}
 		}
 	}
-
+		
 	private IEnumerator GetRanking(){
 		string url = "http://rundustfinderssrv.gq/getranking.php";
 		WWW www = new WWW (url);
@@ -52,5 +52,10 @@ public class RankingController : MonoBehaviour {
 		ShowRanking ();
 
 		yield break;
+	}
+
+	public void TitleButton(){
+		SoundManager.I.ButtonSE ();
+		AppSceneManager.I.GoTitle ();
 	}
 }
