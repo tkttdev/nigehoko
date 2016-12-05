@@ -13,6 +13,12 @@ public class RankingController : MonoBehaviour {
 	private Text[] scoreTexts;
 
 	private void Start (){
+		#if UNITY_EDITOR
+		if(GameObject.Find("Systems") == null){
+			GameObject obj = Resources.Load("Prefabs/Systems") as GameObject;
+			Instantiate(obj);
+		}
+		#endif
 		StartCoroutine (GetRanking ());
 		nameTexts = GameObject.Find ("NameTextRoot").GetComponentsInChildren<Text> ();
 		scoreTexts = GameObject.Find ("ScoreTextRoot").GetComponentsInChildren<Text> ();
