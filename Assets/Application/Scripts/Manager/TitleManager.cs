@@ -44,7 +44,8 @@ public class TitleManager : SingletonBehaviour<TitleManager> {
 				SoundManager.I.ButtonSE ();
 				AppSceneManager.I.GoHowTo ();
 			} else if (hit.collider.transform.tag == "RankingButton") {
-				
+				SoundManager.I.ButtonSE ();
+				AppSceneManager.I.GoRanking ();
 			}
 				
 		}

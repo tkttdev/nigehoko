@@ -1,0 +1,61 @@
+﻿using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+using UnityEngine.UI;
+
+public class RankingManager : SingletonBehaviour<RankingManager> {
+
+	private string[] data;
+	private string[] names = new string[15];
+	[SerializeField]private string[] scores = new string[15];
+
+	private Text[] nameTexts;
+	private Text[] scoreTexts;
+
+	protected override void Initialize (){
+		base.Initialize ();
+		StartCoroutine (GetRanking ());
+		nameTexts = GameObject.Find ("NameTextRoot").GetComponentsInChildren<Text> ();
+		scoreTexts = GameObject.Find ("ScoreTextRoot").GetComponentsInChildren<Text> ();
+	}
+
+	private void ShowRanking(){
+		int i = 0;
+		foreach (string d in data) {
+			if (data != null) {
+				if (i % 2 == 0) {
+					names [i/2] = d;	
+				} else {
+					scores [i / 2] = d;
+				}
+			}
+			i++;
+		}
+
+		i = 0;
+		foreach (string n in names) {
+			if (n != null && n.Length != 0) {
+				nameTexts [i].text = names [i];
+				scoreTexts [i].text = scores [i];
+				i++;
+			}
+		}
+	}
+
+	private IEnumerator GetRanking(){
+		string url = "http://rundustfinderssrv.gq/getranking.php";
+		WWW www = new WWW (url);
+
+		yield return www;
+
+		data = www.text.Split ('/');
+	
+		foreach (string d in data) {
+			Debug.Log (d);
+		}
+
+		ShowRanking ();
+
+		yield break;
+	}
+}
