@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class RankingManager : SingletonBehaviour<RankingManager> {
+public class RankingController : MonoBehaviour {
 
 	private string[] data;
 	private string[] names = new string[15];
@@ -12,8 +12,7 @@ public class RankingManager : SingletonBehaviour<RankingManager> {
 	private Text[] nameTexts;
 	private Text[] scoreTexts;
 
-	protected override void Initialize (){
-		base.Initialize ();
+	private void Start (){
 		StartCoroutine (GetRanking ());
 		nameTexts = GameObject.Find ("NameTextRoot").GetComponentsInChildren<Text> ();
 		scoreTexts = GameObject.Find ("ScoreTextRoot").GetComponentsInChildren<Text> ();
@@ -24,7 +23,7 @@ public class RankingManager : SingletonBehaviour<RankingManager> {
 		foreach (string d in data) {
 			if (data != null) {
 				if (i % 2 == 0) {
-					names [i/2] = d;	
+					names [i / 2] = d;	
 				} else {
 					scores [i / 2] = d;
 				}
@@ -49,10 +48,6 @@ public class RankingManager : SingletonBehaviour<RankingManager> {
 		yield return www;
 
 		data = www.text.Split ('/');
-	
-		foreach (string d in data) {
-			Debug.Log (d);
-		}
 
 		ShowRanking ();
 

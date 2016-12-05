@@ -1,9 +1,8 @@
 ﻿using UnityEngine;
 using System.Collections;
-using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
-public class CreditManager : SingletonBehaviour<CreditManager> {
+public class HowToController : SingletonBehaviour<HowToController> {
 
 	private Text tapText;
 
@@ -24,5 +23,4 @@ public class CreditManager : SingletonBehaviour<CreditManager> {
 			AppSceneManager.I.GoTitle ();
 		}
 	}
-
 }

@@ -1,12 +1,13 @@
 ﻿using UnityEngine;
 using System.Collections;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
-public class HowToManager : SingletonBehaviour<HowToManager> {
+public class CreditController : MonoBehaviour {
 
 	private Text tapText;
 
-	protected override void Initialize(){
+	private void Start(){
 		tapText = GameObject.Find ("TapText").GetComponent<Text> ();
 
 		iTween.ScaleFrom (tapText.gameObject, iTween.Hash (
@@ -23,4 +24,5 @@ public class HowToManager : SingletonBehaviour<HowToManager> {
 			AppSceneManager.I.GoTitle ();
 		}
 	}
+
 }

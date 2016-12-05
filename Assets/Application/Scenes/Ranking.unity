@@ -2491,7 +2491,7 @@ GameObject:
   - component: {fileID: 1665535279}
   - component: {fileID: 1665535278}
   m_Layer: 0
-  m_Name: RankingManager
+  m_Name: RankingController
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2508,22 +2508,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 80b976e1de9704a6eba1680121c60b63, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  scores:
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
+  scores: []
 --- !u!4 &1665535279
 Transform:
   m_ObjectHideFlags: 0

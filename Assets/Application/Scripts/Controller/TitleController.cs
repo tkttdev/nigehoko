@@ -3,7 +3,7 @@ using System.Collections;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
-public class TitleManager : SingletonBehaviour<TitleManager> {
+public class TitleController : SingletonBehaviour<TitleController> {
 
 	[SerializeField] private AudioClip startSE;
 	[SerializeField] private AudioSource audioSource;
