@@ -17,10 +17,8 @@ public class HowToController : SingletonBehaviour<HowToController> {
 		));
 	}
 
-	void Update(){
-		if (Input.GetMouseButtonDown (0)) {
-			SoundManager.I.ButtonSE ();
-			AppSceneManager.I.GoTitle ();
-		}
+	public void TitleButton(){
+		SoundManager.I.ButtonSE ();
+		AppSceneManager.I.GoTitle ();
 	}
 }

@@ -183,7 +183,7 @@ RectTransform:
   - {fileID: 1476899848}
   - {fileID: 873254319}
   m_Father: {fileID: 0}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -499,7 +499,7 @@ RectTransform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 428332317}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 1}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 217254696}
@@ -950,6 +950,7 @@ GameObject:
   - component: {fileID: 1324932381}
   - component: {fileID: 1324932380}
   - component: {fileID: 1324932379}
+  - component: {fileID: 1324932378}
   m_Layer: 0
   m_Name: CreditButton
   m_TagString: CreditButton
@@ -976,6 +977,20 @@ RectTransform:
   m_AnchoredPosition: {x: 300, y: 50}
   m_SizeDelta: {x: 200, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!61 &1324932378
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1324932376}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_Offset: {x: 0, y: 0}
+  serializedVersion: 2
+  m_Size: {x: 200, y: 100}
 --- !u!114 &1324932379
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1195,7 +1210,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 2
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1476899847
 GameObject:
@@ -1284,6 +1299,7 @@ GameObject:
   - component: {fileID: 1592275481}
   - component: {fileID: 1592275480}
   - component: {fileID: 1592275479}
+  - component: {fileID: 1592275478}
   m_Layer: 0
   m_Name: RankingButton
   m_TagString: RankingButton
@@ -1310,6 +1326,20 @@ RectTransform:
   m_AnchoredPosition: {x: -100, y: 50}
   m_SizeDelta: {x: 200, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!61 &1592275478
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1592275476}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_Offset: {x: 0, y: 0}
+  serializedVersion: 2
+  m_Size: {x: 200, y: 100}
 --- !u!114 &1592275479
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1406,6 +1436,7 @@ GameObject:
   - component: {fileID: 1593326453}
   - component: {fileID: 1593326452}
   - component: {fileID: 1593326451}
+  - component: {fileID: 1593326450}
   m_Layer: 0
   m_Name: HowToButton
   m_TagString: HowToButton
@@ -1432,6 +1463,20 @@ RectTransform:
   m_AnchoredPosition: {x: 100, y: 50}
   m_SizeDelta: {x: 200, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!61 &1593326450
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1593326448}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_Offset: {x: 0, y: 0}
+  serializedVersion: 2
+  m_Size: {x: 200, y: 100}
 --- !u!114 &1593326451
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1554,7 +1599,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4000010224686178, guid: 4092745b8d26a4f4b8fc129e5e788f07, type: 2}
       propertyPath: m_RootOrder
-      value: 3
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4000010224686178, guid: 4092745b8d26a4f4b8fc129e5e788f07, type: 2}
       propertyPath: m_LocalScale.y
