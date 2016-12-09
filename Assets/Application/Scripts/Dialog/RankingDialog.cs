@@ -57,12 +57,14 @@ public class RankingDialog : DialogBase {
 		postButton.SetActive (true);
 		cancelButton.SetActive (true);
 		backgroundImage.SetActive (true);
+		inputField.enabled = true;
 	}
 
 	private void SetComponentsInactive(){
 		postButton.SetActive (false);
 		cancelButton.SetActive (false);
 		backgroundImage.SetActive (false);
+		inputField.enabled = false;
 	}
 
 	public void Quit(){
