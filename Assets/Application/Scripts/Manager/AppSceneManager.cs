@@ -2,8 +2,9 @@
 using System.Collections;
 using System;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
-public enum GAMESCENETYPE : int {
+public enum SceneType : int {
 	TITLE = 0,
 	GAME = 1,
 	CREDIT = 2,
@@ -15,39 +16,17 @@ public enum GAMESCENETYPE : int {
 public class AppSceneManager : SingletonBehaviour<AppSceneManager> {
 
 	private int moveSceneNum;
+	[SerializeField] private Canvas canvas;
+	[SerializeField] private Image fadeImage;
+	[SerializeField] private FadeScene fadeScene;
 
 	protected override void Initialize (){
 		base.Initialize ();
 		DontDestroyOnLoad (this);
 	}
 
-	public void GoTitle(){
-		FreeMemory ();
-		SceneManager.LoadScene ((int)GAMESCENETYPE.TITLE);
-	}
-
-	public void GoGame(){
-		FreeMemory ();
-		SceneManager.LoadScene ((int)GAMESCENETYPE.GAME);
-	}
-
-	public void GoCredit(){
-		FreeMemory ();
-		SceneManager.LoadScene ((int)GAMESCENETYPE.CREDIT);
-	}
-
-	public void GoHowTo(){
-		FreeMemory ();
-		SceneManager.LoadScene ((int)GAMESCENETYPE.HOWTO);
-	}
-
-	public void GoRanking(){
-		FreeMemory ();
-		SceneManager.LoadScene ((int)GAMESCENETYPE.RANKING);
-	}
-
-	private void FreeMemory(){
-		Resources.UnloadUnusedAssets ();
-		GC.Collect ();
+	public void GoScene(SceneType sceneType = SceneType.TITLE){
+		
+		SceneManager.LoadScene ((int)sceneType);	
 	}
 }

@@ -190,6 +190,46 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
+--- !u!1 &220671799
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 220671800}
+  - component: {fileID: 220671801}
+  m_Layer: 0
+  m_Name: FadeScene
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &220671800
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 220671799}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 303018764}
+  m_RootOrder: 4
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &220671801
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 220671799}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b9fafe6717b084e33be117c96d2f2e83, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &300582450
 GameObject:
   m_ObjectHideFlags: 0
@@ -303,9 +343,28 @@ Prefab:
       propertyPath: m_RootOrder
       value: 4
       objectReference: {fileID: 0}
+    - target: {fileID: 223739382291768150, guid: 352ddf0be9d1344029932dcc8a1f1c5b,
+        type: 2}
+      propertyPath: m_Camera
+      value: 
+      objectReference: {fileID: 343366317}
+    - target: {fileID: 1252714003284790, guid: 352ddf0be9d1344029932dcc8a1f1c5b, type: 2}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 114000010667782706, guid: 352ddf0be9d1344029932dcc8a1f1c5b,
+        type: 2}
+      propertyPath: canvas
+      value: 
+      objectReference: {fileID: 417782110}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 352ddf0be9d1344029932dcc8a1f1c5b, type: 2}
   m_IsPrefabParent: 0
+--- !u!4 &303018764 stripped
+Transform:
+  m_PrefabParentObject: {fileID: 4000010003616420, guid: 352ddf0be9d1344029932dcc8a1f1c5b,
+    type: 2}
+  m_PrefabInternal: {fileID: 303018763}
 --- !u!1 &343366313
 GameObject:
   m_ObjectHideFlags: 0
@@ -474,6 +533,11 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 0
+--- !u!223 &417782110 stripped
+Canvas:
+  m_PrefabParentObject: {fileID: 223739382291768150, guid: 352ddf0be9d1344029932dcc8a1f1c5b,
+    type: 2}
+  m_PrefabInternal: {fileID: 303018763}
 --- !u!1 &428332317
 GameObject:
   m_ObjectHideFlags: 0
