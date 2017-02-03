@@ -19,6 +19,6 @@ public class HowToController : SingletonBehaviour<HowToController> {
 
 	public void TitleButton(){
 		SoundManager.I.ButtonSE ();
-		AppSceneManager.I.GoTitle ();
+		AppSceneManager.I.GoScene (SceneType.TITLE);
 	}
 }

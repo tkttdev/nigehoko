@@ -62,6 +62,6 @@ public class RankingController : MonoBehaviour {
 
 	public void TitleButton(){
 		SoundManager.I.ButtonSE ();
-		AppSceneManager.I.GoTitle ();
+		AppSceneManager.I.GoScene (SceneType.TITLE);
 	}
 }

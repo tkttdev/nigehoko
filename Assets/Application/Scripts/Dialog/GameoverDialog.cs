@@ -127,12 +127,12 @@ public class GameOverDialog : DialogBase {
 
 	public void Restart(){
 		SoundManager.I.ButtonSE ();
-		AppSceneManager.I.GoGame ();
+		AppSceneManager.I.GoScene (SceneType.GAME);
 	}
 
 	public void Exit(){
 		SoundManager.I.ButtonSE ();
-		AppSceneManager.I.GoTitle ();
+		AppSceneManager.I.GoScene (SceneType.TITLE);
 	}
 
 	public void Ranking (){

@@ -24,21 +24,21 @@ public class TitleController : SingletonBehaviour<TitleController> {
 
 	public void GameButton(){
 		SoundManager.I.ButtonSE ();
-		AppSceneManager.I.GoGame ();
+		AppSceneManager.I.GoScene (SceneType.GAME);
 	}
 
 	public void CreditButton(){
 		SoundManager.I.ButtonSE ();
-		AppSceneManager.I.GoCredit ();
+		AppSceneManager.I.GoScene (SceneType.CREDIT);
 	}
 
 	public void HowToButton(){
 		SoundManager.I.ButtonSE ();
-		AppSceneManager.I.GoHowTo ();
+		AppSceneManager.I.GoScene (SceneType.HOWTO);
 	}
 
 	public void RankingButton(){
 		SoundManager.I.ButtonSE ();
-		AppSceneManager.I.GoRanking ();
+		AppSceneManager.I.GoScene (SceneType.RANKING);
 	}
 }
