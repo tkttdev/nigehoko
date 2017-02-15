@@ -26,7 +26,7 @@ public class AppSceneManager : SingletonBehaviour<AppSceneManager> {
 	}
 
 	public void GoScene(SceneType sceneType = SceneType.TITLE){
-		
-		SceneManager.LoadScene ((int)sceneType);	
+		SceneManager.LoadScene ((int)sceneType);
+		fadeScene.FadeIn ();
 	}
 }

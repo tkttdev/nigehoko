@@ -7,20 +7,17 @@ using UnityEngine.UI;
 
 public class FadeScene : MonoBehaviour {
 
-	[SerializeField] private Canvas canvas;
-	[SerializeField] private Image image;
+	[SerializeField] private SpriteRenderer fadeSprite;
 
-	// Use this for initialization
-	void Start () {
-		SceneManager.sceneLoaded += SceneLoadedInit;
+	public void FadeIn(){
+		iTween.ValueTo (fadeSprite.gameObject, iTween.Hash ("from", 0.0f, "to", 1.0f, "time", 0.25f, "onupdate", "SetAlpha", "oncomplete", "FadeOut"));
 	}
 
-	// Update is called once per frame
-	void Update () {
-
+	public void FadeOut(){
+		iTween.ValueTo (fadeSprite.gameObject, iTween.Hash ("from", 1.0f, "to", 0.0f, "time", 0.25f, "onupdate", "SetAlpha"));
 	}
 
-	public void SceneLoadedInit(Scene scene, LoadSceneMode sceneMode){
-
+	private void SetAlpha(float alpha){
+		fadeSprite.color = new Color (fadeSprite.color.r, fadeSprite.color.g, fadeSprite.color.b, alpha);
 	}
 }
