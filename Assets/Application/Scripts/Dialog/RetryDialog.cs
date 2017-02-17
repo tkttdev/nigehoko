@@ -53,7 +53,7 @@ public class RetryDialog : DialogBase {
 	}
 
 	public void Retry(){
-		AdsManager.I.ShowRewardedAd ();
+		//広告処理
 		SetComponentsInactive ();
 	}
 

@@ -3,7 +3,6 @@ using System.Collections;
 using System;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
-using UnityEngine.Advertisements;
 
 public class GameOverDialog : DialogBase {
 
@@ -152,7 +151,7 @@ public class GameOverDialog : DialogBase {
 	public void Retry(){
 		isFirst = false;
 		Hide ();
-		AdsManager.I.ShowRewardedAd ();
+		//広告処理
 	}
 
 	public void StartRetryCount(){

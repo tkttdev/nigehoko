@@ -16,8 +16,6 @@ public enum SceneType : int {
 public class AppSceneManager : SingletonBehaviour<AppSceneManager> {
 
 	private int moveSceneNum;
-	[SerializeField] private Canvas canvas;
-	[SerializeField] private Image fadeImage;
 	[SerializeField] private FadeScene fadeScene;
 
 	protected override void Initialize (){
@@ -25,8 +23,14 @@ public class AppSceneManager : SingletonBehaviour<AppSceneManager> {
 		DontDestroyOnLoad (this);
 	}
 
-	public void GoScene(SceneType sceneType = SceneType.TITLE){
-		SceneManager.LoadScene ((int)sceneType);
-		fadeScene.FadeIn ();
+	public void GoScene(SceneType _sceneType = SceneType.TITLE){
+		fadeScene.FadeOut (()=>{
+			SceneMove(_sceneType);
+		});
+
+	}
+
+	public void SceneMove(SceneType _sceneType){
+		SceneManager.LoadScene ((int)_sceneType);
 	}
 }
