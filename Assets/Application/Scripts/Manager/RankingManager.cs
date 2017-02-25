@@ -15,7 +15,7 @@ public class RankingManager : SingletonBehaviour<RankingManager> {
 	}
 
 	IEnumerator Post(){
-		string url = "http://222.230.107.178/postranking.php";
+		string url = "http://160.16.218.67/postranking.php";
 		WWWForm wwwForm = new WWWForm ();
 		wwwForm.AddField ("name", name);
 		wwwForm.AddField ("score", ScoreManager.I.GetScore ().ToString ());
