@@ -48,7 +48,7 @@ public class RankingController : MonoBehaviour {
 	}
 		
 	private IEnumerator GetRanking(){
-		string url = "http://222.230.107.178/getranking.php";
+		string url = "http://160.16.218.67/getranking.php";
 		WWW www = new WWW (url);
 
 		yield return www;
