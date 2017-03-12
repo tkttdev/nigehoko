@@ -492,7 +492,7 @@ GameObject:
   - component: {fileID: 366343873}
   - component: {fileID: 366343872}
   m_Layer: 5
-  m_Name: ShareButton
+  m_Name: PostButton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -555,7 +555,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 662991941}
         m_MethodName: PostSNS
         m_Mode: 1
         m_Arguments:
@@ -1312,7 +1312,7 @@ MonoBehaviour:
   restartButton: {fileID: 0}
   exitButton: {fileID: 0}
   retryButton: {fileID: 0}
-  shareButton: {fileID: 0}
+  postButton: {fileID: 0}
   rankingButton: {fileID: 0}
   resultScoreText: {fileID: 0}
   bestScoreText: {fileID: 0}
@@ -1495,7 +1495,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 662991941}
         m_MethodName: Restart
         m_Mode: 1
         m_Arguments:
@@ -1705,7 +1705,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 662991941}
         m_MethodName: Retry
         m_Mode: 1
         m_Arguments:
@@ -1827,7 +1827,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 662991941}
         m_MethodName: Ranking
         m_Mode: 1
         m_Arguments:
@@ -3118,7 +3118,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 662991941}
         m_MethodName: Exit
         m_Mode: 1
         m_Arguments:

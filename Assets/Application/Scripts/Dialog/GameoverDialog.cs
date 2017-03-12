@@ -9,7 +9,7 @@ public class GameOverDialog : DialogBase {
 	[SerializeField] private GameObject restartButton;
 	[SerializeField] private GameObject exitButton;
 	[SerializeField] private GameObject retryButton;
-	[SerializeField] private GameObject shareButton;
+	[SerializeField] private GameObject postButton;
 	[SerializeField] private GameObject rankingButton;
 
 	[SerializeField] private Text resultScoreText;
@@ -27,7 +27,7 @@ public class GameOverDialog : DialogBase {
 		restartButton = gameObject.transform.FindChild ("RestartButton").gameObject;
 		exitButton = gameObject.transform.FindChild ("ExitButton").gameObject;
 		retryButton = gameObject.transform.FindChild ("RetryButton").gameObject;
-		shareButton = gameObject.transform.FindChild ("ShareButton").gameObject;
+		postButton = gameObject.transform.FindChild ("PostButton").gameObject;
 		rankingButton = gameObject.transform.FindChild ("RankingButton").gameObject;
 
 		rankText = gameObject.transform.FindChild ("RankText").gameObject.GetComponent<Text> ();
@@ -62,7 +62,7 @@ public class GameOverDialog : DialogBase {
 			rankingButton.SetActive (false);
 			restartButton.transform.localPosition = new Vector3 (restartButton.transform.localPosition.x, 160, restartButton.transform.localPosition.z);
 			exitButton.transform.localPosition = new Vector3 (exitButton.transform.localPosition.x, 160, exitButton.transform.localPosition.z);
-			shareButton.transform.localPosition = new Vector3 (shareButton.transform.localPosition.x, 160, shareButton.transform.localPosition.z);
+			postButton.transform.localPosition = new Vector3 (postButton.transform.localPosition.x, 160, postButton.transform.localPosition.z);
 		}
 		CheckRank ();
 	}
@@ -111,7 +111,7 @@ public class GameOverDialog : DialogBase {
 		exitButton.SetActive (false);
 		backgroundImage.SetActive (false);
 		retryButton.SetActive (false);
-		shareButton.SetActive (false);
+		postButton.SetActive (false);
 		rankingButton.SetActive (false);
 	}
 
@@ -120,7 +120,7 @@ public class GameOverDialog : DialogBase {
 		exitButton.SetActive (true);
 		backgroundImage.SetActive (true);
 		retryButton.SetActive (true);
-		shareButton.SetActive (true);
+		postButton.SetActive (true);
 		rankingButton.SetActive (true);
 	}
 
@@ -151,7 +151,7 @@ public class GameOverDialog : DialogBase {
 	public void Retry(){
 		isFirst = false;
 		Hide ();
-		//広告処理
+		GameManager.I.RetryGame ();
 	}
 
 	public void StartRetryCount(){
