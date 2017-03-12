@@ -11,7 +11,7 @@ public class GameOverDialog : DialogBase {
 	[SerializeField] private GameObject retryButton;
 	[SerializeField] private GameObject shareButton;
 	[SerializeField] private GameObject rankingButton;
-		
+
 	[SerializeField] private Text resultScoreText;
 	[SerializeField] private Text bestScoreText;
 	[SerializeField] private Text countText;

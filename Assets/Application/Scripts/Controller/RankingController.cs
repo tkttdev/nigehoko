@@ -53,7 +53,9 @@ public class RankingController : MonoBehaviour {
 
 		yield return www;
 
-		data = www.text.Split ('/');
+		string dataString = www.text.Replace("\r","").Replace("\n","");
+
+		data = dataString.Split ('/');
 
 		ShowRanking ();
 
