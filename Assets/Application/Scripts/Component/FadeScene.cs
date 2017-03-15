@@ -10,6 +10,14 @@ public class FadeScene : MonoBehaviour {
 	[SerializeField] private SpriteRenderer fadeSprite;
 	System.Action fadeOut = null;
 
+	void Start(){
+		SceneManager.sceneLoaded += SetPositionCenter;
+	}
+
+	public void SetPositionCenter(Scene _scene, LoadSceneMode _loadSceneMode){
+		gameObject.transform.position = new Vector3 (Camera.main.transform.position.x, Camera.main.transform.position.y, 0);
+	}
+
 	public void FadeOut(System.Action _fadeOut){
 		fadeOut = _fadeOut;
 		gameObject.transform.position = new Vector3 (Camera.main.transform.position.x, Camera.main.transform.position.y, 0);
@@ -17,7 +25,6 @@ public class FadeScene : MonoBehaviour {
 	}
 
 	public void FadeIn(){
-		gameObject.transform.position = new Vector3 (Camera.main.transform.position.x, Camera.main.transform.position.y, 0);
 		iTween.ValueTo (fadeSprite.gameObject, iTween.Hash ("from", 1.0f, "to", 0.0f, "time", 0.15f, "onupdate", "SetAlpha"));
 	}
 
