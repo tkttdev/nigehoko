@@ -60,9 +60,9 @@ public class GameOverDialog : DialogBase {
 		} else if (!isFirst && UIManager.I.rankingDialog.isPost) {
 			retryButton.SetActive (false);
 			rankingButton.SetActive (false);
-			restartButton.transform.localPosition = new Vector3 (restartButton.transform.localPosition.x, 160, restartButton.transform.localPosition.z);
-			exitButton.transform.localPosition = new Vector3 (exitButton.transform.localPosition.x, 160, exitButton.transform.localPosition.z);
-			postButton.transform.localPosition = new Vector3 (postButton.transform.localPosition.x, 160, postButton.transform.localPosition.z);
+			restartButton.transform.localPosition = new Vector3 (restartButton.transform.localPosition.x, 190, restartButton.transform.localPosition.z);
+			exitButton.transform.localPosition = new Vector3 (exitButton.transform.localPosition.x, 190, exitButton.transform.localPosition.z);
+			postButton.transform.localPosition = new Vector3 (postButton.transform.localPosition.x, 190, postButton.transform.localPosition.z);
 		}
 		CheckRank ();
 	}

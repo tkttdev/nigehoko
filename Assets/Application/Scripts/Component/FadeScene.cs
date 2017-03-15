@@ -17,6 +17,7 @@ public class FadeScene : MonoBehaviour {
 	}
 
 	public void FadeIn(){
+		gameObject.transform.position = new Vector3 (Camera.main.transform.position.x, Camera.main.transform.position.y, 0);
 		iTween.ValueTo (fadeSprite.gameObject, iTween.Hash ("from", 1.0f, "to", 0.0f, "time", 0.15f, "onupdate", "SetAlpha"));
 	}
 
