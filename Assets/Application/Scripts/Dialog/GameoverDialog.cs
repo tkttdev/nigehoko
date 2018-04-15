@@ -24,15 +24,15 @@ public class GameOverDialog : DialogBase {
 
 	protected override void Start () {
 
-		restartButton = gameObject.transform.FindChild ("RestartButton").gameObject;
-		exitButton = gameObject.transform.FindChild ("ExitButton").gameObject;
-		retryButton = gameObject.transform.FindChild ("RetryButton").gameObject;
-		postButton = gameObject.transform.FindChild ("PostButton").gameObject;
-		rankingButton = gameObject.transform.FindChild ("RankingButton").gameObject;
+		restartButton = gameObject.transform.Find ("RestartButton").gameObject;
+		exitButton = gameObject.transform.Find ("ExitButton").gameObject;
+		retryButton = gameObject.transform.Find ("RetryButton").gameObject;
+		postButton = gameObject.transform.Find ("PostButton").gameObject;
+		rankingButton = gameObject.transform.Find ("RankingButton").gameObject;
 
-		rankText = gameObject.transform.FindChild ("RankText").gameObject.GetComponent<Text> ();
-		resultScoreText = gameObject.transform.FindChild ("ResultScoreText").gameObject.GetComponent<Text> ();
-		bestScoreText = gameObject.transform.FindChild ("BestScoreText").gameObject.GetComponent<Text> ();
+		rankText = gameObject.transform.Find ("RankText").gameObject.GetComponent<Text> ();
+		resultScoreText = gameObject.transform.Find ("ResultScoreText").gameObject.GetComponent<Text> ();
+		bestScoreText = gameObject.transform.Find ("BestScoreText").gameObject.GetComponent<Text> ();
 		countText = GameObject.Find ("CountText").GetComponent<Text> ();
 
 		backgroundImage = GameObject.FindGameObjectWithTag ("GameOverDialogBackground");

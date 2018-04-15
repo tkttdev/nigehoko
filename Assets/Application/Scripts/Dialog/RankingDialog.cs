@@ -22,13 +22,13 @@ public class RankingDialog : DialogBase {
 		isPost = false;
 
 		backgroundImage = GameObject.FindGameObjectWithTag ("RankingDialogBackground");
-		postButton = gameObject.transform.FindChild ("PostButton").gameObject;
-		cancelButton = gameObject.transform.FindChild ("CancelButton").gameObject;
-		resultScoreText = gameObject.transform.FindChild ("ResultScoreText").gameObject.GetComponent<Text> (); 
+		postButton = gameObject.transform.Find ("PostButton").gameObject;
+		cancelButton = gameObject.transform.Find ("CancelButton").gameObject;
+		resultScoreText = gameObject.transform.Find ("ResultScoreText").gameObject.GetComponent<Text> (); 
 
 		_postButton = postButton.GetComponent<Button> ();
 
-		inputField = gameObject.transform.FindChild ("InputField").gameObject.GetComponent<InputField> ();
+		inputField = gameObject.transform.Find ("InputField").gameObject.GetComponent<InputField> ();
 
 		SetComponentsInactive ();
 		base.Start ();
